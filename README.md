@@ -62,19 +62,19 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 ## Backlog da Sprint (Primeira Sprint - 5 Histórias Principais)
 
 1. *Cadastro de Usuário*
-   - Tarefas: 
+   - Tarefas: Implementar tela de Login, Implementar menu para transicionar para outras funções após login,
 
 2. *Gestão de Vendas*
-   - Tarefas: 
+   - Tarefas: Implementar menu de vendas, 
 
 3. *Geração de Gráficos a partir de analises de dados de venda/lucro*
-   - Tarefas: 
+   - Tarefas: Implementar tela para acomodar funções e o gráfico gerado atualizável,
 
 4. *Gestão de datas de pagamento*
-   - Tarefas: 
+   - Tarefas: Implementar tela de calendário, Implementar sistemas de cores para colocar sobre cada dia para representar o estado do pagamento,
 
 5. *Gestão de feedback e satisfação do cliente*
-   - Tarefas:
+   - Tarefas: Implementar aba de feedback após cadastro ser um cliente,
      
 ## Linguagens/API's Utilizadas:
    - Python
