@@ -47,28 +47,30 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      4. Os gráficos devem ser atualizados automaticamente com base nos novos dados de venda/lucro.
      5. Os gráficos devem ser interativos, permitindo zoom e detalhes específicos ao passar o mouse.
 
-6. *Agendamento de tarefas diárias*
+5. *Agendamento de tarefas diárias*
    - 
    - Operações CRUD: Criar, Ler, Atualizar, Excluir registros de desempenho.
 
-7. *Integracao com redes sociais*
+6. *Integracao com redes sociais*
    -
    -
 
-8. *Gerenciar programa de fidelidade*
+7. *Gerenciar programa de fidelidade*
    - 
    - 
 
-9. *Receber feedback e satisfação do cliente*
+8. *Receber feedback e satisfação do cliente*
    - 
    -
 
-10. *Notificações de estoque*
-    - 
-    -
-11. *Gerenciar datas de pagamento*
-    - 
-    -
+9. *Notificações de estoque*
+   - 
+   -
+10. *Gerenciar datas de pagamento*
+   - 
+   - **História:** Como um usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
+   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas especificas no calendário.
+   - **Critérios de Aceitação:**
     
 ## Backlog do Produto
    1. Cadastro de Clientes
