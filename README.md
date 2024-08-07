@@ -68,12 +68,12 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    -
 10. *Gerenciar datas de pagamento/eventos*
     -
-   - **História:** Como usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
-   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas específicas no calendário.
-   - **Critérios de Aceitação:**
-     1. O sistema deve permitir ao usuário adicionar, ler, alterar e excluir um novo evento com campos para título, descrição, data, hora e tipo de evento.
-     2. O sistema deve permitir ao usuário registrar, ler, alterar e excluir um novo pagamento com campos para valor, data, destinatário e descrição.
-     3. O sistema deve permitir ao usuário criar, ler, alterar e excluir uma nova promoção com campos para título, descrição, percentual de desconto e datas de validade.
+      - **História:** Como usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
+      - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas específicas no calendário.
+      - **Critérios de Aceitação:**
+        1. O sistema deve permitir ao usuário adicionar, ler, alterar e excluir um novo evento com campos para título, descrição, data, hora e tipo de evento.
+        2. O sistema deve permitir ao usuário registrar, ler, alterar e excluir um novo pagamento com campos para valor, data, destinatário e descrição.
+        3. O sistema deve permitir ao usuário criar, ler, alterar e excluir uma nova promoção com campos para título, descrição, percentual de desconto e datas de validade.
     
 ## Backlog do Produto
    1. Cadastro de Clientes
