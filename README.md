@@ -117,7 +117,6 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar notificações.
 
 2. *Gestão de Vendas*
-   2. *Gerenciar Vendas*
    - **Tarefas:**
      - **Configurar Banco de Dados**
        - Escolher o sistema de gerenciamento de banco de dados.
