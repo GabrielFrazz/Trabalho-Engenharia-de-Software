@@ -204,7 +204,13 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
   
 
 5. *Gestão de feedback e satisfação do cliente*
-   - Tarefas: Implementar aba de feedback após cadastro ser um cliente,
+   - **Tarefas:**
+     - Criar formulário de satisfação do cliente.
+     - Separar avaliações individualmente e somá-las em uma média de satisfação geral.
+     - Implementar a recepção dos dados do formulário no aplicativo:
+        - Associar o ID ao cliente que preencheu o formulário;
+        - Associar entrega à data do formulário.
+     - Desenvolver interface de feedback do cliente no aplicativo.
      
 ## Linguagens/API's Utilizadas:
    - Python
