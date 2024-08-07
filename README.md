@@ -64,9 +64,9 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    -
 
 9. *Notificações de estoque*
-   - 
    -
-10. *Gerenciar datas de pagamento/eventos*
+   -
+11. *Gerenciar datas de pagamento/eventos*
    - **História:** Como usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas específicas no calendário.
    - **Critérios de Aceitação:**
