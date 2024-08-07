@@ -10,7 +10,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 1. *Cadastro de Clientes*
    -
-   - **História:** Como um usuário, eu quero poder gerenciar os clientes no sistema para que eu possa adicionar, editar, atualizar e deletar informações dos clientes conforme necessário.
+   - **História:** Como usuário, eu quero poder gerenciar os clientes no sistema para que eu possa adicionar, editar, atualizar e deletar informações dos clientes conforme necessário.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de clientes.
    - **Critérios de Aceitação:**
      1. Eu devo ser capaz de criar um novo cliente com informações básicas (nome, e-mail, telefone, endereço).
@@ -22,7 +22,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 2. *Gerenciar Vendas*
    -
-   - **História:** Como um usuário, eu quero gerenciar as vendas para monitorar o desempenho e os lucros da loja, incluindo a criação, visualização, atualização e exclusão de registros de vendas.
+   - **História:** Como usuário, eu quero gerenciar as vendas para monitorar o desempenho e os lucros da loja, incluindo a criação, visualização, atualização e exclusão de registros de vendas.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de vendas.
    - **Critérios de Aceitação:**
      1. Eu devo ser capaz de criar uma nova venda com informações básicas (produto, quantidade, preço, data).
@@ -38,7 +38,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 4. *Geração de Gráficos a partir de analises de dados de venda/lucro*
    -
-   - **História:** Como um usuário, eu quero visualizar gráficos a partir dos dados de venda/lucro para entender melhor as tendências e o desempenho.
+   - **História:** Como usuário, eu quero visualizar gráficos a partir dos dados de venda/lucro para entender melhor as tendências e o desempenho.
    - **Operações CRUD:** N/A
    - **Critérios de Aceitação:**
      1. Eu devo ser capaz de visualizar gráficos de vendas diárias, semanais, mensais e anuais.
@@ -66,11 +66,13 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 9. *Notificações de estoque*
    - 
    -
-10. *Gerenciar datas de pagamento*
-   - **História:** Como um usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
-   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas especificas no calendário.
+10. *Gerenciar datas de pagamento/eventos*
+   - **História:** Como usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
+   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas específicas no calendário.
    - **Critérios de Aceitação:**
-     1.
+     1. O sistema deve permitir ao usuário adicionar, ler, alterar e excluir um novo evento com campos para título, descrição, data, hora e tipo de evento.
+     2. O sistema deve permitir ao usuário registrar, ler, alterar e excluir um novo pagamento com campos para valor, data, destinatário e descrição.
+     3. O sistema deve permitir ao usuário criar, ler, alterar e excluir uma nova promoção com campos para título, descrição, percentual de desconto e datas de validade.
     
 ## Backlog do Produto
    1. Cadastro de Clientes
@@ -179,7 +181,26 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar notificações de erro/sucesso para operações de geração e exportação de gráficos.
 
 4. *Gestão de datas de pagamento*
-   - Tarefas: Implementar tela de calendário, Implementar sistemas de cores para colocar sobre cada dia para representar o estado do pagamento,
+   - **Tarefas:**
+      - Desenvolvimento do Módulo de Agendamento de Eventos:
+         - Permitir ao usuário inserir, editar e excluir eventos no calendário.
+         - Adicionar funcionalidade de lembretes com notificações.
+      - Integração com Sistemas de Pagamento:
+         - Implementar a funcionalidade de agendamento de pagamentos automáticos para fornecedores e funcionários.
+         - Configurar alertas para insuficiência de fundos no caixa da empresa antes da data do pagamento.
+      - Monitoramento de Caixa:
+         - Criar um painel de controle que mostre o saldo do caixa em tempo real.
+         - Incluir previsões de fluxo de caixa com base nos pagamentos e recebimentos programados.
+      - Relatórios Financeiros:
+         - Desenvolver relatórios financeiros mensais que mostrem todas as transações realizadas, pendentes e programadas.
+         - Implementar gráficos e tabelas que ajudam na visualização dos dados financeiros.
+      - Personalização da Agenda:
+         - Permitir ao usuário personalizar a visualização da agenda (diária, semanal, mensal).
+         - Adicionar a possibilidade de categorizar eventos e pagamentos (por exemplo, urgentes, regulares, esporádicos).
+      - Notificações e Alertas:
+         - Implementar um sistema de notificações para alertar sobre eventos importantes e pagamentos próximos.
+         - Personalizar os métodos de notificação (e-mail, SMS, notificações push).
+  
 
 5. *Gestão de feedback e satisfação do cliente*
    - Tarefas: Implementar aba de feedback após cadastro ser um cliente,
