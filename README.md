@@ -20,15 +20,22 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.
 
 2. *Gerenciar Vendas*
-   - 
-   - Operações CRUD: 
+   - **História:** Como um usuário, eu quero gerenciar as vendas para monitorar o desempenho e os lucros da loja, incluindo a criação, visualização, atualização e exclusão de registros de vendas.
+   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de vendas.
+   - **Critérios de Aceitação:**
+     1. Eu devo ser capaz de criar uma nova venda com informações básicas (produto, quantidade, preço, data).
+     2. Eu devo ser capaz de visualizar o histórico de vendas e os detalhes de cada venda.
+     3. Eu devo ser capaz de atualizar as informações de uma venda (produto, quantidade, preço).
+     4. Eu devo ser capaz de excluir uma venda do sistema.
+     5. O sistema deve validar todas as informações de entrada para garantir a integridade dos dados.
+     6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.
 
 3. *Analisar e gerar dados de venda/lucro*
    -
    -
 
 4. *Geração de Gráficos a partir de analises de dados de venda/lucro*
-   - **História:** Como um gerente de loja, eu quero visualizar gráficos a partir dos dados de venda/lucro para entender melhor as tendências e o desempenho.
+   - **História:** Como um usuário, eu quero visualizar gráficos a partir dos dados de venda/lucro para entender melhor as tendências e o desempenho.
    - **Operações CRUD:** N/A
    - **Critérios de Aceitação:**
      1. Eu devo ser capaz de visualizar gráficos de vendas diárias, semanais, mensais e anuais.
@@ -61,16 +68,16 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
     -
     
 ## Backlog do Produto
-   1.Cadastro de Clientes
-   2.Gestão de Vendas
-   3.Analise e geração de dados de venda/lucro
-   4.Geração de Gráficos a partir de analises de dados de venda/lucro
-   5.Agendamento de tarefas diárias
-   6.Integracao com redes sociais
-   7.Gestão de programa de fidelidade
-   8.Gestão de feedback e satisfação do cliente
-   9.Notificações
-   10.Gestão de datas de pagamento
+   1. Cadastro de Clientes
+   2. Gestão de Vendas
+   3. Analise e geração de dados de venda/lucro
+   4. Geração de Gráficos a partir de analises de dados de venda/lucro
+   5. Agendamento de tarefas diárias
+   6. Integracao com redes sociais
+   7. Gestão de programa de fidelidade
+   8. Gestão de feedback e satisfação do cliente
+   9. Notificações
+   10. Gestão de datas de pagamento
 
 ## Backlog da Sprint (Primeira Sprint - 5 Histórias Principais)
 
@@ -110,7 +117,41 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar notificações.
 
 2. *Gestão de Vendas*
-   - Tarefas: Implementar menu de vendas, 
+   2. *Gerenciar Vendas*
+   - **Tarefas:**
+     - **Configurar Banco de Dados**
+       - Escolher o sistema de gerenciamento de banco de dados.
+       - Configurar o banco de dados para registros de vendas.
+       - Definir o esquema do banco de dados para vendas.
+       - Implementar migrações.
+       - Testar a conexão entre backend e banco de dados.
+     - **Criar Venda**
+       - Criar formulário de entrada para registro de vendas.
+       - Implementar validação do formulário de vendas.
+       - Desenvolver API de criação de venda.
+       - Integrar frontend com API de vendas.
+       - Testar criação de venda.
+       - Implementar notificações de sucesso e erro.
+     - **Visualizar Vendas**
+       - Criar página de listagem de vendas.
+       - Desenvolver API para listagem de vendas.
+       - Integrar frontend com API.
+       - Implementar filtros e pesquisa para visualização de vendas.
+       - Testar a visualização de vendas.
+     - **Editar Venda**
+       - Criar formulário de edição de venda.
+       - Implementar validação do formulário de edição.
+       - Desenvolver API de atualização de venda.
+       - Integrar frontend com API.
+       - Testar atualização de venda.
+       - Implementar notificações de sucesso e erro.
+     - **Deletar Venda**
+       - Adicionar funcionalidade de exclusão de venda.
+       - Desenvolver API para exclusão de venda.
+       - Integrar frontend com API.
+       - Implementar confirmação de exclusão.
+       - Testar exclusão de venda.
+       - Implementar notificações de sucesso e erro.
 
 3. *Geração de Gráficos a partir de analises de dados de venda/lucro*
    - **Tarefas:**
