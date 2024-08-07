@@ -9,6 +9,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 ## Funcionalidades Principais
 
 1. *Cadastro de Clientes*
+   -
    - **História:** Como um usuário, eu quero poder gerenciar os clientes no sistema para que eu possa adicionar, editar, atualizar e deletar informações dos clientes conforme necessário.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de clientes.
    - **Critérios de Aceitação:**
@@ -20,6 +21,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.
 
 2. *Gerenciar Vendas*
+   -
    - **História:** Como um usuário, eu quero gerenciar as vendas para monitorar o desempenho e os lucros da loja, incluindo a criação, visualização, atualização e exclusão de registros de vendas.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de vendas.
    - **Critérios de Aceitação:**
@@ -35,6 +37,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    -
 
 4. *Geração de Gráficos a partir de analises de dados de venda/lucro*
+   -
    - **História:** Como um usuário, eu quero visualizar gráficos a partir dos dados de venda/lucro para entender melhor as tendências e o desempenho.
    - **Operações CRUD:** N/A
    - **Critérios de Aceitação:**
@@ -44,26 +47,26 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      4. Os gráficos devem ser atualizados automaticamente com base nos novos dados de venda/lucro.
      5. Os gráficos devem ser interativos, permitindo zoom e detalhes específicos ao passar o mouse.
 
-5. *Agendamento de tarefas diárias*
+6. *Agendamento de tarefas diárias*
    - 
    - Operações CRUD: Criar, Ler, Atualizar, Excluir registros de desempenho.
 
-6. *Integracao com redes sociais*
+7. *Integracao com redes sociais*
    -
    -
 
-7. *Gerenciar programa de fidelidade*
+8. *Gerenciar programa de fidelidade*
    - 
    - 
 
-8. *Receber feedback e satisfação do cliente*
+9. *Receber feedback e satisfação do cliente*
    - 
    -
 
-9. *Notificações de estoque*
+10. *Notificações de estoque*
     - 
     -
-10. *Gerenciar datas de pagamento*
+11. *Gerenciar datas de pagamento*
     - 
     -
     
