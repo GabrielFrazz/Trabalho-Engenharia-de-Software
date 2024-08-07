@@ -62,7 +62,39 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 ## Backlog da Sprint (Primeira Sprint - 5 Histórias Principais)
 
 1. *Cadastro de Usuário*
-   - Tarefas: Implementar tela de Login, Implementar menu para transicionar para outras funções após login,
+   - **Tarefas:**
+     - Configurar Banco de Dados
+       - Escolher o sistema de gerenciamento de banco de dados.
+       - Configurar o banco de dados no servidor de desenvolvimento.
+       - Definir o esquema do banco de dados.
+       - Implementar migrações.
+       - Testar a conexão entre backend e banco de dados.
+     - Criar Cliente
+       - Criar formulário de entrada.
+       - Implementar validação do formulário.
+       - Desenvolver API de criação.
+       - Integrar frontend com API.
+       - Testar criação de cliente.
+       - Implementar notificações.
+     - Visualizar Clientes
+       - Criar página de listagem.
+       - Desenvolver API de listagem.
+       - Integrar frontend com API.
+       - Implementar paginação/filtros.
+       - Testar visualização de clientes.
+     - Editar Cliente
+       - Criar formulário de edição.
+       - Implementar validação do formulário.
+       - Desenvolver API de atualização.
+       - Integrar frontend com API.
+       - Testar edição de cliente.
+       - Implementar notificações.
+     - Deletar Cliente
+       - Desenvolver API de deleção.
+       - Integrar frontend com API.
+       - Implementar confirmação de deleção.
+       - Testar deleção de cliente.
+       - Implementar notificações.
 
 2. *Gestão de Vendas*
    - Tarefas: Implementar menu de vendas, 
