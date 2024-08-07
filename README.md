@@ -8,9 +8,16 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 ## Funcionalidades Principais
 
-1. *Cadastro de Usuário*
-   - 
-   - Operações CRUD: 
+1. *Cadastro de Clientes*
+   - **História:** Como um usuário, eu quero poder gerenciar os clientes no sistema para que eu possa adicionar, editar, atualizar e deletar informações dos clientes conforme necessário.
+   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de clientes.
+   - **Critérios de Aceitação:**
+     1. Eu devo ser capaz de criar um novo cliente com informações básicas (nome, e-mail, telefone, endereço).
+     2. Eu devo ser capaz de visualizar os detalhes do perfil do cliente.
+     3. Eu devo ser capaz de atualizar as informações do cliente (nome, e-mail, telefone, endereço).
+     4. Eu devo ser capaz de excluir um cliente do sistema.
+     5. O sistema deve validar todas as informações de entrada para garantir a integridade dos dados.
+     6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.
 
 2. *Gerenciar Vendas*
    - 
@@ -21,8 +28,14 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    -
 
 4. *Geração de Gráficos a partir de analises de dados de venda/lucro*
-   -
-   -
+   - **História:** Como um gerente de loja, eu quero visualizar gráficos a partir dos dados de venda/lucro para entender melhor as tendências e o desempenho.
+   - **Operações CRUD:** N/A
+   - **Critérios de Aceitação:**
+     1. Eu devo ser capaz de visualizar gráficos de vendas diárias, semanais, mensais e anuais.
+     2. Eu devo ser capaz de filtrar os dados exibidos nos gráficos por período.
+     3. Eu devo ser capaz de exportar os gráficos como imagens ou PDFs.
+     4. Os gráficos devem ser atualizados automaticamente com base nos novos dados de venda/lucro.
+     5. Os gráficos devem ser interativos, permitindo zoom e detalhes específicos ao passar o mouse.
 
 5. *Agendamento de tarefas diárias*
    - 
@@ -48,20 +61,20 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
     -
     
 ## Backlog do Produto
-1.Cadastro de Usuário
-2.Gestão de Vendas
-3.Analise e geração de dados de venda/lucro
-4.Geração de Gráficos a partir de analises de dados de venda/lucro
-5.Agendamento de tarefas diárias
-6.Integracao com redes sociais
-7.Gestão de programa de fidelidade
-8.Gestão de feedback e satisfação do cliente
-9.Notificações
-10.Gestão de datas de pagamento
+   1.Cadastro de Clientes
+   2.Gestão de Vendas
+   3.Analise e geração de dados de venda/lucro
+   4.Geração de Gráficos a partir de analises de dados de venda/lucro
+   5.Agendamento de tarefas diárias
+   6.Integracao com redes sociais
+   7.Gestão de programa de fidelidade
+   8.Gestão de feedback e satisfação do cliente
+   9.Notificações
+   10.Gestão de datas de pagamento
 
 ## Backlog da Sprint (Primeira Sprint - 5 Histórias Principais)
 
-1. *Cadastro de Usuário*
+1. *Cadastro de Clientes*
    - **Tarefas:**
      - Configurar Banco de Dados
        - Escolher o sistema de gerenciamento de banco de dados.
@@ -100,7 +113,25 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - Tarefas: Implementar menu de vendas, 
 
 3. *Geração de Gráficos a partir de analises de dados de venda/lucro*
-   - Tarefas: Implementar tela para acomodar funções e o gráfico gerado atualizável,
+   - **Tarefas:**
+     - Configurar Ambiente de Gráficos
+       - Escolher a biblioteca de gráficos.
+       - Configurar o ambiente de desenvolvimento para suportar gráficos.
+     - Desenvolver API de Dados
+       - Desenvolver API para fornecer dados de venda/lucro.
+       - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano.
+       - Testar a API de dados para garantir a precisão e desempenho.
+     - Implementar Tela de Gráficos
+       - Criar a interface de usuário para exibir gráficos.
+       - Integrar a interface com a API de dados.
+       - Implementar filtros de período na interface.
+       - Implementar funcionalidade de exportação de gráficos.
+     - Testar Gráficos
+       - Testar a atualização automática dos gráficos com novos dados.
+       - Testar a interatividade dos gráficos (zoom, detalhes ao passar o mouse).
+       - Realizar testes de usabilidade para garantir que os gráficos sejam intuitivos.
+     - Implementar Notificações
+       - Implementar notificações de erro/sucesso para operações de geração e exportação de gráficos.
 
 4. *Gestão de datas de pagamento*
    - Tarefas: Implementar tela de calendário, Implementar sistemas de cores para colocar sobre cada dia para representar o estado do pagamento,
