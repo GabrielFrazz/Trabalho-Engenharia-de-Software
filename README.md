@@ -34,7 +34,11 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 3. *Analisar e gerar dados de venda/lucro*
    -
-   -
+   - **História:** Como usuário, eu quero gerar dados a partir das vendas registradas no sistema para visualizar o lucro gerado em determinada data.
+   - **Operações CRUD:** N/A
+   - **Critérios de Aceitação:**
+     1. Eu devo ser capaz de visualizar o total de lucro gerado em determinada data, já contabilizando os custos atrelados.
+     2. Eu devo ser capaz de gerar uma nota de qualquer período com os lucros associados.
 
 4. *Geração de Gráficos a partir de analises de dados de venda/lucro*
    -
