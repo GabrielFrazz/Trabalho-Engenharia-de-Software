@@ -52,29 +52,27 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - Operações CRUD: Criar, Ler, Atualizar, Excluir registros de desempenho.
 
 6. *Integracao com redes sociais*
-   -Como um gerente de loja
-   Gostaria de integrar a conta da loja com redes sociais
-   Para que eu possa compartilhar novidades, promoções e atualizações diretamente nas redes sociais e alcançar mais clientes
-
-    -Critérios de Aceite:
-   a. O gerente deve ser capaz de vincular a conta da loja com contas de redes sociais (por exemplo, Facebook, Twitter, Instagram).
-   b. O gerente deve ser capaz de compartilhar atualizações, novidades e promoções diretamente nas redes sociais vinculadas.
-   c. O gerente deve ter a opção de selecionar quais tipos de conteúdo deseja compartilhar automaticamente e quais deseja compartilhar manualmente.
-   d. Após compartilhar uma atualização ou promoção, o sistema deve informar ao gerente que o conteúdo foi compartilhado com sucesso.
-   e. Se a tentativa de compartilhamento falhar (por exemplo, devido a problemas de rede ou de API da rede social), o sistema deve informar ao gerente e sugerir tentar novamente mais tarde.
+   -
+   - **História:** Como um gerente de loja, gostaria de integrar a conta da loja com redes sociais para que eu possa compartilhar novidades, promoções e atualizações diretamente nas redes sociais e alcançar mais clientes.
+   - **Operações CRUD:** N/A
+   - **Critérios de Aceitação:**
+      1. O gerente deve ser capaz de vincular a conta da loja com contas de redes sociais (por exemplo, Facebook, Twitter, Instagram).
+      2. O gerente deve ser capaz de compartilhar atualizações, novidades e promoções diretamente nas redes sociais vinculadas.
+      3. O gerente deve ter a opção de selecionar quais tipos de conteúdo deseja compartilhar automaticamente e quais deseja compartilhar manualmente.
+      4. Após compartilhar uma atualização ou promoção, o sistema deve informar ao gerente que o conteúdo foi compartilhado com sucesso.
+      5. Se a tentativa de compartilhamento falhar (por exemplo, devido a problemas de rede ou de API da rede social), o sistema deve informar ao gerente e sugerir tentar novamente mais tarde.
 
 7. *Gerenciar programa de fidelidade*
-   - Como um gerente de loja
-   Gostaria de gerenciar um programa de fidelidade
-   Para que eu possa recompensar clientes fiéis e incentivar novas compras
-
-   - Critérios de Aceite:
-   a. O sistema deve permitir a definição de diferentes níveis de fidelidade
-   b. O sistema deve calcular e atualizar automaticamente os pontos de fidelidade dos clientes com base nas compras realizadas.
-   c. O gerente deve ter acesso a relatórios detalhados sobre a participação dos clientes no programa de fidelidade, incluindo pontos acumulados, resgatados e expiração de pontos.
-   d. O sistema deve fornecer métricas sobre a eficácia do programa, como aumento nas vendas e frequência de visitas dos clientes fiéis.
-   e. O sistema deve notificar os clientes sobre suas atividades de fidelidade, incluindo pontos ganhos, mudanças de nível e expiração de pontos.
-   f. Se houver um erro durante a configuração do programa, o sistema deve informar ao gerente e fornecer instruções sobre como resolver o problema.
+   -
+   - **História:** Como um gerente de loja, gostaria de gerenciar um programa de fidelidade para que eu possa recompensar clientes fiéis e incentivar novas compras.
+   - **Operações CRUD:** N/A
+   - **Critérios de Aceitação:**
+      1. O sistema deve permitir a definição de diferentes níveis de fidelidade
+      2. O sistema deve calcular e atualizar automaticamente os pontos de fidelidade dos clientes com base nas compras realizadas.
+      3. O gerente deve ter acesso a relatórios detalhados sobre a participação dos clientes no programa de fidelidade, incluindo pontos acumulados, resgatados e expiração de pontos.
+      4. O sistema deve fornecer métricas sobre a eficácia do programa, como aumento nas vendas e frequência de visitas dos clientes fiéis.
+      5. O sistema deve notificar os clientes sobre suas atividades de fidelidade, incluindo pontos ganhos, mudanças de nível e expiração de pontos.
+      6. Se houver um erro durante a configuração do programa, o sistema deve informar ao gerente e fornecer instruções sobre como resolver o problema.
 
 8. *Receber feedback e satisfação do cliente*
    - 
