@@ -52,21 +52,29 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - Operações CRUD: Criar, Ler, Atualizar, Excluir registros de desempenho.
 
 6. *Integracao com redes sociais*
-   -
-   -
+   -Como um gerente de loja
+   Gostaria de integrar a conta da loja com redes sociais
+   Para que eu possa compartilhar novidades, promoções e atualizações diretamente nas redes sociais e alcançar mais clientes
 
-7. *Gerenciar programa de fidelidade*
+    -Critérios de Aceite:
+   a. O gerente deve ser capaz de vincular a conta da loja com contas de redes sociais (por exemplo, Facebook, Twitter, Instagram).
+   b. O gerente deve ser capaz de compartilhar atualizações, novidades e promoções diretamente nas redes sociais vinculadas.
+   c. O gerente deve ter a opção de selecionar quais tipos de conteúdo deseja compartilhar automaticamente e quais deseja compartilhar manualmente.
+   d. Após compartilhar uma atualização ou promoção, o sistema deve informar ao gerente que o conteúdo foi compartilhado com sucesso.
+   e. Se a tentativa de compartilhamento falhar (por exemplo, devido a problemas de rede ou de API da rede social), o sistema deve informar ao gerente e sugerir tentar novamente mais tarde.
+
+8. *Gerenciar programa de fidelidade*
    - 
    - 
 
-8. *Receber feedback e satisfação do cliente*
+9. *Receber feedback e satisfação do cliente*
    - 
    -
 
-9. *Notificações de estoque*
+10. *Notificações de estoque*
    -
    -
-10. *Gerenciar datas de pagamento/eventos*
+11. *Gerenciar datas de pagamento/eventos*
     -
       - **História:** Como usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
       - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas específicas no calendário.
