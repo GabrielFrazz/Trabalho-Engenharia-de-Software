@@ -63,18 +63,27 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    d. Após compartilhar uma atualização ou promoção, o sistema deve informar ao gerente que o conteúdo foi compartilhado com sucesso.
    e. Se a tentativa de compartilhamento falhar (por exemplo, devido a problemas de rede ou de API da rede social), o sistema deve informar ao gerente e sugerir tentar novamente mais tarde.
 
-8. *Gerenciar programa de fidelidade*
-   - 
-   - 
+7. *Gerenciar programa de fidelidade*
+   - Como um gerente de loja
+   Gostaria de gerenciar um programa de fidelidade
+   Para que eu possa recompensar clientes fiéis e incentivar novas compras
 
-9. *Receber feedback e satisfação do cliente*
+   - Critérios de Aceite:
+   a. O sistema deve permitir a definição de diferentes níveis de fidelidade
+   b. O sistema deve calcular e atualizar automaticamente os pontos de fidelidade dos clientes com base nas compras realizadas.
+   c. O gerente deve ter acesso a relatórios detalhados sobre a participação dos clientes no programa de fidelidade, incluindo pontos acumulados, resgatados e expiração de pontos.
+   d. O sistema deve fornecer métricas sobre a eficácia do programa, como aumento nas vendas e frequência de visitas dos clientes fiéis.
+   e. O sistema deve notificar os clientes sobre suas atividades de fidelidade, incluindo pontos ganhos, mudanças de nível e expiração de pontos.
+   f. Se houver um erro durante a configuração do programa, o sistema deve informar ao gerente e fornecer instruções sobre como resolver o problema.
+
+8. *Receber feedback e satisfação do cliente*
    - 
    -
 
-10. *Notificações de estoque*
+9. *Notificações de estoque*
    -
    -
-11. *Gerenciar datas de pagamento/eventos*
+10. *Gerenciar datas de pagamento/eventos*
     -
       - **História:** Como usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
       - **Operações CRUD:** Criar, Ler, Atualizar, Excluir datas específicas no calendário.
