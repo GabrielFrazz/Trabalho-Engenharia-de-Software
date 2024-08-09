@@ -13,10 +13,10 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - **História:** Como usuário, eu quero poder gerenciar os clientes no sistema para que eu possa adicionar, editar, atualizar e deletar informações dos clientes conforme necessário.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de clientes.
    - **Critérios de Aceitação:**
-     1. Eu devo ser capaz de criar um novo cliente com informações básicas (nome, e-mail, telefone, endereço).
-     2. Eu devo ser capaz de visualizar os detalhes do perfil do cliente.
-     3. Eu devo ser capaz de atualizar as informações do cliente (nome, e-mail, telefone, endereço).
-     4. Eu devo ser capaz de excluir um cliente do sistema.
+     1. O gerente deve ser capaz de criar um novo cliente com informações básicas (nome, e-mail, telefone, endereço).
+     2. O gerente deve ser capaz de visualizar os detalhes do perfil do cliente.
+     3. O gerente deve ser capaz de atualizar as informações do cliente (nome, e-mail, telefone, endereço).
+     4. O gerente deve ser capaz de excluir um cliente do sistema.
      5. O sistema deve validar todas as informações de entrada para garantir a integridade dos dados.
      6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.
 
@@ -25,10 +25,10 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - **História:** Como usuário, eu quero gerenciar as vendas para monitorar o desempenho e os lucros da loja, incluindo a criação, visualização, atualização e exclusão de registros de vendas.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de vendas.
    - **Critérios de Aceitação:**
-     1. Eu devo ser capaz de criar uma nova venda com informações básicas (produto, quantidade, preço, data).
-     2. Eu devo ser capaz de visualizar o histórico de vendas e os detalhes de cada venda.
-     3. Eu devo ser capaz de atualizar as informações de uma venda (produto, quantidade, preço).
-     4. Eu devo ser capaz de excluir uma venda do sistema.
+     1. O gerente deve ser capaz de criar uma nova venda com informações básicas (produto, quantidade, preço, data).
+     2. O gerente deve ser capaz de visualizar o histórico de vendas e os detalhes de cada venda.
+     3. O gerente deve ser capaz de atualizar as informações de uma venda (produto, quantidade, preço).
+     4. O gerente deve ser capaz de excluir uma venda do sistema.
      5. O sistema deve validar todas as informações de entrada para garantir a integridade dos dados.
      6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.
 
@@ -37,31 +37,27 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - **História:** Como usuário, eu quero gerar dados a partir das vendas registradas no sistema para visualizar o lucro gerado em determinada data.
    - **Operações CRUD:** N/A
    - **Critérios de Aceitação:**
-     1. Eu devo ser capaz de visualizar o total de lucro gerado em determinada data, já contabilizando os custos atrelados.
-     2. Eu devo ser capaz de gerar uma nota de qualquer período com os lucros associados.
+     1. O gerente deve ser capaz de visualizar o total de lucro gerado em determinada data, já contabilizando os custos atrelados.
+     2. O gerente deve ser capaz de gerar uma nota de qualquer período com os lucros associados.
 
 4. *Geração de Gráficos a partir de analises de dados de venda/lucro*
    -
    - **História:** Como usuário, eu quero visualizar gráficos a partir dos dados de venda/lucro para entender melhor as tendências e o desempenho.
    - **Operações CRUD:** N/A
    - **Critérios de Aceitação:**
-     1. Eu devo ser capaz de visualizar gráficos de vendas diárias, semanais, mensais e anuais.
-     2. Eu devo ser capaz de filtrar os dados exibidos nos gráficos por período.
-     3. Eu devo ser capaz de exportar os gráficos como imagens ou PDFs.
+     1. O gerente deve ser capaz de visualizar gráficos de vendas diárias, semanais, mensais e anuais.
+     2. O gerente deve ser capaz de filtrar os dados exibidos nos gráficos por período.
+     3. O gerente deve ser capaz de exportar os gráficos como imagens ou PDFs.
      4. Os gráficos devem ser atualizados automaticamente com base nos novos dados de venda/lucro.
      5. Os gráficos devem ser interativos, permitindo zoom e detalhes específicos ao passar o mouse.
 
 5. *Agendamento de tarefas diárias*
    - 
    - **História:** Como um gerente de loja, gostaria de poder ter uma agenda digital para visualizar e criar eventos para tarefas diárias próprias.
-   - **Operações** CRUD: Criar, Ler, Atualizar, Excluir tarefas.
-   -1. O gerente deve ser capaz de criar uma tarefa e afixar um horário para ela.
-   -2. O gerente deve ser capaz de atualizar uma tarefa ou mudar o horário dela.
-   -3. O gerente deve ser capaz de apagar uma tarefa.
-   -4. O gerente deve ser capaz de visualizar as tarefas já existente e seus horários em uma interface limpa como um calendário.
-   -5. O gerente deve ser capaz de atribuir uma cor a tarefa, como opcional, para identificar a importância da tarefa.
-
-
+   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir tarefas.
+     1. O gerente deve ser capaz de criar uma tarefa e afixar um horário para ela.
+     2. O gerente deve ser capaz de atualizar uma tarefa ou mudar o horário dela.
+     3. O gerente deve ser capaz de apagar uma tarefa.
 
 6. *Integracao com redes sociais*
    -
@@ -88,11 +84,27 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 8. *Receber feedback e satisfação do cliente*
    - 
-   -
+   - **História:** Como um gerente de loja, gostaria de receber feedback e satisfação do cliente por meio de formulários do Google Forms que estariam disponiveis no site da loja.
+   - **Operações CRUD:** Ler e Excluir respostas.
+   - **Critérios de Aceitação:**
+      1. O sistema deve acessar as respostas enviadas pelo Google Forms e registrar o feedback no banco de dados interno.
+      2. O gerente deve ser capaz de apagar formulários ja lidos.
+      3. O sistema deve ser capaz de apagar formulários automaticamente após certa quantidade.
+      4. O gerente deve visualizar um resumo das respostas.
+      5. O sistema deve permitir a exportação das respostas para análise mais detalhada em formatos comuns (CSV, Excel, etc.).
+      6. O sistema deve notificar o gerente quando uma nova resposta de feedback é recebida.
 
 9. *Notificações de estoque*
    -
-   -
+   - **História:** Como um gerente de loja, gostaria de receber ntificações sobre o estado do estoque de cada produto.
+   - **Operações CRUD:** Criar, Ler, Atualizar, Excluir estoque de certo produto.
+   - **Critérios de Aceitação:**
+      1. O gerente deve ser adicionar o estoque de cada produto e um limite critíco para o mesmo.
+      2. O gerente deve ser capaz de atualizar o estoque.
+      3. O sistema deve ser capaz de apagar estoque não existente.
+      4. O gerente deve ser capaz de visualizar o estoque e receber notificações quando em estado crítico.
+      5. O sistema deve ser capaz de gerar notificações "pop-ups" para notificar sobre a situação atual do estoque.
+         
 10. *Gerenciar datas de pagamento/eventos*
     -
       - **História:** Como usuário, eu quero gerenciar as datas de pagamento dos meus funcionários, as datas de reabastecimento do estoque e controle sobre os eventos realizados na loja.
@@ -118,38 +130,38 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 1. *Cadastro de Clientes*
    - **Tarefas:**
-     - Configurar Banco de Dados
+     - **Configurar Banco de Dados**
        - Escolher o sistema de gerenciamento de banco de dados.
        - Configurar o banco de dados no servidor de desenvolvimento.
        - Definir o esquema do banco de dados.
        - Implementar migrações.
        - Testar a conexão entre backend e banco de dados.
-     - Criar Cliente
+     - **Criar Cliente**
        - Criar formulário de entrada.
        - Implementar validação do formulário.
        - Desenvolver API de criação.
-       - Integrar frontend com API.
+       - Integrar frontend com API.   Responsáveis: Luan
        - Testar criação de cliente.
-       - Implementar notificações.
-     - Visualizar Clientes
+       - Implementar notificações.   Responsáveis: Patrick
+     - **Visualizar Clientes**
        - Criar página de listagem.
        - Desenvolver API de listagem.
-       - Integrar frontend com API.
+       - Integrar frontend com API.   Responsáveis:Luan
        - Implementar paginação/filtros.
-       - Testar visualização de clientes.
-     - Editar Cliente
+       - Testar visualização de clientes.   Responsáveis: Patrick
+     - **Editar Cliente**
        - Criar formulário de edição.
        - Implementar validação do formulário.
        - Desenvolver API de atualização.
-       - Integrar frontend com API.
+       - Integrar frontend com API.   Responsáveis: Luan
        - Testar edição de cliente.
-       - Implementar notificações.
-     - Deletar Cliente
+       - Implementar notificações.   Responsáveis: Luan
+     - **Deletar Cliente**
        - Desenvolver API de deleção.
-       - Integrar frontend com API.
+       - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar confirmação de deleção.
        - Testar deleção de cliente.
-       - Implementar notificações.
+       - Implementar notificações.   Responsáveis: Luan
 
 2. *Gestão de Vendas*
    - **Tarefas:**
@@ -169,75 +181,79 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      - **Visualizar Vendas**
        - Criar página de listagem de vendas.
        - Desenvolver API para listagem de vendas.
-       - Integrar frontend com API.
+       - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar filtros e pesquisa para visualização de vendas.
        - Testar a visualização de vendas.
      - **Editar Venda**
        - Criar formulário de edição de venda.
        - Implementar validação do formulário de edição.
        - Desenvolver API de atualização de venda.
-       - Integrar frontend com API.
+       - Integrar frontend com API.   Responsáveis: Patrick
        - Testar atualização de venda.
-       - Implementar notificações de sucesso e erro.
+       - Implementar notificações de sucesso e erro.   Responsáveis: Luan
      - **Deletar Venda**
        - Adicionar funcionalidade de exclusão de venda.
        - Desenvolver API para exclusão de venda.
-       - Integrar frontend com API.
+       - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar confirmação de exclusão.
        - Testar exclusão de venda.
-       - Implementar notificações de sucesso e erro.
+       - Implementar notificações de sucesso e erro.   Responsáveis: Luan
 
 3. *Geração de Gráficos a partir de analises de dados de venda/lucro*
    - **Tarefas:**
-     - Configurar Ambiente de Gráficos
+     - **Configurar Ambiente de Gráficos**
        - Escolher a biblioteca de gráficos.
        - Configurar o ambiente de desenvolvimento para suportar gráficos.
-     - Desenvolver API de Dados
+     - **Desenvolver API de Dados**
        - Desenvolver API para fornecer dados de venda/lucro.
        - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano.
        - Testar a API de dados para garantir a precisão e desempenho.
-     - Implementar Tela de Gráficos
-       - Criar a interface de usuário para exibir gráficos.
-       - Integrar a interface com a API de dados.
-       - Implementar filtros de período na interface.
+     - **Implementar Tela de Gráficos**
+       - Criar a interface de usuário para exibir gráficos.   Responsáveis: Patrick
+       - Integrar a interface com a API de dados.   Responsáveis: Patrick
+       - Implementar filtros de período na interface.   Responsáveis: Luan
        - Implementar funcionalidade de exportação de gráficos.
-     - Testar Gráficos
+     - **Testar Gráficos**
        - Testar a atualização automática dos gráficos com novos dados.
        - Testar a interatividade dos gráficos (zoom, detalhes ao passar o mouse).
        - Realizar testes de usabilidade para garantir que os gráficos sejam intuitivos.
-     - Implementar Notificações
-       - Implementar notificações de erro/sucesso para operações de geração e exportação de gráficos.
+     - **Implementar Notificações**
+       - Implementar notificações de erro/sucesso para operações de geração e exportação de gráficos.   Responsáveis: Luan
 
 4. *Gestão de datas de pagamento*
    - **Tarefas:**
-      - Desenvolvimento do Módulo de Agendamento de Eventos:
+      - **Desenvolvimento do Módulo de Agendamento de Eventos:**
          - Permitir ao usuário inserir, editar e excluir eventos no calendário.
          - Adicionar funcionalidade de lembretes com notificações.
-      - Integração com Sistemas de Pagamento:
+      - **Integração com Sistemas de Pagamento:**
          - Implementar a funcionalidade de agendamento de pagamentos automáticos para fornecedores e funcionários.
          - Configurar alertas para insuficiência de fundos no caixa da empresa antes da data do pagamento.
-      - Monitoramento de Caixa:
-         - Criar um painel de controle que mostre o saldo do caixa em tempo real.
+      - **Monitoramento de Caixa:**
+         - Criar um painel de controle que mostre o saldo do caixa em tempo real.   Responsáveis: Luan
          - Incluir previsões de fluxo de caixa com base nos pagamentos e recebimentos programados.
-      - Relatórios Financeiros:
+      - **Relatórios Financeiros:**
          - Desenvolver relatórios financeiros mensais que mostrem todas as transações realizadas, pendentes e programadas.
-         - Implementar gráficos e tabelas que ajudam na visualização dos dados financeiros.
-      - Personalização da Agenda:
-         - Permitir ao usuário personalizar a visualização da agenda (diária, semanal, mensal).
+         - Implementar gráficos e tabelas que ajudam na visualização dos dados financeiros. 
+      - **Personalização da Agenda:**
+         - Permitir ao usuário personalizar a visualização da agenda (diária, semanal, mensal).   Responsáveis: Luan
          - Adicionar a possibilidade de categorizar eventos e pagamentos (por exemplo, urgentes, regulares, esporádicos).
-      - Notificações e Alertas:
-         - Implementar um sistema de notificações para alertar sobre eventos importantes e pagamentos próximos.
-         - Personalizar os métodos de notificação (e-mail, SMS, notificações push).
+      - **Notificações e Alertas:**
+         - Implementar um sistema de notificações para alertar sobre eventos importantes e pagamentos próximos.   Responsáveis: Luan
+         - Personalizar os métodos de notificação (e-mail, SMS, notificações push).   Responsáveis: Luan
+      - **Desenvolver interface geral de feedback de gestão no aplicativo.**   Responsáveis: Patrick e Luan
   
 
 5. *Gestão de feedback e satisfação do cliente*
    - **Tarefas:**
-     - Criar formulário de satisfação do cliente.
-     - Separar avaliações individualmente e somá-las em uma média de satisfação geral.
-     - Implementar a recepção dos dados do formulário no aplicativo:
+     - **Criar formulário de satisfação do cliente.**
+     - **Separar avaliações individualmente e somá-las em uma média de satisfação geral.**   Responsáveis: Luan
+     - **Implementar a recepção dos dados do formulário no aplicativo:**
         - Associar o ID ao cliente que preencheu o formulário;
         - Associar entrega à data do formulário.
-     - Desenvolver interface de feedback do cliente no aplicativo.
+     - **Implementar funções de apagar respostas**
+     - **Implementar funções de conversão de resposta em arquivo de texto**   Responsáveis: Luan
+     - **Desenvolver notificações pop-ups**   Responsáveis: Luan
+     - **Desenvolver interface de feedback do cliente no aplicativo.**   Responsáveis: Patrick
      
 ## Linguagens/API's Utilizadas:
    - Python
