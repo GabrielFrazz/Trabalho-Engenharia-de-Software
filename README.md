@@ -53,7 +53,15 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 5. *Agendamento de tarefas diárias*
    - 
-   - Operações CRUD: Criar, Ler, Atualizar, Excluir registros de desempenho.
+   - **História:** Como um gerente de loja, gostaria de poder ter uma agenda digital para visualizar e criar eventos para tarefas diárias próprias.
+   - **Operações** CRUD: Criar, Ler, Atualizar, Excluir tarefas.
+   -1. O gerente deve ser capaz de criar uma tarefa e afixar um horário para ela.
+   -2. O gerente deve ser capaz de atualizar uma tarefa ou mudar o horário dela.
+   -3. O gerente deve ser capaz de apagar uma tarefa.
+   -4. O gerente deve ser capaz de visualizar as tarefas já existente e seus horários em uma interface limpa como um calendário.
+   -5. O gerente deve ser capaz de atribuir uma cor a tarefa, como opcional, para identificar a importância da tarefa.
+
+
 
 6. *Integracao com redes sociais*
    -
