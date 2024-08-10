@@ -182,7 +182,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Criar página de listagem de vendas. Responsáveis: Gabriel
        - Desenvolver API para listagem de vendas. Responsáveis: Carlos
        - Integrar frontend com API.   Responsáveis: Patrick
-       - Implementar filtros e pesquisa para visualização de vendas.
+       - Implementar filtros e pesquisa para visualização de vendas.   Responsáveis: Luan
        - Testar a visualização de vendas. Responsáveis: Henrique
      - **Editar Venda**
        - Criar formulário de edição de venda. Responsáveis: Gustavo
