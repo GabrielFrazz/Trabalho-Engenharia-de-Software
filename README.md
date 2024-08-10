@@ -146,7 +146,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      - **Visualizar Clientes**
        - Criar página de listagem. Responsáveis: Gabriel
        - Desenvolver API de listagem. Responsáveis: Gustavo
-       - Integrar frontend com API.   Responsáveis:Luan
+       - Integrar frontend com API.   Responsáveis: Luan
        - Implementar paginação/filtros. Responsáveis: Gabriel
        - Testar visualização de clientes.   Responsáveis: Patrick
      - **Editar Cliente**
