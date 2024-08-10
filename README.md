@@ -135,13 +135,13 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Configurar o banco de dados no servidor de desenvolvimento.
        - Definir o esquema do banco de dados.
        - Implementar migrações.
-       - Testar a conexão entre backend e banco de dados.
+       - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Cliente**
-       - Criar formulário de entrada.
+       - Criar formulário de entrada. 
        - Implementar validação do formulário.
        - Desenvolver API de criação.
        - Integrar frontend com API.   Responsáveis: Luan
-       - Testar criação de cliente.
+       - Testar criação de cliente. Responsáveis: Henrique
        - Implementar notificações.   Responsáveis: Patrick
      - **Visualizar Clientes**
        - Criar página de listagem.
@@ -154,13 +154,13 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar validação do formulário.
        - Desenvolver API de atualização.
        - Integrar frontend com API.   Responsáveis: Luan
-       - Testar edição de cliente.
+       - Testar edição de cliente. Responsáveis: Henrique
        - Implementar notificações.   Responsáveis: Luan
      - **Deletar Cliente**
        - Desenvolver API de deleção.
        - Integrar frontend com API.   Responsáveis: Patrick
-       - Implementar confirmação de deleção.
-       - Testar deleção de cliente.
+       - Implementar confirmação de deleção. Responsáveis: Henrique
+       - Testar deleção de cliente. Responsáveis: Henrique
        - Implementar notificações.   Responsáveis: Luan
 
 2. *Gestão de Vendas*
@@ -170,33 +170,33 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Configurar o banco de dados para registros de vendas.
        - Definir o esquema do banco de dados para vendas.
        - Implementar migrações.
-       - Testar a conexão entre backend e banco de dados.
+       - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Venda**
        - Criar formulário de entrada para registro de vendas.
        - Implementar validação do formulário de vendas.
        - Desenvolver API de criação de venda.
        - Integrar frontend com API de vendas.
-       - Testar criação de venda.
+       - Testar criação de venda. Responsáveis: Henrique
        - Implementar notificações de sucesso e erro.
      - **Visualizar Vendas**
        - Criar página de listagem de vendas.
        - Desenvolver API para listagem de vendas.
        - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar filtros e pesquisa para visualização de vendas.
-       - Testar a visualização de vendas.
+       - Testar a visualização de vendas. Responsáveis: Henrique
      - **Editar Venda**
        - Criar formulário de edição de venda.
        - Implementar validação do formulário de edição.
        - Desenvolver API de atualização de venda.
        - Integrar frontend com API.   Responsáveis: Patrick
-       - Testar atualização de venda.
+       - Testar atualização de venda. Responsáveis: Henrique
        - Implementar notificações de sucesso e erro.   Responsáveis: Luan
      - **Deletar Venda**
        - Adicionar funcionalidade de exclusão de venda.
        - Desenvolver API para exclusão de venda.
        - Integrar frontend com API.   Responsáveis: Patrick
-       - Implementar confirmação de exclusão.
-       - Testar exclusão de venda.
+       - Implementar confirmação de exclusão. Responsáveis: Henrique
+       - Testar exclusão de venda. Responsáveis: Henrique
        - Implementar notificações de sucesso e erro.   Responsáveis: Luan
 
 3. *Geração de Gráficos a partir de analises de dados de venda/lucro*
@@ -207,7 +207,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      - **Desenvolver API de Dados**
        - Desenvolver API para fornecer dados de venda/lucro.
        - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano.
-       - Testar a API de dados para garantir a precisão e desempenho.
+       - Testar a API de dados para garantir a precisão e desempenho. Responsáveis: Henrique
      - **Implementar Tela de Gráficos**
        - Criar a interface de usuário para exibir gráficos.   Responsáveis: Patrick
        - Integrar a interface com a API de dados.   Responsáveis: Patrick
@@ -223,16 +223,16 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 4. *Gestão de datas de pagamento*
    - **Tarefas:**
       - **Desenvolvimento do Módulo de Agendamento de Eventos:**
-         - Permitir ao usuário inserir, editar e excluir eventos no calendário.
-         - Adicionar funcionalidade de lembretes com notificações.
+         - Permitir ao usuário inserir, editar e excluir eventos no calendário. Responsáveis: Henrique
+         - Adicionar funcionalidade de lembretes com notificações. Responsáveis: Henrique
       - **Integração com Sistemas de Pagamento:**
-         - Implementar a funcionalidade de agendamento de pagamentos automáticos para fornecedores e funcionários.
+         - Implementar a funcionalidade de agendamento de pagamentos automáticos para fornecedores e funcionários. Responsáveis: Henrique
          - Configurar alertas para insuficiência de fundos no caixa da empresa antes da data do pagamento.
       - **Monitoramento de Caixa:**
          - Criar um painel de controle que mostre o saldo do caixa em tempo real.   Responsáveis: Luan
          - Incluir previsões de fluxo de caixa com base nos pagamentos e recebimentos programados.
       - **Relatórios Financeiros:**
-         - Desenvolver relatórios financeiros mensais que mostrem todas as transações realizadas, pendentes e programadas.
+         - Desenvolver relatórios financeiros mensais que mostrem todas as transações realizadas, pendentes e programadas. 
          - Implementar gráficos e tabelas que ajudam na visualização dos dados financeiros. 
       - **Personalização da Agenda:**
          - Permitir ao usuário personalizar a visualização da agenda (diária, semanal, mensal).   Responsáveis: Luan
