@@ -132,8 +132,8 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - **Tarefas:**
      - **Configurar Banco de Dados**
        - Escolher o sistema de gerenciamento de banco de dados.
-       - Configurar o banco de dados no servidor de desenvolvimento.
-       - Definir o esquema do banco de dados.
+       - Configurar o banco de dados no servidor de desenvolvimento. Responsáveis: Gustavo
+       - Definir o esquema do banco de dados. Responsáveis: Gustavo
        - Implementar migrações.
        - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Cliente**
@@ -145,19 +145,19 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar notificações.   Responsáveis: Patrick
      - **Visualizar Clientes**
        - Criar página de listagem.
-       - Desenvolver API de listagem.
+       - Desenvolver API de listagem. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis:Luan
        - Implementar paginação/filtros.
        - Testar visualização de clientes.   Responsáveis: Patrick
      - **Editar Cliente**
        - Criar formulário de edição.
-       - Implementar validação do formulário.
-       - Desenvolver API de atualização.
+       - Implementar validação do formulário. Responsáveis: Gustavo
+       - Desenvolver API de atualização. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Luan
        - Testar edição de cliente. Responsáveis: Henrique
        - Implementar notificações.   Responsáveis: Luan
      - **Deletar Cliente**
-       - Desenvolver API de deleção.
+       - Desenvolver API de deleção. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar confirmação de deleção. Responsáveis: Henrique
        - Testar deleção de cliente. Responsáveis: Henrique
@@ -185,15 +185,15 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar filtros e pesquisa para visualização de vendas.
        - Testar a visualização de vendas. Responsáveis: Henrique
      - **Editar Venda**
-       - Criar formulário de edição de venda.
-       - Implementar validação do formulário de edição.
-       - Desenvolver API de atualização de venda.
+       - Criar formulário de edição de venda. Responsáveis: Gustavo
+       - Implementar validação do formulário de edição. Responsáveis: Gustavo
+       - Desenvolver API de atualização de venda. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Patrick
        - Testar atualização de venda. Responsáveis: Henrique
        - Implementar notificações de sucesso e erro.   Responsáveis: Luan
      - **Deletar Venda**
-       - Adicionar funcionalidade de exclusão de venda.
-       - Desenvolver API para exclusão de venda.
+       - Adicionar funcionalidade de exclusão de venda. Responsáveis: Gustavo
+       - Desenvolver API para exclusão de venda. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar confirmação de exclusão. Responsáveis: Henrique
        - Testar exclusão de venda. Responsáveis: Henrique
@@ -204,7 +204,7 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      - **Configurar Ambiente de Gráficos**
        - Escolher a biblioteca de gráficos.
        - Configurar o ambiente de desenvolvimento para suportar gráficos.
-     - **Desenvolver API de Dados**
+     - **Desenvolver API de Dados** Responsáveis: Gustavo
        - Desenvolver API para fornecer dados de venda/lucro.
        - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano.
        - Testar a API de dados para garantir a precisão e desempenho. Responsáveis: Henrique
@@ -230,13 +230,13 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
          - Configurar alertas para insuficiência de fundos no caixa da empresa antes da data do pagamento.
       - **Monitoramento de Caixa:**
          - Criar um painel de controle que mostre o saldo do caixa em tempo real.   Responsáveis: Luan
-         - Incluir previsões de fluxo de caixa com base nos pagamentos e recebimentos programados.
+         - Incluir previsões de fluxo de caixa com base nos pagamentos e recebimentos programados. Responsáveis: Gustavo
       - **Relatórios Financeiros:**
-         - Desenvolver relatórios financeiros mensais que mostrem todas as transações realizadas, pendentes e programadas. 
+         - Desenvolver relatórios financeiros mensais que mostrem todas as transações realizadas, pendentes e programadas. Responsáveis: Gustavo
          - Implementar gráficos e tabelas que ajudam na visualização dos dados financeiros. 
       - **Personalização da Agenda:**
          - Permitir ao usuário personalizar a visualização da agenda (diária, semanal, mensal).   Responsáveis: Luan
-         - Adicionar a possibilidade de categorizar eventos e pagamentos (por exemplo, urgentes, regulares, esporádicos).
+         - Adicionar a possibilidade de categorizar eventos e pagamentos (por exemplo, urgentes, regulares, esporádicos). Responsáveis: Gustavo
       - **Notificações e Alertas:**
          - Implementar um sistema de notificações para alertar sobre eventos importantes e pagamentos próximos.   Responsáveis: Luan
          - Personalizar os métodos de notificação (e-mail, SMS, notificações push).   Responsáveis: Luan
@@ -245,12 +245,12 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 
 5. *Gestão de feedback e satisfação do cliente*
    - **Tarefas:**
-     - **Criar formulário de satisfação do cliente.**
+     - **Criar formulário de satisfação do cliente.** Responsáveis: Gustavo
      - **Separar avaliações individualmente e somá-las em uma média de satisfação geral.**   Responsáveis: Luan
-     - **Implementar a recepção dos dados do formulário no aplicativo:**
+     - **Implementar a recepção dos dados do formulário no aplicativo:** Responsáveis: Gustavo
         - Associar o ID ao cliente que preencheu o formulário;
         - Associar entrega à data do formulário.
-     - **Implementar funções de apagar respostas**
+     - **Implementar funções de apagar respostas** Responsáveis: Gustavo
      - **Implementar funções de conversão de resposta em arquivo de texto**   Responsáveis: Luan
      - **Desenvolver notificações pop-ups**   Responsáveis: Luan
      - **Desenvolver interface de feedback do cliente no aplicativo.**   Responsáveis: Patrick
