@@ -137,14 +137,14 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar migrações. Responsáveis: Carlos
        - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Cliente**
-       - Criar formulário de entrada. 
-       - Implementar validação do formulário. 
-       - Desenvolver API de criação. 
+       - Criar formulário de entrada. Responsáveis: Gabriel
+       - Implementar validação do formulário. Responsáveis: Gabriel
+       - Desenvolver API de criação. Responsáveis: Gabriel
        - Integrar frontend com API.   Responsáveis: Luan
        - Testar criação de cliente. Responsáveis: Henrique
        - Implementar notificações.   Responsáveis: Patrick
      - **Visualizar Clientes**
-       - Criar página de listagem. 
+       - Criar página de listagem. Responsáveis: Gabriel
        - Desenvolver API de listagem. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis:Luan
        - Implementar paginação/filtros. Responsáveis: Gabriel
@@ -172,14 +172,14 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Implementar migrações. Responsáveis: Carlos
        - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Venda**
-       - Criar formulário de entrada para registro de vendas.
+       - Criar formulário de entrada para registro de vendas. Responsáveis: Gabriel
        - Implementar validação do formulário de vendas. Responsáveis: Carlos
        - Desenvolver API de criação de venda. Responsáveis: Carlos
-       - Integrar frontend com API de vendas. 
+       - Integrar frontend com API de vendas. Responsáveis: Gabriel
        - Testar criação de venda. Responsáveis: Henrique
-       - Implementar notificações de sucesso e erro.
+       - Implementar notificações de sucesso e erro.Responsáveis: Gabriel
      - **Visualizar Vendas**
-       - Criar página de listagem de vendas.
+       - Criar página de listagem de vendas. Responsáveis: Gabriel
        - Desenvolver API para listagem de vendas. Responsáveis: Carlos
        - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar filtros e pesquisa para visualização de vendas.
@@ -212,11 +212,11 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
        - Criar a interface de usuário para exibir gráficos.   Responsáveis: Patrick
        - Integrar a interface com a API de dados.   Responsáveis: Patrick
        - Implementar filtros de período na interface.   Responsáveis: Luan
-       - Implementar funcionalidade de exportação de gráficos.
+       - Implementar funcionalidade de exportação de gráficos. Responsáveis: Gabriel
      - **Testar Gráficos**
-       - Testar a atualização automática dos gráficos com novos dados.
-       - Testar a interatividade dos gráficos (zoom, detalhes ao passar o mouse).
-       - Realizar testes de usabilidade para garantir que os gráficos sejam intuitivos.
+       - Testar a atualização automática dos gráficos com novos dados. Responsáveis: Gabriel
+       - Testar a interatividade dos gráficos (zoom, detalhes ao passar o mouse). Responsáveis: Gabriel
+       - Realizar testes de usabilidade para garantir que os gráficos sejam intuitivos. Responsáveis: Gabriel
      - **Implementar Notificações**
        - Implementar notificações de erro/sucesso para operações de geração e exportação de gráficos.   Responsáveis: Luan
 
@@ -227,13 +227,13 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
          - Adicionar funcionalidade de lembretes com notificações. Responsáveis: Henrique
       - **Integração com Sistemas de Pagamento:**
          - Implementar a funcionalidade de agendamento de pagamentos automáticos para fornecedores e funcionários. Responsáveis: Henrique
-         - Configurar alertas para insuficiência de fundos no caixa da empresa antes da data do pagamento.
+         - Configurar alertas para insuficiência de fundos no caixa da empresa antes da data do pagamento. Responsáveis: Gabriel
       - **Monitoramento de Caixa:**
          - Criar um painel de controle que mostre o saldo do caixa em tempo real.   Responsáveis: Luan
          - Incluir previsões de fluxo de caixa com base nos pagamentos e recebimentos programados. Responsáveis: Gustavo
       - **Relatórios Financeiros:**
          - Desenvolver relatórios financeiros mensais que mostrem todas as transações realizadas, pendentes e programadas. Responsáveis: Gustavo
-         - Implementar gráficos e tabelas que ajudam na visualização dos dados financeiros. 
+         - Implementar gráficos e tabelas que ajudam na visualização dos dados financeiros. Responsáveis: Gabriel
       - **Personalização da Agenda:**
          - Permitir ao usuário personalizar a visualização da agenda (diária, semanal, mensal).   Responsáveis: Luan
          - Adicionar a possibilidade de categorizar eventos e pagamentos (por exemplo, urgentes, regulares, esporádicos). Responsáveis: Gustavo
@@ -248,8 +248,8 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      - **Criar formulário de satisfação do cliente.** Responsáveis: Gustavo
      - **Separar avaliações individualmente e somá-las em uma média de satisfação geral.**   Responsáveis: Luan
      - **Implementar a recepção dos dados do formulário no aplicativo:** Responsáveis: Gustavo
-        - Associar o ID ao cliente que preencheu o formulário;
-        - Associar entrega à data do formulário.
+        - Associar o ID ao cliente que preencheu o formulário; Responsáveis: Gabriel
+        - Associar entrega à data do formulário. Responsáveis: Gabriel
      - **Implementar funções de apagar respostas** Responsáveis: Gustavo
      - **Implementar funções de conversão de resposta em arquivo de texto**   Responsáveis: Luan
      - **Desenvolver notificações pop-ups**   Responsáveis: Luan
