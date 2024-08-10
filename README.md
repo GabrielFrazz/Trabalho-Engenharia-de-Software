@@ -131,26 +131,26 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 1. *Cadastro de Clientes*
    - **Tarefas:**
      - **Configurar Banco de Dados**
-       - Escolher o sistema de gerenciamento de banco de dados.
+       - Escolher o sistema de gerenciamento de banco de dados. Responsáveis: Carlos
        - Configurar o banco de dados no servidor de desenvolvimento. Responsáveis: Gustavo
        - Definir o esquema do banco de dados. Responsáveis: Gustavo
-       - Implementar migrações.
+       - Implementar migrações. Responsáveis: Carlos
        - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Cliente**
        - Criar formulário de entrada. 
-       - Implementar validação do formulário.
-       - Desenvolver API de criação.
+       - Implementar validação do formulário. 
+       - Desenvolver API de criação. 
        - Integrar frontend com API.   Responsáveis: Luan
        - Testar criação de cliente. Responsáveis: Henrique
        - Implementar notificações.   Responsáveis: Patrick
      - **Visualizar Clientes**
-       - Criar página de listagem.
+       - Criar página de listagem. 
        - Desenvolver API de listagem. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis:Luan
-       - Implementar paginação/filtros.
+       - Implementar paginação/filtros. Responsáveis: Gabriel
        - Testar visualização de clientes.   Responsáveis: Patrick
      - **Editar Cliente**
-       - Criar formulário de edição.
+       - Criar formulário de edição. Responsáveis: Carlos
        - Implementar validação do formulário. Responsáveis: Gustavo
        - Desenvolver API de atualização. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Luan
@@ -166,21 +166,21 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 2. *Gestão de Vendas*
    - **Tarefas:**
      - **Configurar Banco de Dados**
-       - Escolher o sistema de gerenciamento de banco de dados.
-       - Configurar o banco de dados para registros de vendas.
-       - Definir o esquema do banco de dados para vendas.
-       - Implementar migrações.
+       - Escolher o sistema de gerenciamento de banco de dados. Responsáveis: Carlos
+       - Configurar o banco de dados para registros de vendas. Responsáveis: Carlos
+       - Definir o esquema do banco de dados para vendas. Responsáveis: Carlos
+       - Implementar migrações. Responsáveis: Carlos
        - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Venda**
        - Criar formulário de entrada para registro de vendas.
-       - Implementar validação do formulário de vendas.
-       - Desenvolver API de criação de venda.
-       - Integrar frontend com API de vendas.
+       - Implementar validação do formulário de vendas. Responsáveis: Carlos
+       - Desenvolver API de criação de venda. Responsáveis: Carlos
+       - Integrar frontend com API de vendas. 
        - Testar criação de venda. Responsáveis: Henrique
        - Implementar notificações de sucesso e erro.
      - **Visualizar Vendas**
        - Criar página de listagem de vendas.
-       - Desenvolver API para listagem de vendas.
+       - Desenvolver API para listagem de vendas. Responsáveis: Carlos
        - Integrar frontend com API.   Responsáveis: Patrick
        - Implementar filtros e pesquisa para visualização de vendas.
        - Testar a visualização de vendas. Responsáveis: Henrique
@@ -202,11 +202,11 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 3. *Geração de Gráficos a partir de analises de dados de venda/lucro*
    - **Tarefas:**
      - **Configurar Ambiente de Gráficos**
-       - Escolher a biblioteca de gráficos.
-       - Configurar o ambiente de desenvolvimento para suportar gráficos.
-     - **Desenvolver API de Dados** Responsáveis: Gustavo
-       - Desenvolver API para fornecer dados de venda/lucro.
-       - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano.
+       - Escolher a biblioteca de gráficos. Responsáveis: Carlos
+       - Configurar o ambiente de desenvolvimento para suportar gráficos. Responsáveis: Carlos
+     - **Desenvolver API de Dados** 
+       - Desenvolver API para fornecer dados de venda/lucro. Responsáveis: Gustavo
+       - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano. Responsáveis: Carlos
        - Testar a API de dados para garantir a precisão e desempenho. Responsáveis: Henrique
      - **Implementar Tela de Gráficos**
        - Criar a interface de usuário para exibir gráficos.   Responsáveis: Patrick
