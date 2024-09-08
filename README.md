@@ -257,6 +257,9 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
      
 ## Linguagens/API's Utilizadas:
    - Python
+   - Electron
+   - JavaScrip
+   - Node.JS
 
 ## Mebros e Funções:
 
