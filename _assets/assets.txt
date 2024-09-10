@@ -1,0 +1,1 @@
+Placeholder para geração da pasta "assets" para maior organização
