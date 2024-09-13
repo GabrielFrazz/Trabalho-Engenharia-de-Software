@@ -1,0 +1,21 @@
+meu_projeto/
+│
+├── app/
+│   ├── __init__.py                # Inicialização da aplicação Flask
+│   ├── routes.py                  # Definição das rotas da aplicação
+│   ├── models.py                  # Definição dos modelos de banco de dados (SQLAlchemy)
+│   ├── static/                    # Arquivos estáticos (CSS, JS, imagens)
+│   │   ├── css/
+│   │   │   └── styles.css         # Estilos CSS
+│   │   └── js/
+│   │       └── scripts.js         # Scripts JavaScript
+│   ├── templates/                 # Templates HTML (renderizados com Jinja2)
+│   │   ├── base.html              # Template base, usado para herança
+│   │   ├── index.html             # Página principal
+│   │   └── about.html             # Outra página (exemplo)
+├── instance/
+│   └── meu_banco.db               # Banco de dados SQLite
+├── config.py                      # Configurações da aplicação (ex. conexão com banco de dados)
+├── run.py                         # Arquivo principal para rodar a aplicação Flask
+├── requirements.txt               # Dependências do projeto (bibliotecas Python)
+└── README.md                      # Descrição do projeto

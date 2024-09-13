@@ -1,0 +1,469 @@
+/* Reset padrão para todos os elementos */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Variáveis globais para cores */
+:root {
+    --bg-color: #222831; /* Cor de fundo da página */
+    --text-color: #fff; /* Cor do texto padrão */
+    --main-color: #FFD369; /* Cor principal usada em detalhes */
+    --slidebar-color: #393E46; /* Cor da barra lateral */
+    --gap: 3rem;
+}
+
+/* Estilo do corpo da página */
+body {
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ======================= Header ======================= */
+
+/* Cabeçalho fixo no topo da página */
+header {
+    position: fixed;
+    width: calc(100% - 80px); /* Ajuste para o espaço da sidebar */
+    top: 0;
+    left: 80px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 12px 12%;
+    transition: all 0.50s ease;
+    background-color: var(--bg-color);
+}
+
+/* Logo no cabeçalho */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Ícone do logotipo */
+.logo i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 3px;
+}
+
+/* Texto ao lado do logotipo */
+.logo span {
+    color: var(--text-color);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+/* Barra de navegação no cabeçalho */
+.navbar {
+    display: flex;
+}
+
+/* Links de navegação */
+.navbar a {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    margin: 0px 25px;
+    transition: all 0.50s ease;
+}
+
+/* Efeito ao passar o mouse sobre os links */
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+/* Link ativo */
+.navbar a.active {
+    color: var(--main-color);
+}
+
+/* Seção principal de login/registro */
+.main {
+    display: flex;
+    align-items: center;
+}
+
+/* Links na seção de login */
+.main a {
+    margin-right: 25px;
+    margin-left: 10px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.50s ease;
+}
+
+/* Ícone de usuário */
+.user {
+    display: flex;
+    align-items: center;
+}
+
+/* Ícone de usuário */
+.user i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
+
+/* Responsividade: telas menores que 1280px */
+@media (max-width: 1280px) {
+    header {
+        padding: 14px 2%; /* Reduz o padding */
+        transition: 0.2s;
+    }
+
+    .navbar a {
+        margin: 0px 20px; /* Reduz o espaçamento entre links */
+    }
+}
+
+/* ======================= Sidebar ======================= */
+
+/* Estilo da barra lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px; /* Largura padrão da sidebar */
+    background-color: var(--slidebar-color);
+    padding: 0.4rem 0.8rem;
+    transition: all 0.50s ease;
+    z-index: 10000;
+}
+
+/* Sidebar expandida */
+.sidebar.active {
+    width: 250px;
+}
+
+/* Botão para expandir/recolher a sidebar */
+.sidebar #btn {
+    position: absolute;
+    color: var(--text-color);
+    top: 0.4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+/* Logo da sidebar */
+.sidebar .top .logo {
+    color: var(--text-color);
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0; /* Invisível até a sidebar ser expandida */
+    transition: opacity 0.50s ease;
+}
+
+/* Logo visível quando a sidebar está expandida */
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+/* Ícone do logo na sidebar */
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+/* Seção de usuário na sidebar */
+.user-sidebar {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+/* Texto do usuário */
+.user-sidebar p {
+    color: var(--text-color);
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+/* Estilo de negrito */
+.bold {
+    font-weight: 600;
+}
+
+/* Texto oculto na sidebar não expandida */
+.sidebar p {
+    opacity: 0;
+}
+
+/* Texto visível na sidebar expandida */
+.sidebar.active p {
+    opacity: 1;
+}
+
+/* Estilo dos itens do menu na sidebar */
+.sidebar ul li {
+    position: relative;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+/* Links dos itens do menu */
+.sidebar ul li a {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+/* Efeito ao passar o mouse nos links */
+.sidebar ul li a:hover {
+    background-color: var(--text-color);
+    color: var(--main-color);
+}
+
+/* Ícones dos itens do menu */
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+/* Itens do menu ocultos na sidebar recolhida */
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+/* Itens do menu visíveis na sidebar expandida */
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+/* Tooltip nos itens do menu */
+.sidebar ul li .tooltip {
+    position: absolute;
+    background-color: var(--slidebar-color);
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 0.50s ease;
+}
+
+/* Tooltip visível ao passar o mouse sobre o item */
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+}
+
+/* Tooltip oculto na sidebar expandida */
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+/* ======================= Main Content ======================= */
+
+/* Estilo do conteúdo principal da página */
+.main-content {
+    position: relative;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    top: 0;
+    left: 80px; /* Ajuste para a largura da sidebar */
+    transition: all 0.50s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+    z-index: 100;
+}
+
+/* Conteúdo ajustado quando a sidebar está expandida */
+.main-content.sidebar-active {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* Contêiner para layout flexível */
+.container {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+/* ======================= Header e Sidebar sincronizados ======================= */
+
+/* Garantindo que o header acompanhe a expansão da sidebar */
+header {
+    left: 80px;
+    width: calc(100% - 80px);
+    transition: all 0.50s ease;
+}
+
+/* Header ajustado quando a sidebar está expandida */
+header.sidebar-active {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* Ajuste do espaçamento no topo da sidebar */
+.sidebar ul {
+    margin-top: 125px; /* Espaçamento entre o topo da página e o menu */
+}
+
+/* ======================= Ícone de Menu Hambúrguer ======================= */
+
+/* Ícone do menu hambúrguer */
+#menu-icon {
+    font-size: 35px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none; /* Oculto em telas maiores */
+}
+
+/* Estilos principais */
+.main-bg {
+    color: var(--white-color);
+  }
+  
+  .white-bg {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+  }
+  
+  .main-cont {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 8rem var(--gap);
+  }
+  
+  .section {
+    min-height: 100vh;
+  }
+  
+  /* Layout de introdução */
+  .intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--gap);
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .intro-text-content,
+  .intro-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .intro-img img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Tipografia */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  h1 {
+    font-size: rem;
+    text-transform: uppercase;
+  }
+  
+  h2 {
+    font-size: 4rem;
+    margin-bottom: 6rem;
+    /* text-transform: uppercase; */
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: 5rem;
+  }
+  
+  p {
+    margin-bottom: 3rem;
+  }
+  
+  /* Estilos de links */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Seção de conteúdo com layout flexível */
+  .top3-content {
+    max-width: 80rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  .grid-one-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .grid-main-heading {
+    margin-bottom: 1rem;
+  }
+  
+  .grid-description {
+    padding-bottom: 5rem;
+  }
+  
+  /* Layout de grade */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    counter-reset: grid-counter;
+  }
+  
+  .grid h3 {
+    font-size: 3rem;
+    position: relative;
+    padding-left: 5rem;
+    padding-bottom: 2rem;
+  }
+  
+  .grid h3::before {
+    counter-increment: grid-counter;
+    content: counter(grid-counter);
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    top: -4rem;
+    left: -2rem;
+    transform: rotate(5deg);
+  }
+
+  .background-img {
+    background-image: url(../img/endless-constellation.svg);
+    background-size: contain;
+    background-position: center center;
+  }

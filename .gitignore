@@ -1,0 +1,5 @@
+# Ignorar ambiente virtual
+venv/
+
+# Ignorar banco de dados
+*.db
