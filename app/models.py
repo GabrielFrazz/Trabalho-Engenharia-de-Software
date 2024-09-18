@@ -19,3 +19,7 @@ class Produto(db.Model):
     def __repr__(self):
         return f'Produto({self.nome}, {self.descricao}, {self.preco}, {self.quantidade})'
     
+#class Venda(db.Model):
+#    id = db.Column(db.Integer, primary_key=True)
+#    produto = db.Column(Produto(db.Intege,db.String(100),db.Float), nullable=False)
+#    data = db.Column(db.DateTime, nullable=False)
