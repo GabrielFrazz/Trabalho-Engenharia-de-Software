@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, flash
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app, db
 from app.models import Cliente, Produto
-from run import admin
+from app.engine.security import Admin
 
 @app.route('/')
 def index():
@@ -11,6 +11,7 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        admin = Admin()
         username = request.form['username']
         password = request.form['password']
         
@@ -25,6 +26,7 @@ def login():
 
 @app.route('/update_credentials', methods=['POST'])
 def update_credentials():
+    admin = Admin()
     new_username = request.form['username']
     new_password = request.form['password']
     admin.update_credentials(new_username, new_password)
