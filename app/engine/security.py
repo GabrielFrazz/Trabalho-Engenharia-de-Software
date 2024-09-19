@@ -1,20 +1,28 @@
+from werkzeug.security import generate_password_hash, check_password_hash
+from app.models import MasterUser
+from app import db, app
+
 class Admin():
     def __init__(self):
-        # Variaveis privadas para não ter acesso // Mas tem que criar uma base de dados para poder modificar e manter mesmo
-        # depois de reiniciar o programa
-        self.__user = 'admin'
-        self.__pw = 'admin'
+        with app.app_context():
+            MasterUser.set_initial_admin()
+            master_user = MasterUser.get_master_user()
+            self.__user = master_user.username
+            self.__pw_hash = master_user.password
 
-    # Unica coisa que deve ter acesso é a checar a senha e user
-    def check_password(self,Password):
-        if(self.__pw == Password):
-            return 1
-        else:
-            return 0
+    def check_password(self, password):
+        return check_password_hash(self.__pw_hash, password)
+    
 
-    def check_username(self,username):
-        if(self.__user == username):
-            return 1
-        else:
-            return 0
-        
+    def check_username(self, username):
+        return self.__user == username
+
+    def update_credentials(self, new_username, new_password):
+        with app.app_context():
+            master_user = MasterUser.get_master_user()
+            master_user.username = new_username
+            master_user.password = generate_password_hash(new_password)
+            db.session.commit()
+            self.__user = new_username
+            self.__pw_hash = master_user.password
+
