@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da API - Gerenciamento de Clientes e Vendas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .endpoint {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Documentação da API - Gerenciamento de Clientes e Vendas</h1>
+
+    <p><strong>Base URL:</strong> <code>http://localhost:5000/api</code></p>
+
+    <h2>Endpoints Disponíveis</h2>
+
+    <div class="endpoint">
+        <h3>1. Listar Clientes</h3>
+        <p><strong>Rota:</strong> <code>/clientes</code></p>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Descrição:</strong> Retorna uma lista de todos os clientes cadastrados.</p>
+
+        <h4>Exemplo de Requisição em Python:</h4>
+        <pre><code>import requests
+
+url = 'http://localhost:5000/api/clientes'
+response = requests.get(url)
+clientes = response.json()
+
+print(clientes)  # Exibe a lista de clientes
+        </code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h3>2. Adicionar Cliente</h3>
+        <p><strong>Rota:</strong> <code>/clientes</code></p>
+        <p><strong>Método:</strong> POST</p>
+        <p><strong>Descrição:</strong> Adiciona um novo cliente à base de dados.</p>
+
+        <h4>Formato do Corpo da Requisição (JSON):</h4>
+        <pre><code>{
+    "nome": "Carlos Pereira",
+    "email": "carlos@gmail.com",
+    "telefone": "1122334455",
+    "endereco": "Rua dos Testes, 78"
+}</code></pre>
+
+        <h4>Exemplo de Requisição em Python:</h4>
+        <pre><code>import requests
+
+url = 'http://localhost:5000/api/clientes'
+novo_cliente = {
+    "nome": "Carlos Pereira",
+    "email": "carlos@gmail.com",
+    "telefone": "1122334455",
+    "endereco": "Rua dos Testes, 78"
+}
+
+response = requests.post(url, json=novo_cliente)
+
+print(response.json())  # Exibe a resposta da API
+        </code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h3>3. Atualizar Cliente</h3>
+        <p><strong>Rota:</strong> <code>/clientes/&lt;int:id&gt;</code></p>
+        <p><strong>Método:</strong> PUT</p>
+        <p><strong>Descrição:</strong> Atualiza as informações de um cliente existente, com base no ID fornecido.</p>
+
+        <h4>Formato do Corpo da Requisição (JSON):</h4>
+        <pre><code>{
+    "nome": "Carlos Pereira",
+    "email": "carlos@novoemail.com",
+    "telefone": "9988776655",
+    "endereco": "Rua dos Atualizados, 99"
+}</code></pre>
+
+        <h4>Exemplo de Requisição em Python:</h4>
+        <pre><code>import requests
+
+url = 'http://localhost:5000/api/clientes/1'
+dados_atualizados = {
+    "nome": "Carlos Pereira",
+    "email": "carlos@novoemail.com",
+    "telefone": "9988776655",
+    "endereco": "Rua dos Atualizados, 99"
+}
+
+response = requests.put(url, json=dados_atualizados)
+
+print(response.json())  # Exibe a resposta da API
+        </code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h3>4. Deletar Cliente</h3>
+        <p><strong>Rota:</strong> <code>/clientes/&lt;int:id&gt;</code></p>
+        <p><strong>Método:</strong> DELETE</p>
+        <p><strong>Descrição:</strong> Remove um cliente da base de dados com base no ID fornecido.</p>
+
+        <h4>Exemplo de Requisição em Python:</h4>
+        <pre><code>import requests
+
+url = 'http://localhost:5000/api/clientes/1'  # Substitua o ID pelo cliente desejado
+
+response = requests.delete(url)
+
+print(response.json())  # Exibe a resposta da API
+        </code></pre>
+    </div>
+
+
+    <h2>Erros Comuns</h2>
+    <ul>
+        <li><strong>404 Not Found:</strong> O recurso (cliente ou venda) solicitado não foi encontrado no banco de dados.</li>
+        <li><strong>400 Bad Request:</strong> Dados inválidos ou incompletos foram fornecidos na requisição.</li>
+        <li><strong>500 Internal Server Error:</strong> Ocorreu um erro no servidor durante o processamento da requisição.</li>
+    </ul>
+
+</body>
+</html>
