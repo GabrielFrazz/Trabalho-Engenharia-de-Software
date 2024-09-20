@@ -1,0 +1,16 @@
+<!-- templates/add_cliente.html -->
+<form action="{{ url_for('add_cliente') }}" method="POST">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+    
+    <label for="telefone">Telefone:</label>
+    <input type="text" name="telefone" id="telefone" required>
+    
+    <label for="endereco">Endereço:</label>
+    <input type="text" name="endereco" id="endereco" required>
+    
+    <button type="submit">Adicionar Cliente</button>
+</form>

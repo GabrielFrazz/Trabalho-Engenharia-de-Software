@@ -32,3 +32,34 @@ def update_credentials():
     admin.update_credentials(new_username, new_password)
     flash('Credentials updated successfully!')
     return redirect(url_for('index'))
+
+@app.route('/add_cliente', methods=['GET'])
+def add_cliente_form():
+    return render_template('add_cliente.html')
+
+@app.route('/add_cliente', methods=['GET', 'POST'])
+def add_cliente():
+    if request.method == 'POST':
+        nome = request.form['nome']
+        email = request.form['email']
+        telefone = request.form['telefone']
+        endereco = request.form['endereco']
+        
+        # Criando um novo cliente
+        novo_cliente = Cliente(nome=nome, email=email, telefone=telefone, endereco=endereco)
+        try:
+            db.session.add(novo_cliente)
+            db.session.commit()
+            flash('Cliente adicionado com sucesso!', 'success')
+            return redirect(url_for('index'))
+        except Exception as e:
+            db.session.rollback()
+            flash(f'Ocorreu um erro: {e}', 'danger')
+            return redirect(url_for('add_cliente'))
+    return render_template('add_cliente.html')
+
+
+@app.route('/api/help')
+def api_help():
+    return render_template('api_documentation.html')
+
