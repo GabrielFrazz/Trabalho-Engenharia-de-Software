@@ -76,6 +76,34 @@ Feedback Page
 
 ![image](https://github.com/user-attachments/assets/ddcbd3c3-1b00-496c-9279-2ccfc38b721e)
 
+## Diagrama de Classes:
+
+![image](https://github.com/user-attachments/assets/c0c217ae-9335-4092-a9dd-9c7a329a792b)
+
+## Diagrama de Casos de Uso:
+
+![image](https://github.com/user-attachments/assets/4894a1fa-8eaa-40e1-8abe-5a3520b38a65)
+
+## Diagramas de Atividade:
+
+![image](https://github.com/user-attachments/assets/106ec1fb-6ea8-4471-a624-75484b87b536)
+
+![image](https://github.com/user-attachments/assets/2751c01f-2137-4386-8ba5-f487ca9e4bfc)
+
+![image](https://github.com/user-attachments/assets/cf62dfcf-3f0a-4bad-86b6-18d8cfb963be)
+
+![image](https://github.com/user-attachments/assets/c0f76ec4-dd39-4b44-8e92-56dc73322aae)
+
+![image](https://github.com/user-attachments/assets/9a94bbcb-603b-4a39-be71-ec541b5a5228)
+
+![image](https://github.com/user-attachments/assets/1c007b60-ceb5-49a2-b8d9-9ffea8868e58)
+
+![image](https://github.com/user-attachments/assets/d42fb802-cde3-4435-8254-11b1f01052c9)
+
+![image](https://github.com/user-attachments/assets/88c23798-7878-4144-87c7-c6cda9367226)
+
+![image](https://github.com/user-attachments/assets/9d8cbcd1-feb1-4ebb-a556-7808cb0f56d0)
+
 
 
 
