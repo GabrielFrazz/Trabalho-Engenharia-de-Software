@@ -1,4 +1,5 @@
 /* Reset padrão para todos os elementos */
+
 * {
     padding: 0;
     margin: 0;
@@ -6,6 +7,7 @@
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     list-style: none;
+    background-image: url(//Trabalho-Engenharia-de-Software/app/static/img/endless-constellation.svg);
 }
 
 /* Variáveis globais para cores */
@@ -73,7 +75,7 @@ header {
     font-size: 1.1rem;
     font-weight: 500;
     padding: 5px 0;
-    margin: 0px 25px;
+    margin: 0px 35px;
     transition: all 0.50s ease;
 }
 
@@ -352,7 +354,7 @@ header.sidebar-active {
   .main-cont {
     max-width: 120rem;
     margin: 0 auto;
-    padding: 8rem var(--gap);
+    padding: 4rem var(--gap);
   }
   
   .section {
@@ -391,9 +393,10 @@ header.sidebar-active {
   }
   
   h2 {
-    font-size: 4rem;
-    margin-bottom: 6rem;
-    /* text-transform: uppercase; */
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    color: var(--main-color);
     line-height: 1.2;
   }
   
@@ -402,7 +405,7 @@ header.sidebar-active {
   }
   
   p {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   
   /* Estilos de links */
@@ -463,7 +466,11 @@ header.sidebar-active {
   }
 
   .background-img {
-    background-image: url(../img/endless-constellation.svg);
+    background-image: url(../img/dragon-scales.svg);
     background-size: contain;
     background-position: center center;
+  }
+
+  .space p {
+    margin-bottom: 1rem;
   }
