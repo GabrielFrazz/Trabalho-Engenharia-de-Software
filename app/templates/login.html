@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessar StoreSync</title>
-    
+
     <link rel="shortcut icon" href="static/img/exchange-line.ico" type="image/x-icon">
     <link rel="stylesheet" href="static/css/login.css">
 
@@ -36,13 +36,13 @@
 
         <!-- Display Flash Messages -->
         {% with messages = get_flashed_messages(with_categories=True) %}
-            {% if messages %}
-                <ul class="flashes">
-                    {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         {% endwith %}
     </div>
 

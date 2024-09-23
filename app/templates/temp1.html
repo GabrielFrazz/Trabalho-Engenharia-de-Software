@@ -13,6 +13,7 @@
 
     <!-- Incluindo a folha de estilos principal -->
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../static/css/register.css">
 
     <!-- Fontes e ícones usados na página -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
@@ -22,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="background-img">
 
     <!-- Barra lateral fixa -->
     <div class="sidebar">
@@ -33,7 +34,7 @@
         <!-- Menu da barra lateral -->
         <ul>
             <li>
-                <a href="temp1">
+                <a href="register">
                     <!-- Ícone do item Register -->
                     <i class='bx bxs-user'></i>
                     <!-- Texto do item -->
@@ -88,7 +89,7 @@
     </div>
 
     <!-- Conteúdo principal da página -->
-    <div class="main-content background-img">
+    <div class="main-content">
         <header>
             <!-- Logo do site, que inclui um ícone e um texto -->
             <a href="/" class="logo">
@@ -97,16 +98,6 @@
                 <!-- Texto do logo -->
                 <span>StoreSync</span>
             </a>
-
-            <!-- Menu de navegação -->
-            <ul class="navbar">
-                <!-- Link para a página "Home", com classe "active" indicando que é a página atual -->
-                <li><a href="#description">Description</a></li>
-                <!-- Link para a página "About Us" -->
-                <li><a href="#features">Features</a></li>
-                <!-- Link para a página "Services" -->
-                <li><a href="#members">Members</a></li>
-            </ul>
 
             <!-- Seção de login/registro -->
             <div class="main">
@@ -118,65 +109,30 @@
             </div>
         </header>
 
-
-        <!-- Contêiner principal para o conteúdo da página -->
         <div class="container">
-            <section id="description" class="intro main-bg section">
-                <div class="main-cont intro-content">
-                    <div class="intro-text-content">
-                        <h2>Description</h2>
-                        <p>The project aims to develop financial management software for stores, facilitating the
-                            monitoring of debts, profits, sales, and customers. It includes features such as payment
-                            scheduling, graph generation, social media integration, loyalty program control, and
-                            customer feedback.</p>
-                    </div>
-                    <div class="intro-img">
-                        <img src="static/img/finance.svg" alt="Logo de HTML, CSS e JS.">
-                    </div>
+            <h1>Customers</h1>
+            <!-- Parte Superior: New Customer, Barra de Busca e Total -->
+            <div class="header">
+                <button class="color" id="newCustomer">
+                    <i class="ri-user-add-fill"></i> New Customer
+                </button>
+                <div class="search-area size">
+                    <input type="search" id="searchBar" placeholder="Search for...">
+                    <button class="search-button">
+                        <i class="ri-search-line"></i> Search
+                    </button>
                 </div>
-            </section>
-
-
-            <section id="features" class="white-bg section">
-                <div class="main-cont top3-content">
-                    <h2>MAIN FUNCTIONALITIES OF THE PROJECT</h2>
-                    <p>Client Registration: Allows creating, viewing, editing, and deleting clients with forms, APIs,
-                        and notifications, including pagination and filters.</p>
-                    <p>Sales Management: Provides sales recording, viewing, editing, and deletion with dedicated APIs,
-                        notifications, and filtering options.</p>
-                    <p>Graph Generation: Creates interactive graphs for sales and profits, with filtering and data
-                        export options, using an API for aggregated data.</p>
-                    <p>Payment Dates Management: Includes event scheduling, integration with payment systems, and cash
-                        monitoring, with financial reports and notifications.</p>
-                    <p>Feedback Management: Collects and manages client feedback, linking it to each client, with
-                        notifications and options to export responses.</p>
-
+                <div class="total">
+                    <i class="ri-group-fill"></i> Total: 380 Client(s)
                 </div>
-            </section>
 
-            <section id="members" class="intro main-bg section">
-                <div class="main-cont intro-content">
-                    <div class="intro-text-content">
-                        <div class="title-space">
-                            <h2>Members</h2>
-                        </div>
-                        <div class="space">
-                            <p> Gabriel Castro: Backend and Tester</p>
-                            <p>Carlos Gabriel: Backend and Database</p>
-                            <p>Henrique Guimarães: Backend and Tester</p>
-                            <p>Patrick Peres: Frontend</p>
-                            <p>Luan: Full-Stack</p>
-                            <p>Luan: Backend and Databases</p>
-                        </div>
-                    </div>
-                    <div class="intro-img">
-                        <img src="../static/img/developer.svg" alt="Logo de HTML, CSS e JS.">
-                    </div>
-                </div>
-            </section>
-
-
+            </div>
         </div>
+
+        {% block conteudo %}
+
+        {% endblock %}
+
     </div>
 
     <!-- Script JavaScript principal -->

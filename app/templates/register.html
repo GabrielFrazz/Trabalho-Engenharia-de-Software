@@ -1,0 +1,68 @@
+{% extends 'temp1.html' %}
+
+{% block conteudo %}
+
+<!-- Parte Endereço -->
+<div class="container text">
+    <!-- Parte Inferior: Formulário de Registro -->
+
+    <h1><i class="ti-user"></i> Customer Registration</h1>
+    <form action="#" method="post">
+        <!-- Parte Geral -->
+        <div class="assistant" id="general">
+            <h2><i class="ri-bar-chart-box-line"></i> General</h2>
+            <div class="form-group">
+                <!-- <div>
+                    <label for="id"><i class="ti-id-card"></i> ID</label>
+                    <input type="text" id="id" name="id" placeholder="Digite seu ID" required>
+                </div> -->
+                <div>
+                    <label for="name"><i class="ri-user-3-fill"></i> Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                </div>
+                <div>
+                    <label for="email"><i class="ri-mail-fill"></i> Email</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                </div>
+                <div>
+                    <label for="cel"><i class="ri-phone-fill"></i> Cel</label>
+                    <input type="tel" id="cel" name="cel" placeholder="Digite seu celular" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="assistant" id="address">
+            <h2><i class="ri-map-2-fill"></i> Address</h2>
+            <div class="form-group">
+                <div>
+                    <label for="cep"><i class="ri-compass-3-fill"></i> CEP</label>
+                    <input type="text" id="cep" name="cep" placeholder="Digite o CEP" required>
+                </div>
+                <div>
+                    <label for="logradouro"><i class="ri-home-2-fill"></i> Logradouro</label>
+                    <input type="text" id="logradouro" name="logradouro" placeholder="Digite o logradouro" required>
+                </div>
+                <div>
+                    <label for="bairro"><i class="ri-map-pin-2-fill"></i> Bairro</label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" required>
+                </div>
+                <div>
+                    <label for="numero"><i class="ri-pushpin-2-fill"></i> N°</label>
+                    <input type="text" id="numero" name="numero" placeholder="Digite o número" required>
+                </div>
+                <div>
+                    <label for="cidade"><i class="ri-road-map-fill"></i> Cidade</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" required>
+                </div>
+                <div>
+                    <label for="estado"><i class="ri-earth-line"></i> Estado</label>
+                    <input type="text" id="estado" name="estado" placeholder="Digite o estado" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit"><i class="ri-save-3-line"></i> Save</button>
+    </form>
+</div>
+
+{% endblock %}
