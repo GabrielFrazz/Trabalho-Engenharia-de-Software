@@ -2,6 +2,11 @@
 
 # Projeto: Gerenciador Geral e Financeiro para Loja de Vendas
 
+
+## Descrição
+
+Este projeto tem como objetivo desenvolver um software de gerenciamento geral e de financias para a facilitação de genrencia de uma loja. O software permitirá melhor monitoramento das dividas e lucros por meio de uma base, tanto de gerenciamento e agendamento de pagamentos, como também de dados das vendas e dos clientes, e da geração de gráficos expositivos a partir dos dados recolhidos. Além de trazer funcionalidades úteis para a gerencia, como uma maior integração com redes sociais, agendamento de tarefas diarias, controle sobre programas de fidelidade,satisfação do cliente e feedback, dentre outras funções.
+
 ## Table of Contents
 
 1. [Rascunho das Telas](#rascunho-das-telas)
@@ -14,10 +19,6 @@
 8. [Linguagens/API's Utilizadas](#linguagensapis-utilizadas)
 9. [Membros e Funções](#membros-e-funções)
 10. [Como Rodar o Projeto](#como-rodar-o-projeto)
-
-## Descrição
-
-Este projeto tem como objetivo desenvolver um software de gerenciamento geral e de financias para a facilitação de genrencia de uma loja. O software permitirá melhor monitoramento das dividas e lucros por meio de uma base, tanto de gerenciamento e agendamento de pagamentos, como também de dados das vendas e dos clientes, e da geração de gráficos expositivos a partir dos dados recolhidos. Além de trazer funcionalidades úteis para a gerencia, como uma maior integração com redes sociais, agendamento de tarefas diarias, controle sobre programas de fidelidade,satisfação do cliente e feedback, dentre outras funções.
 
 ## Rascunho das Telas:
 
