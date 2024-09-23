@@ -85,7 +85,7 @@ h1::before {
 }
 
 .assistant h2 {
-    margin-top: 50px;
+    margin-top: 40px;
     font-size: 1.2em;
     color: #f0f0f0;
     margin-bottom: 15px;
@@ -94,14 +94,8 @@ h1::before {
 }
 
 .assistant h2::before {
-    content: "\1F4CA";
     font-size: 1.5em;
     margin-right: 10px;
-}
-
-.assistant#address h2::before {
-    content: "\1F4CD";
-    /* Ícone de endereço */
 }
 
 .section {
@@ -146,55 +140,6 @@ label {
     align-items: center;
 }
 
-label::before {
-    content: "\1F4C8";
-    margin-right: 5px;
-}
-
-label[for="name"]::before {
-    content: "\1F464";
-    /* Ícone de usuário */
-}
-
-label[for="email"]::before {
-    content: "\1F4E7";
-    /* Ícone de email */
-}
-
-label[for="cel"]::before {
-    content: "\1F4F1";
-    /* Ícone de celular */
-}
-
-label[for="logradouro"]::before {
-    content: "\1F3E0";
-    /* Ícone de casa */
-}
-
-label[for="bairro"]::before {
-    content: "\1F3DB";
-    /* Ícone de localização */
-}
-
-label[for="cidade"]::before {
-    content: "\1F5FA";
-    /* Ícone de mapa */
-}
-
-label[for="estado"]::before {
-    content: "\1F3D9";
-    /* Ícone de bandeira */
-}
-
-label[for="cep"]::before {
-    content: "\1F4C5";
-    /* Ícone de postal */
-}
-
-label[for="numero"]::before {
-    content: "\1F522";
-    /* Ícone de número */
-}
 
 input[type="text"],
 input[type="email"],
@@ -237,8 +182,7 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-button[type="submit"]::before {
-    content: "\1F4BE";
+button[type="submit"] i {
     margin-right: 5px;
 }
 
@@ -246,4 +190,18 @@ button[type="submit"]::before {
 .header i {
     margin-right: 8px;
     /* Ajuste o valor de acordo com o espaçamento desejado */
+}
+
+.assistant .form-group i {
+    color: var(--main-color);
+    margin-right: 8px;
+    margin-left: 0px;
+    font-size: 16px;
+}
+
+.assistant i {
+    color: var(--text-color);
+    margin-right: 12px;
+    margin-left: 3px;
+    font-size: 32px;
 }
