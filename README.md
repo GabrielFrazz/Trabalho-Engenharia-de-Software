@@ -132,9 +132,9 @@ Feedback Page
    - **História:** Como usuário, eu quero poder gerenciar os clientes no sistema para que eu possa adicionar, editar, atualizar e deletar informações dos clientes conforme necessário.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de clientes.
    - **Critérios de Aceitação:**
-     1. O gerente deve ser capaz de criar um novo cliente com informações básicas (nome, e-mail, telefone, endereço).
+     1. O gerente deve ser capaz de criar um novo cliente com informações básicas (name, e-mail, cel, endereço).
      2. O gerente deve ser capaz de visualizar os detalhes do perfil do cliente.
-     3. O gerente deve ser capaz de atualizar as informações do cliente (nome, e-mail, telefone, endereço).
+     3. O gerente deve ser capaz de atualizar as informações do cliente (name, e-mail, cel, endereço).
      4. O gerente deve ser capaz de excluir um cliente do sistema.
      5. O sistema deve validar todas as informações de entrada para garantir a integridade dos dados.
      6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.

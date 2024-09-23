@@ -65,18 +65,18 @@ def update_credentials():
     flash('Credentials updated successfully!')
     return redirect(url_for('index'))
 
-@app.route('/add_cliente', methods=['GET'])
+@app.route('/register', methods=['GET'])
 def add_cliente_form():
-    return render_template('add_cliente.html')
+    return render_template('register.html')
 
-@app.route('/add_cliente', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def add_cliente():
     if request.method == 'POST':
-        nome = request.form['nome']
+        name = request.form['name']
         email = request.form['email']
-        telefone = request.form['telefone']
+        cel = request.form['cel']
         cep = request.form['cep']
-        rua = request.form['rua']
+        logradouro = request.form['logradouro']
         numero = request.form['numero']
         bairro = request.form['bairro']
         cidade = request.form['cidade']
@@ -84,11 +84,11 @@ def add_cliente():
         
         # Criando um novo cliente
         novo_cliente = Cliente(
-            nome=nome, 
+            name=name, 
             email=email, 
-            telefone=telefone, 
+            cel=cel, 
             cep=cep, 
-            rua=rua, 
+            logradouro=logradouro, 
             numero=numero, 
             bairro=bairro, 
             cidade=cidade, 
@@ -103,7 +103,7 @@ def add_cliente():
             db.session.rollback()
             flash(f'Ocorreu um erro: {e}', 'danger')
             return redirect(url_for('add_cliente'))
-    return render_template('add_cliente.html')
+    return render_template('register.html')
 
 
 

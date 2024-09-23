@@ -8,18 +8,18 @@ api = Blueprint('api', __name__)
 @app.route('/api/clientes', methods=['GET'])
 def get_clientes():
     clientes = Cliente.query.all()
-    clientes_list = [{"id": c.id, "nome": c.nome, "email": c.email, "telefone": c.telefone, "cep": c.cep, "rua": c.rua, "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
+    clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro, "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
     return jsonify(clientes_list)
 
 @app.route('/api/clientes', methods=['POST'])
 def create_cliente():
     data = request.get_json()
     novo_cliente = Cliente(
-        nome=data['nome'], 
+        name=data['name'], 
         email=data['email'], 
-        telefone=data['telefone'], 
+        cel=data['cel'], 
         cep=data['cep'], 
-        rua=data['rua'], 
+        logradouro=data['logradouro'], 
         numero=data['numero'], 
         bairro=data['bairro'], 
         cidade=data['cidade'], 
@@ -33,11 +33,11 @@ def create_cliente():
 def update_cliente(id):
     cliente = Cliente.query.get_or_404(id)
     data = request.get_json()
-    cliente.nome = data['nome']
+    cliente.name = data['name']
     cliente.email = data['email']
-    cliente.telefone = data['telefone']
+    cliente.cel = data['cel']
     cliente.cep = data['cep']
-    cliente.rua = data['rua']
+    cliente.logradouro = data['logradouro']
     cliente.numero = data['numero']
     cliente.bairro = data['bairro']
     cliente.cidade = data['cidade']

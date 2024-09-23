@@ -3,27 +3,27 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class Cliente(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
-    telefone = db.Column(db.String(20), nullable=False)
+    cel = db.Column(db.String(20), nullable=False)
     cep = db.Column(db.String(10), nullable=False)
-    rua = db.Column(db.String(100), nullable=False)
+    logradouro = db.Column(db.String(100), nullable=False)
     numero = db.Column(db.String(10), nullable=False)
     bairro = db.Column(db.String(100), nullable=False)
     cidade = db.Column(db.String(100), nullable=False)
     estado = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
-        return f'Cliente({self.nome}, {self.email}, {self.telefone}, {self.cep}, {self.rua}, {self.numero}, {self.bairro}, {self.cidade}, {self.estado})'
+        return f'Cliente({self.name}, {self.email}, {self.cel}, {self.cep}, {self.logradouro}, {self.numero}, {self.bairro}, {self.cidade}, {self.estado})'
 
 class Produto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     preco = db.Column(db.Float, nullable=False)
     quantidade = db.Column(db.Integer, nullable=False)
     
     def __repr__(self):
-        return f'Produto({self.nome}, {self.descricao}, {self.preco}, {self.quantidade})'
+        return f'Produto({self.name}, {self.descricao}, {self.preco}, {self.quantidade})'
     
 class MasterUser(db.Model):
     id = db.Column(db.Integer, primary_key=True)
