@@ -7,4 +7,3 @@ venv/
 # Ignorar arquivos de compilação
 *.pyc
 __pycache__/
-git 

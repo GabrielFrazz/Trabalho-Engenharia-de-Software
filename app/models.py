@@ -15,6 +15,27 @@ class Cliente(db.Model):
 
     def __repr__(self):
         return f'Cliente({self.name}, {self.email}, {self.cel}, {self.cep}, {self.logradouro}, {self.numero}, {self.bairro}, {self.cidade}, {self.estado})'
+        
+    @staticmethod
+    def add_cliente(name, email, cel, cep, logradouro, numero, bairro, cidade, estado):
+        novo_cliente = Cliente(
+            name=name, 
+            email=email, 
+            cel=cel, 
+            cep=cep, 
+            logradouro=logradouro, 
+            numero=numero, 
+            bairro=bairro, 
+            cidade=cidade, 
+            estado=estado
+        )
+        try:
+            db.session.add(novo_cliente)
+            db.session.commit()
+            return True, "Cliente adicionado com sucesso!"
+        except Exception as e:
+            db.session.rollback()
+            return False, f"Ocorreu um erro: {e}"
 
 class Produto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
