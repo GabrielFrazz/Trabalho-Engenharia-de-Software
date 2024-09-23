@@ -133,6 +133,24 @@ print(response.json())  # Exibe a resposta da API
         </code></pre>
     </div>
 
+    <div class="endpoint"></div>
+        <h3>5. Deletar Todos os Clientes</h3>
+        <p><strong>Rota:</strong> <code>/clientes/delete_all</code></p>
+        <p><strong>Método:</strong> DELETE</p>
+        <p><strong>Descrição:</strong> Remove todos os clientes da base de dados.</p>
+
+        <h4>Exemplo de Requisição em Python:</h4>
+        <pre><code>import requests
+
+    url = 'http://localhost:5000/api/clientes/delete_all'
+
+    response = requests.delete(url)
+
+    print(response.json())  # Exibe a resposta da API
+        </code></pre>
+    </div>
+    
+
 
     <h2>Erros Comuns</h2>
     <ul>

@@ -43,10 +43,25 @@ def add_cliente():
         nome = request.form['nome']
         email = request.form['email']
         telefone = request.form['telefone']
-        endereco = request.form['endereco']
+        cep = request.form['cep']
+        rua = request.form['rua']
+        numero = request.form['numero']
+        bairro = request.form['bairro']
+        cidade = request.form['cidade']
+        estado = request.form['estado']
         
         # Criando um novo cliente
-        novo_cliente = Cliente(nome=nome, email=email, telefone=telefone, endereco=endereco)
+        novo_cliente = Cliente(
+            nome=nome, 
+            email=email, 
+            telefone=telefone, 
+            cep=cep, 
+            rua=rua, 
+            numero=numero, 
+            bairro=bairro, 
+            cidade=cidade, 
+            estado=estado
+        )
         try:
             db.session.add(novo_cliente)
             db.session.commit()
