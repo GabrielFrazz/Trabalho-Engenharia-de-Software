@@ -2,9 +2,127 @@
 
 # Projeto: Gerenciador Geral e Financeiro para Loja de Vendas
 
+## Table of Contents
+
+1. [Rascunho das Telas](#rascunho-das-telas)
+2. [Diagrama de Classes](#diagrama-de-classes)
+3. [Diagrama de Casos de Uso](#diagrama-de-casos-de-uso)
+4. [Diagramas de Atividade](#diagramas-de-atividade)
+5. [Funcionalidades Principais](#funcionalidades-principais)
+6. [Backlog do Produto](#backlog-do-produto)
+7. [Backlog da Sprint](#backlog-da-sprint-primeira-sprint---5-histórias-principais)
+8. [Linguagens/API's Utilizadas](#linguagensapis-utilizadas)
+9. [Membros e Funções](#membros-e-funções)
+10. [Como Rodar o Projeto](#como-rodar-o-projeto)
+
 ## Descrição
 
 Este projeto tem como objetivo desenvolver um software de gerenciamento geral e de financias para a facilitação de genrencia de uma loja. O software permitirá melhor monitoramento das dividas e lucros por meio de uma base, tanto de gerenciamento e agendamento de pagamentos, como também de dados das vendas e dos clientes, e da geração de gráficos expositivos a partir dos dados recolhidos. Além de trazer funcionalidades úteis para a gerencia, como uma maior integração com redes sociais, agendamento de tarefas diarias, controle sobre programas de fidelidade,satisfação do cliente e feedback, dentre outras funções.
+
+## Rascunho das Telas:
+
+Login
+
+![image](https://github.com/user-attachments/assets/e58bea6b-725f-4bc7-ad07-e74a3060dc8f)
+
+Landing Page
+
+![image](https://github.com/user-attachments/assets/7b7ab04a-c2e8-41fa-809d-ce93a975f7df)
+
+Landing Page Logged in
+
+![image](https://github.com/user-attachments/assets/27c9b8b7-20e3-4e11-8cb9-9f16c5a661b2)
+
+Customer Page Search
+
+![image](https://github.com/user-attachments/assets/3a81ea44-eb84-4657-a6f7-c0e449616fef)
+
+Customer Register Page
+
+![image](https://github.com/user-attachments/assets/209ab8f2-ddb7-4320-8d5b-477bab8ae4d5)
+
+Customer Search Page When Found
+
+![image](https://github.com/user-attachments/assets/3bb77b09-b01b-4178-b8f9-87a9eb5d4a5c)
+
+Customer Search Page When not Found
+
+![image](https://github.com/user-attachments/assets/e33b04ba-efdf-40e7-b1fb-6139b3a41b49)
+
+Sales Main Search Page
+
+![image](https://github.com/user-attachments/assets/52f88f0f-ccb7-48ae-abf6-8dfd9a1af421)
+
+Sales Registration Page
+
+![image](https://github.com/user-attachments/assets/42401841-9f0b-44a1-bf84-5f6d6b4304bb)
+
+Sales Search Page When Found
+
+![image](https://github.com/user-attachments/assets/14cb18e5-2e3e-4d52-ba1a-e71bdc232f89)
+
+Sales Search Page When not Found
+
+![image](https://github.com/user-attachments/assets/7de25212-cdcf-47ad-82fb-c1c0cb43440b)
+
+Financial Graphs Page
+
+![image](https://github.com/user-attachments/assets/3d67ab2b-29b1-4b80-9a2d-fc0601713027)
+
+Finances Main Page
+
+![image](https://github.com/user-attachments/assets/4d0be5aa-dabe-414b-9222-db392dbd7c64)
+
+Payment Scheduling Page
+
+![image](https://github.com/user-attachments/assets/c021e750-6284-4a0f-ae9a-f9579d4a1fec)
+
+Payment Calendar Page
+
+![image](https://github.com/user-attachments/assets/1f7cc132-2109-4776-9343-ad73dcf5e785)
+
+Notification Page
+
+![image](https://github.com/user-attachments/assets/642df519-462c-4d17-8718-90261ad1cf27)
+
+Feedback Page
+
+![image](https://github.com/user-attachments/assets/ddcbd3c3-1b00-496c-9279-2ccfc38b721e)
+
+## Diagrama de Classes:
+
+![image](https://github.com/user-attachments/assets/c0c217ae-9335-4092-a9dd-9c7a329a792b)
+
+## Diagrama de Casos de Uso:
+
+![image](https://github.com/user-attachments/assets/4894a1fa-8eaa-40e1-8abe-5a3520b38a65)
+
+## Diagramas de Atividade:
+
+![image](https://github.com/user-attachments/assets/106ec1fb-6ea8-4471-a624-75484b87b536)
+
+![image](https://github.com/user-attachments/assets/2751c01f-2137-4386-8ba5-f487ca9e4bfc)
+
+![image](https://github.com/user-attachments/assets/cf62dfcf-3f0a-4bad-86b6-18d8cfb963be)
+
+![image](https://github.com/user-attachments/assets/c0f76ec4-dd39-4b44-8e92-56dc73322aae)
+
+![image](https://github.com/user-attachments/assets/9a94bbcb-603b-4a39-be71-ec541b5a5228)
+
+![image](https://github.com/user-attachments/assets/1c007b60-ceb5-49a2-b8d9-9ffea8868e58)
+
+![image](https://github.com/user-attachments/assets/d42fb802-cde3-4435-8254-11b1f01052c9)
+
+![image](https://github.com/user-attachments/assets/88c23798-7878-4144-87c7-c6cda9367226)
+
+![image](https://github.com/user-attachments/assets/9d8cbcd1-feb1-4ebb-a556-7808cb0f56d0)
+
+
+
+
+
+
+
 
 ## Funcionalidades Principais
 
@@ -13,9 +131,9 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
    - **História:** Como usuário, eu quero poder gerenciar os clientes no sistema para que eu possa adicionar, editar, atualizar e deletar informações dos clientes conforme necessário.
    - **Operações CRUD:** Criar, Ler, Atualizar, Excluir registros de clientes.
    - **Critérios de Aceitação:**
-     1. O gerente deve ser capaz de criar um novo cliente com informações básicas (nome, e-mail, telefone, endereço).
+     1. O gerente deve ser capaz de criar um novo cliente com informações básicas (name, e-mail, cel, endereço).
      2. O gerente deve ser capaz de visualizar os detalhes do perfil do cliente.
-     3. O gerente deve ser capaz de atualizar as informações do cliente (nome, e-mail, telefone, endereço).
+     3. O gerente deve ser capaz de atualizar as informações do cliente (name, e-mail, cel, endereço).
      4. O gerente deve ser capaz de excluir um cliente do sistema.
      5. O sistema deve validar todas as informações de entrada para garantir a integridade dos dados.
      6. O sistema deve fornecer feedback adequado ao usuário sobre o sucesso ou falha das operações.
@@ -258,9 +376,10 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
 ## Linguagens/API's Utilizadas:
    - Python
    - Figma
-   - Tkinter Designer
+   - Flask
+   - SQLite
 
-## Mebros e Funções:
+## Membros e Funções:
 
   - Gabriel Castro: Backend , Tester
   - Carlos Gabriel: Backend , Banco de Dados
@@ -269,3 +388,49 @@ Este projeto tem como objetivo desenvolver um software de gerenciamento geral e 
   - Luan: Full-Stack
   - Gustavo: BackEnd , Bancos de Dados
 
+## Como Rodar o Projeto
+
+### Clone o Repositório
+
+```bash
+git clone https://github.com/GabrielFrazz/Trabalho-Engenharia-de-Software.git
+```
+
+### Criação do Ambiente Virtual
+
+Na pasta do projeto, execute no terminal:
+
+```bash
+python -m venv venv
+.venv\Scripts\activate
+```
+
+Caso tenha problemas com esse passo, rode o seguinte comando no PowerShell (modo administrador) e digite 'A':
+
+```bash
+Set-ExecutionPolicy RemoteSigned
+```
+
+### Instalação das Dependências
+
+Na pasta do projeto, execute:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Criação do Banco de Dados
+
+Rode o arquivo `create_db.py`:
+
+```bash
+python create_db.py
+```
+
+### Executando o Projeto
+
+Na pasta raiz, rode o arquivo `run.py`:
+
+```bash
+python run.py
+  ```
