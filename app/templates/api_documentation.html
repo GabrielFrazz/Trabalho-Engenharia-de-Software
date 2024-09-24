@@ -149,8 +149,30 @@ print(response.json())  # Exibe a resposta da API
     print(response.json())  # Exibe a resposta da API
         </code></pre>
     </div>
-    
 
+    <div class="endpoint"></div>
+        <h3>6. Buscar Cliente por Nome</h3>
+        <p><strong>Rota:</strong> <code>/clientes/search</code></p>
+        <p><strong>Método:</strong> GET</p>
+        <p><strong>Descrição:</strong> Busca clientes pelo nome fornecido como parâmetro de consulta.</p>
+
+        <h4>Parâmetros de Consulta:</h4>
+        <ul>
+            <li><strong>name:</strong> O nome ou parte do nome do cliente a ser buscado.</li>
+        </ul>
+
+        <h4>Exemplo de Requisição em Python:</h4>
+        <pre><code>import requests
+
+    url = 'http://localhost:5000/api/clientes/search'
+    params = {'name': 'Carlos'}
+    response = requests.get(url, params=params)
+    clientes = response.json()
+
+    print(clientes)  # Exibe a lista de clientes encontrados
+        </code></pre>
+    </div>
+    
 
     <h2>Erros Comuns</h2>
     <ul>

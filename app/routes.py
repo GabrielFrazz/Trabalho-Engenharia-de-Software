@@ -6,6 +6,11 @@ from app.engine.security import Admin
 
 
 @app.route('/')
+def landingPage():
+    return render_template('landingPage.html')
+
+
+@app.route('/')
 def index():
     return render_template('index.html')
 
@@ -20,7 +25,7 @@ def login():
         # Verificando a senha com check_password_hash
         if admin.check_username(username) and admin.check_password(password):
             # flash('Login realizado com sucesso!', 'success') # Não é necessario e ja remove a necessidade de desaparecer com o flassh
-            return redirect(url_for('index'))
+            return render_template('index.html')
         else:
             flash('Usuário ou senha incorretos!', 'error')
     return render_template('login.html')
@@ -65,6 +70,7 @@ def update_credentials():
     flash('Credentials updated successfully!')
     return redirect(url_for('index'))
 
+
 @app.route('/register', methods=['GET'])
 def add_cliente_form():
     return render_template('register.html')
@@ -89,10 +95,9 @@ def add_cliente():
         else:
             flash(message, 'danger')
             return redirect(url_for('register'))
-
+        
 
 
 @app.route('/api/help')
 def api_help():
     return render_template('api_documentation.html')
-

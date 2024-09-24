@@ -50,8 +50,16 @@ def delete_cliente(id):
     cliente = Cliente.query.get_or_404(id)
     db.session.delete(cliente)
     db.session.commit()
+
     return jsonify({"message": "Cliente deletado com sucesso!"})
 
+
+@app.route('/api/clientes/search', methods=['GET'])
+def search_cliente():
+    name = request.args.get('name')
+    clientes = Cliente.query.filter(Cliente.name.ilike(f'%{name}%')).all()
+    clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro, "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
+    return jsonify(clientes_list)
 
 
 # delete all clientes, route /api/clientes/delete_all
