@@ -485,7 +485,7 @@ a {
 .background-img {
     background-image: url(../img/dragon-scales.svg);
     background-size: cover;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* Esconde a parte que sai da área visível */
 }
 
