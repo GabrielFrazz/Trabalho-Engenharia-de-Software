@@ -1,4 +1,5 @@
 /* Reset padrão para todos os elementos */
+
 * {
     padding: 0;
     margin: 0;
@@ -6,14 +7,19 @@
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     list-style: none;
+    background-image: url(//Trabalho-Engenharia-de-Software/app/static/img/endless-constellation.svg);
 }
 
 /* Variáveis globais para cores */
 :root {
-    --bg-color: #222831; /* Cor de fundo da página */
-    --text-color: #fff; /* Cor do texto padrão */
-    --main-color: #FFD369; /* Cor principal usada em detalhes */
-    --slidebar-color: #393E46; /* Cor da barra lateral */
+    --bg-color: #222831;
+    /* Cor de fundo da página */
+    --text-color: #fff;
+    /* Cor do texto padrão */
+    --main-color: #FFD369;
+    /* Cor principal usada em detalhes */
+    --slidebar-color: #393E46;
+    /* Cor da barra lateral */
     --gap: 3rem;
 }
 
@@ -29,7 +35,8 @@ body {
 /* Cabeçalho fixo no topo da página */
 header {
     position: fixed;
-    width: calc(100% - 80px); /* Ajuste para o espaço da sidebar */
+    width: calc(100% - 80px);
+    /* Ajuste para o espaço da sidebar */
     top: 0;
     left: 80px;
     z-index: 1000;
@@ -73,7 +80,7 @@ header {
     font-size: 1.1rem;
     font-weight: 500;
     padding: 5px 0;
-    margin: 0px 25px;
+    margin: 0px 35px;
     transition: all 0.50s ease;
 }
 
@@ -119,12 +126,14 @@ header {
 /* Responsividade: telas menores que 1280px */
 @media (max-width: 1280px) {
     header {
-        padding: 14px 2%; /* Reduz o padding */
+        padding: 14px 2%;
+        /* Reduz o padding */
         transition: 0.2s;
     }
 
     .navbar a {
-        margin: 0px 20px; /* Reduz o espaçamento entre links */
+        margin: 0px 20px;
+        /* Reduz o espaçamento entre links */
     }
 }
 
@@ -136,7 +145,8 @@ header {
     top: 0;
     left: 0;
     height: 100vh;
-    width: 80px; /* Largura padrão da sidebar */
+    width: 80px;
+    /* Largura padrão da sidebar */
     background-color: var(--slidebar-color);
     padding: 0.4rem 0.8rem;
     transition: all 0.50s ease;
@@ -168,7 +178,8 @@ header {
     width: 100%;
     align-items: center;
     pointer-events: none;
-    opacity: 0; /* Invisível até a sidebar ser expandida */
+    opacity: 0;
+    /* Invisível até a sidebar ser expandida */
     transition: opacity 0.50s ease;
 }
 
@@ -289,7 +300,8 @@ header {
     background-color: var(--bg-color);
     min-height: 100vh;
     top: 0;
-    left: 80px; /* Ajuste para a largura da sidebar */
+    left: 80px;
+    /* Ajuste para a largura da sidebar */
     transition: all 0.50s ease;
     width: calc(100% - 80px);
     padding: 1rem;
@@ -325,7 +337,8 @@ header.sidebar-active {
 
 /* Ajuste do espaçamento no topo da sidebar */
 .sidebar ul {
-    margin-top: 125px; /* Espaçamento entre o topo da página e o menu */
+    margin-top: 125px;
+    /* Espaçamento entre o topo da página e o menu */
 }
 
 /* ======================= Ícone de Menu Hambúrguer ======================= */
@@ -336,122 +349,129 @@ header.sidebar-active {
     color: var(--text-color);
     cursor: pointer;
     z-index: 10001;
-    display: none; /* Oculto em telas maiores */
+    display: none;
+    /* Oculto em telas maiores */
 }
 
 /* Estilos principais */
 .main-bg {
     color: var(--white-color);
-  }
-  
-  .white-bg {
+}
+
+.white-bg {
     background-color: var(--white-color);
     color: var(--primary-color);
-  }
-  
-  .main-cont {
+}
+
+.main-cont {
     max-width: 120rem;
     margin: 0 auto;
-    padding: 8rem var(--gap);
-  }
-  
-  .section {
+    padding: 4rem var(--gap);
+}
+
+.section {
     min-height: 100vh;
-  }
-  
-  /* Layout de introdução */
-  .intro-content {
+}
+
+/* Layout de introdução */
+.intro-content {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: var(--gap);
     align-items: center;
     min-height: 100vh;
-  }
-  
-  .intro-text-content,
-  .intro-img {
+}
+
+.intro-text-content,
+.intro-img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-  
-  .intro-img img {
+}
+
+.intro-img img {
     max-width: 100%;
     height: auto;
-  }
-  
-  /* Tipografia */
-  h1, h2, h3, h4, h5, h6 {
+}
+
+/* Tipografia */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Montserrat', sans-serif;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-size: rem;
     text-transform: uppercase;
-  }
-  
-  h2 {
-    font-size: 4rem;
-    margin-bottom: 6rem;
-    /* text-transform: uppercase; */
-    line-height: 1.2;
-  }
-  
-  h3 {
-    font-size: 5rem;
-  }
-  
-  p {
+}
+
+h2 {
+    font-size: 3rem;
     margin-bottom: 3rem;
-  }
-  
-  /* Estilos de links */
-  a {
+    text-transform: uppercase;
+    color: var(--main-color);
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 5rem;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+
+/* Estilos de links */
+a {
     text-decoration: none;
     color: inherit;
-  }
-  
-  /* Seção de conteúdo com layout flexível */
-  .top3-content {
+}
+
+/* Seção de conteúdo com layout flexível */
+.top3-content {
     max-width: 80rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
     text-align: center;
-  }
-  
-  .grid-one-content {
+}
+
+.grid-one-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-  }
-  
-  .grid-main-heading {
+}
+
+.grid-main-heading {
     margin-bottom: 1rem;
-  }
-  
-  .grid-description {
+}
+
+.grid-description {
     padding-bottom: 5rem;
-  }
-  
-  /* Layout de grade */
-  .grid {
+}
+
+/* Layout de grade */
+.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap);
     counter-reset: grid-counter;
-  }
-  
-  .grid h3 {
+}
+
+.grid h3 {
     font-size: 3rem;
     position: relative;
     padding-left: 5rem;
     padding-bottom: 2rem;
-  }
-  
-  .grid h3::before {
+}
+
+.grid h3::before {
     counter-increment: grid-counter;
     content: counter(grid-counter);
     position: absolute;
@@ -460,10 +480,119 @@ header.sidebar-active {
     top: -4rem;
     left: -2rem;
     transform: rotate(5deg);
-  }
+}
 
-  .background-img {
-    background-image: url(../img/endless-constellation.svg);
-    background-size: contain;
-    background-position: center center;
-  }
+.background-img {
+    background-image: url(../img/dragon-scales.svg);
+    background-size: cover;
+    /* overflow: hidden; */
+    /* Esconde a parte que sai da área visível */
+}
+
+.space p {
+    margin-bottom: 1rem;
+}
+
+/* User login */
+.profile-container {
+    /* padding: 20px; */
+    width: 195px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-bottom: 15px; */
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffc542;
+    /* Adiciona a borda amarela */
+}
+
+.profile-info {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.role {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+
+.name {
+    font-size: 16px;
+    color: white;
+}
+
+.profile-toggle {
+    margin-top: -17px;
+    color: #ffc542;
+    font-size: 20px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    background-color: #ffc542;
+    border-radius: 10px;
+    padding: 10px;
+    transition: max-height 0.3s ease;
+}
+
+.hidden {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.visible {
+    max-height: 200px;
+    /* Ajuste conforme necessário */
+    padding: 10px;
+}
+
+.profile-dropdown ul {
+    list-style-type: none;
+}
+
+.profile-dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.profile-dropdown li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.profile-dropdown li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.profile-toggle i {
+    transition: transform 0.3s ease;
+    /* Transição suave para rotação */
+}
+
+.rotate {
+    transform: rotate(180deg);
+    /* Rotaciona a seta 180 graus */
+}
+
+.profile-header p {
+    margin: -5px;
+}

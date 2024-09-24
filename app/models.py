@@ -3,22 +3,59 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class Cliente(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
-    telefone = db.Column(db.String(20), nullable=False)
-    endereco = db.Column(db.String(100), nullable=False)
+    cel = db.Column(db.String(20), nullable=False)
+    cep = db.Column(db.String(10), nullable=False)
+    logradouro = db.Column(db.String(100), nullable=False)
+    numero = db.Column(db.String(10), nullable=False)
+    bairro = db.Column(db.String(100), nullable=False)
+    cidade = db.Column(db.String(100), nullable=False)
+    estado = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
-        return f'Cliente({self.nome}, {self.email}, {self.telefone}, {self.endereco})'
+        return f'Cliente({self.name}, {self.email}, {self.cel}, {self.cep}, {self.logradouro}, {self.numero}, {self.bairro}, {self.cidade}, {self.estado})'
+        
+    @staticmethod
+    def add_cliente(name, email, cel, cep, logradouro, numero, bairro, cidade, estado):
+        novo_cliente = Cliente(
+            name=name, 
+            email=email, 
+            cel=cel, 
+            cep=cep, 
+            logradouro=logradouro, 
+            numero=numero, 
+            bairro=bairro, 
+            cidade=cidade, 
+            estado=estado
+        )
+        try:
+            db.session.add(novo_cliente)
+            db.session.commit()
+            return True, "Cliente adicionado com sucesso!"
+        except Exception as e:
+            db.session.rollback()
+            return False, f"Ocorreu um erro: {e}"
+
+#classe de vendas, extends Cliente
+class Venda(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cliente = db.Column(db.Integer, db.ForeignKey('cliente.id'), nullable=False)
+    data = db.Column(db.DateTime, nullable=False)
+    valor = db.Column(db.Float, nullable=False)
+
+    def __repr__(self):
+        return f'Venda({self.cliente}, {self.data}, {self.valor})'
+    
 
 class Produto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     preco = db.Column(db.Float, nullable=False)
     quantidade = db.Column(db.Integer, nullable=False)
     
     def __repr__(self):
-        return f'Produto({self.nome}, {self.descricao}, {self.preco}, {self.quantidade})'
+        return f'Produto({self.name}, {self.descricao}, {self.preco}, {self.quantidade})'
     
 class MasterUser(db.Model):
     id = db.Column(db.Integer, primary_key=True)

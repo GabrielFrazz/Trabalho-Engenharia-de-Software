@@ -29,3 +29,14 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         document.getElementById("errorMessage").textContent = "Usuário ou senha incorretos!";
     }
 });
+
+function toggleMenu() {
+    const dropdown = document.querySelector('.profile-dropdown');
+    const toggleIcon = document.querySelector('.profile-toggle i');
+
+    dropdown.classList.toggle('hidden');
+    dropdown.classList.toggle('visible');
+
+    // Alterna a rotação da seta 180 graus
+    toggleIcon.classList.toggle('rotate');
+}

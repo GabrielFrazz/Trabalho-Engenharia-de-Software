@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Definindo a codificação de caracteres para UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configurando a visualização para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon para a aba do navegador -->
+    <link rel="shortcut icon" href="static/img/exchange-line.ico" type="image/x-icon">
+    <title>StoreSync</title>
+
+    <!-- Incluindo a folha de estilos principal -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- Fontes e ícones usados na página -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Barra lateral fixa -->
+    <div class="sidebar">
+        <div class="top">
+            <!-- Ícone de menu para expandir/recolher a barra lateral -->
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <!-- Menu da barra lateral -->
+        <ul>
+            <li>
+                <a href="register">
+                    <!-- Ícone do item Register -->
+                    <i class='bx bxs-user'></i>
+                    <!-- Texto do item -->
+                    <span class="nav-item">Register</span>
+                </a>
+                <!-- Tooltip ao passar o mouse sobre o item -->
+                <span class="tooltip">Register</span>
+            </li>
+            <li>
+                <a href="sales">
+                    <i class="ri-shopping-cart-line"></i>
+                    <span class="nav-item">Sales</span>
+                </a>
+                <span class="tooltip">Sales</span>
+            </li>
+            <li>
+                <a href="graphics">
+                    <i class="ri-bar-chart-fill"></i>
+                    <span class="nav-item">Graphics</span>
+                </a>
+                <span class="tooltip">Graphics</span>
+            </li>
+            <li>
+                <a href="payment">
+                    <i class="ri-money-dollar-box-line"></i>
+                    <span class="nav-item">Payment</span>
+                </a>
+                <span class="tooltip">Payment</span>
+            </li>
+            <li>
+                <a href="feedback">
+                    <i class="ri-chat-check-fill"></i>
+                    <span class="nav-item">Feedback</span>
+                </a>
+                <span class="tooltip">Feedback</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-cog"></i>
+                    <span class="nav-item">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo principal da página -->
+    <div class="main-content">
+        <header>
+            <!-- Logo do site, que inclui um ícone e um texto -->
+            <a href="/" class="logo">
+                <!-- Ícone da casa (representando o logo) -->
+                <i class="ri-exchange-line"></i>
+                <!-- Texto do logo -->
+                <span>StoreSync</span>
+            </a>
+
+            <!-- Seção de login/registro -->
+            <div class="main">
+                <!-- Link para a página de login, com ícone de usuário -->
+                <a href="login" class="user">
+                    <i class="ri-user-fill"></i>
+                    <span>Sign In</span>
+                </a>
+            </div>
+        </header>
+
+    </div>
+
+    <!-- Script JavaScript principal -->
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!-- templates/add_cliente.html -->
+<form action="{{ url_for('add_cliente') }}" method="POST">
+    <label for="name">name:</label>
+    <input type="text" name="name" id="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+    
+    <label for="cel">cel:</label>
+    <input type="text" name="cel" id="cel" required>
+    
+    <label for="cep">CEP:</label>
+    <input type="text" name="cep" id="cep" required>
+    
+    <label for="logradouro">logradouro:</label>
+    <input type="text" name="logradouro" id="logradouro" required>
+    
+    <label for="numero">Número:</label>
+    <input type="text" name="numero" id="numero" required>
+    
+    <label for="bairro">Bairro:</label>
+    <input type="text" name="bairro" id="bairro" required>
+    
+    <label for="cidade">Cidade:</label>
+    <input type="text" name="cidade" id="cidade" required>
+    
+    <label for="estado">Estado:</label>
+    <input type="text" name="estado" id="estado" required>
+    
+    <button type="submit">Adicionar Cliente</button>
+</form>
