@@ -36,6 +36,7 @@ body {
 header {
     position: fixed;
     width: calc(100% - 80px);
+    height: 70px;
     /* Ajuste para o espaço da sidebar */
     top: 0;
     left: 80px;
@@ -118,6 +119,7 @@ header {
 
 /* Ícone de usuário */
 .user i {
+    top: 0;
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;
@@ -545,6 +547,7 @@ a {
     border-radius: 10px;
     padding: 10px;
     transition: max-height 0.3s ease;
+    max-width: 140px;
 }
 
 .hidden {
@@ -555,8 +558,9 @@ a {
 
 .visible {
     max-height: 200px;
-    /* Ajuste conforme necessário */
+    /* Ajuste conforme necessário e Controla tamanho vertical do dropdown */
     padding: 10px;
+    max-width: 140px;
 }
 
 .profile-dropdown ul {
