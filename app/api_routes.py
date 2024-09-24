@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, app, jsonify, request, send_from_directory
+from flask import Blueprint, jsonify, request, send_from_directory
 from app.models import Cliente
 from app import app, db
 
@@ -8,13 +8,23 @@ api = Blueprint('api', __name__)
 @app.route('/api/clientes', methods=['GET'])
 def get_clientes():
     clientes = Cliente.query.all()
-    clientes_list = [{"id": c.id, "nome": c.nome, "email": c.email, "telefone": c.telefone, "endereco": c.endereco} for c in clientes]
+    clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro, "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
     return jsonify(clientes_list)
 
 @app.route('/api/clientes', methods=['POST'])
 def create_cliente():
     data = request.get_json()
-    novo_cliente = Cliente(nome=data['nome'], email=data['email'], telefone=data['telefone'], endereco=data['endereco'])
+    novo_cliente = Cliente(
+        name=data['name'], 
+        email=data['email'], 
+        cel=data['cel'], 
+        cep=data['cep'], 
+        logradouro=data['logradouro'], 
+        numero=data['numero'], 
+        bairro=data['bairro'], 
+        cidade=data['cidade'], 
+        estado=data['estado']
+    )
     db.session.add(novo_cliente)
     db.session.commit()
     return jsonify({"message": "Cliente adicionado com sucesso!"}), 201
@@ -23,10 +33,15 @@ def create_cliente():
 def update_cliente(id):
     cliente = Cliente.query.get_or_404(id)
     data = request.get_json()
-    cliente.nome = data['nome']
+    cliente.name = data['name']
     cliente.email = data['email']
-    cliente.telefone = data['telefone']
-    cliente.endereco = data['endereco']
+    cliente.cel = data['cel']
+    cliente.cep = data['cep']
+    cliente.logradouro = data['logradouro']
+    cliente.numero = data['numero']
+    cliente.bairro = data['bairro']
+    cliente.cidade = data['cidade']
+    cliente.estado = data['estado']
     db.session.commit()
     return jsonify({"message": "Cliente atualizado com sucesso!"})
 
@@ -35,5 +50,26 @@ def delete_cliente(id):
     cliente = Cliente.query.get_or_404(id)
     db.session.delete(cliente)
     db.session.commit()
+
     return jsonify({"message": "Cliente deletado com sucesso!"})
+
+
+@app.route('/api/clientes/search', methods=['GET'])
+def search_cliente():
+    name = request.args.get('name')
+    clientes = Cliente.query.filter(Cliente.name.ilike(f'%{name}%')).all()
+    clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro, "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
+    return jsonify(clientes_list)
+
+
+# delete all clientes, route /api/clientes/delete_all
+@app.route('/api/clientes/delete_all', methods=['DELETE'])
+def delete_all_clientes():
+    clientes = Cliente.query.all()
+    for c in clientes:
+        db.session.delete(c)
+    db.session.commit()
+    return jsonify({"message": "Todos os clientes foram deletados com sucesso!"})
+
+
 

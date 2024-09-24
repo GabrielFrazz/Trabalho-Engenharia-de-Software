@@ -2,7 +2,6 @@
 
 # Projeto: Gerenciador Geral e Financeiro para Loja de Vendas
 
-
 ## Descrição
 
 Este projeto tem como objetivo desenvolver um software de gerenciamento geral e de financias para a facilitação de genrencia de uma loja. O software permitirá melhor monitoramento das dividas e lucros por meio de uma base, tanto de gerenciamento e agendamento de pagamentos, como também de dados das vendas e dos clientes, e da geração de gráficos expositivos a partir dos dados recolhidos. Além de trazer funcionalidades úteis para a gerencia, como uma maior integração com redes sociais, agendamento de tarefas diarias, controle sobre programas de fidelidade,satisfação do cliente e feedback, dentre outras funções.
@@ -389,6 +388,52 @@ Feedback Page
   - Luan: Full-Stack
   - Gustavo: BackEnd , Bancos de Dados
 
+## Como Rodar o Projeto
+
+### Clone o Repositório
+
+```bash
+git clone https://github.com/GabrielFrazz/Trabalho-Engenharia-de-Software.git
+```
+
+### Criação do Ambiente Virtual
+
+Na pasta do projeto, execute no terminal:
+
+```bash
+python -m venv venv
+.venv\Scripts\activate
+```
+
+Caso tenha problemas com esse passo, rode o seguinte comando no PowerShell (modo administrador) e digite 'A':
+
+```bash
+Set-ExecutionPolicy RemoteSigned
+```
+
+### Instalação das Dependências
+
+Na pasta do projeto, execute:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Criação do Banco de Dados
+
+Rode o arquivo `create_db.py`:
+
+```bash
+python create_db.py
+```
+
+### Executando o Projeto
+
+Na pasta raiz, rode o arquivo `run.py`:
+
+```bash
+python run.py
+  ```
 ## Como Rodar o Projeto
 
 ### Clone o Repositório

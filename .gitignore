@@ -1,5 +1,6 @@
 # Ignorar ambiente virtual
 venv/
 
-# Ignorar banco de dados
-*.db
+# Ignorar arquivos de compilação
+*.pyc
+__pycache__/

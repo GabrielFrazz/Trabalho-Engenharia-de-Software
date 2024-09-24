@@ -4,9 +4,16 @@ from app import app, db
 from app.models import Cliente, Produto
 from app.engine.security import Admin
 
+
+@app.route('/')
+def landingPage():
+    return render_template('landingPage.html')
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -14,14 +21,44 @@ def login():
         admin = Admin()
         username = request.form['username']
         password = request.form['password']
-        
+
         # Verificando a senha com check_password_hash
         if admin.check_username(username) and admin.check_password(password):
             # flash('Login realizado com sucesso!', 'success') # Não é necessario e ja remove a necessidade de desaparecer com o flassh
-            return redirect(url_for('index')) 
+            return render_template('index.html')
         else:
             flash('Usuário ou senha incorretos!', 'error')
     return render_template('login.html')
+
+
+@app.route('/register', methods=['GET'])
+def register():
+    return render_template('register.html')
+
+
+@app.route('/sales', methods=['GET'])
+def sales():
+    return render_template('sales.html')
+
+
+@app.route('/payment', methods=['GET'])
+def payment():
+    return render_template('payment.html')
+
+
+@app.route('/graphics', methods=['GET'])
+def graphics():
+    return render_template('graphics.html')
+
+
+@app.route('/feedback', methods=['GET'])
+def feedback():
+    return render_template('feedback.html')
+
+
+@app.route('/temp1', methods=['GET'])
+def temp1():
+    return render_template('temp1.html')
 
 
 @app.route('/update_credentials', methods=['POST'])
@@ -33,33 +70,34 @@ def update_credentials():
     flash('Credentials updated successfully!')
     return redirect(url_for('index'))
 
-@app.route('/add_cliente', methods=['GET'])
-def add_cliente_form():
-    return render_template('add_cliente.html')
 
-@app.route('/add_cliente', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET'])
+def add_cliente_form():
+    return render_template('register.html')
+
+@app.route('/register', methods=['POST'])
 def add_cliente():
     if request.method == 'POST':
-        nome = request.form['nome']
+        name = request.form['name']
         email = request.form['email']
-        telefone = request.form['telefone']
-        endereco = request.form['endereco']
+        cel = request.form['cel']
+        cep = request.form['cep']
+        logradouro = request.form['logradouro']
+        numero = request.form['numero']
+        bairro = request.form['bairro']
+        cidade = request.form['cidade']
+        estado = request.form['estado']
         
-        # Criando um novo cliente
-        novo_cliente = Cliente(nome=nome, email=email, telefone=telefone, endereco=endereco)
-        try:
-            db.session.add(novo_cliente)
-            db.session.commit()
-            flash('Cliente adicionado com sucesso!', 'success')
+        success, message = Cliente.add_cliente(name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
+        if success:
+            flash(message, 'success')
             return redirect(url_for('index'))
-        except Exception as e:
-            db.session.rollback()
-            flash(f'Ocorreu um erro: {e}', 'danger')
-            return redirect(url_for('add_cliente'))
-    return render_template('add_cliente.html')
+        else:
+            flash(message, 'danger')
+            return redirect(url_for('register'))
+        
 
 
 @app.route('/api/help')
 def api_help():
     return render_template('api_documentation.html')
-
