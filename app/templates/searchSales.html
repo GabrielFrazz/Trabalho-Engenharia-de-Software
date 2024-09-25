@@ -1,0 +1,64 @@
+{% extends 'temp2.html' %}
+
+{% block conteudo %}
+
+<div class="container-extend container-sales">
+    <div class="sales-registration">
+        <h2><i class="ri-store-2-line"></i> Sale Found</h2>
+        <div class="form-container">
+            <!-- <div class="upload-section"> -->
+            <!-- <div class="upload-box"> -->
+            <!-- Imagem que será exibida após o upload -->
+            <!-- <img id="preview-image" src="" alt="Preview Image" style="display: none;"> -->
+            <!-- <label for="file-upload" class="file-label"> -->
+            <!-- <i class="ri-upload-2-fill" id="upload-icon"></i> -->
+            <!-- <span id="upload-text">Upload Image</span> -->
+            <!-- </label> -->
+            <!-- <input type="file" id="file-upload" accept="image/*" /> -->
+            <!-- Botão para remover a imagem -->
+            <!-- <button id="remove-image" class="remove-btn" style="display: none;">Remover Imagem</button> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- <div class="input-section"> -->
+            <!-- Formulário -->
+            <form id="sales-form">
+                <div class="form-group">
+                    <label for="id"><i class="ri-profile-line"></i> Customer ID</label>
+                    <input type="text" id="id" placeholder="Enter ID" value="">
+                </div>
+                <div class="form-group">
+                    <label for="product-name"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
+                    <input type="text" id="product-name" placeholder="Enter Product Name" value="">
+                </div>
+                <div class="form-group">
+                    <label for="amount"><i class="ri-stack-line"></i> Amount</label>
+                    <input type="number" id="amount" placeholder="Enter Amount" value="">
+                </div>
+                <div class="form-group">
+                    <label for="price"><i class="ri-money-dollar-circle-line"></i> Price</label>
+                    <input type="text" id="price" placeholder="Enter Price" value="">
+                </div>
+                <div class="form-group">
+                    <label for="date"><i class="ri-calendar-line"></i> Date</label>
+                    <input type="date" id="date" value="">
+                </div>
+                <div class="button-container-sales">
+                    <div class="save-sales">
+                        <button type="submit"><i class="ri-save-3-line"></i>Save</button>
+                    </div>
+
+                    <div class="edit-sales">
+                        <button type="submit"><i class="ri-pencil-fill"></i>Edit</button>
+                    </div>
+
+                    <div class="delete-sales">
+                        <button type="submit"><i class="ri-close-large-fill"></i>Delete</button>
+                    </div>
+                </div>
+            </form>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

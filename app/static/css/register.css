@@ -263,3 +263,15 @@ button[type="submit"] i {
 .delete button[type="submit"]:hover {
     background-color: crimson;
 }
+
+.text-background h2 {
+    color: var(--main-color);
+}
+
+.text-background h1 {
+    color: var(--main-color);
+}
+
+.text-background h1 i {
+    margin-right: 12px;
+}

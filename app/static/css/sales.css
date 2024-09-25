@@ -178,3 +178,50 @@ button i {
 .form-group i {
     color: var(--main-color);
 }
+
+.button-container-sales {
+    display: flex;
+    gap: 20px;
+}
+
+.save-sales button {
+    background-color: #004BB5;
+    width: 100%;
+    padding: 10px 28px;
+}
+
+.save-sales button:hover {
+    background-color: #0062CC;
+}
+
+.save-sales {
+    margin-right: 54px;
+}
+
+.edit-sales button {
+    background-color: orangered;
+    width: 100%;
+    padding: 10px 30px;
+}
+
+.edit-sales button:hover {
+    background-color: orange;
+}
+
+.delete-sales {
+    margin-right: 10px;
+}
+
+.delete-sales button {
+    background-color: red;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.delete-sales button:hover {
+    background-color: crimson;
+}
+
+.sales-registration h2 i {
+    margin-right: 12px;
+}

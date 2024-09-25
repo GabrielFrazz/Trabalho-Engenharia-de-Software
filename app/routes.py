@@ -76,6 +76,16 @@ def notFoundRegister():
     return render_template('notFoundRegister.html')
 
 
+@app.route('/searchSales', methods=['GET'])
+def searchSales():
+    return render_template('searchSales.html')
+
+
+@app.route('/notFoundSales', methods=['GET'])
+def notFoundSales():
+    return render_template('notFoundSales.html')
+
+
 @app.route('/update_credentials', methods=['POST'])
 def update_credentials():
     admin = Admin()
