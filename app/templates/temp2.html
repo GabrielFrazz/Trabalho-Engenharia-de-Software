@@ -13,6 +13,8 @@
 
     <!-- Incluindo a folha de estilos principal -->
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="../static/css/sales.css">
 
     <!-- Fontes e ícones usados na página -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
@@ -22,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="background-img">
 
     <!-- Barra lateral fixa -->
     <div class="sidebar">
@@ -33,7 +35,7 @@
         <!-- Menu da barra lateral -->
         <ul>
             <li>
-                <a href="register">
+                <a href="temp1">
                     <!-- Ícone do item Register -->
                     <i class='bx bxs-user'></i>
                     <!-- Texto do item -->
@@ -43,7 +45,7 @@
                 <span class="tooltip">Register</span>
             </li>
             <li>
-                <a href="sales">
+                <a class="active" href="temp2">
                     <i class="ri-shopping-cart-line"></i>
                     <span class="nav-item">Sales</span>
                 </a>
@@ -70,28 +72,14 @@
                 </a>
                 <span class="tooltip">Feedback</span>
             </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-                <span class="tooltip">Settings</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-log-out"></i>
-                    <span class="nav-item">Logout</span>
-                </a>
-                <span class="tooltip">Logout</span>
-            </li>
         </ul>
     </div>
 
     <!-- Conteúdo principal da página -->
-    <div class="main-content">
+    <div class="main-content background-img">
         <header>
             <!-- Logo do site, que inclui um ícone e um texto -->
-            <a href="/" class="logo">
+            <a href="/index" class="logo">
                 <!-- Ícone da casa (representando o logo) -->
                 <i class="ri-exchange-line"></i>
                 <!-- Texto do logo -->
@@ -99,14 +87,54 @@
             </a>
 
             <!-- Seção de login/registro -->
-            <div class="main">
-                <!-- Link para a página de login, com ícone de usuário -->
-                <a href="login" class="user">
-                    <i class="ri-user-fill"></i>
-                    <span>Sign In</span>
-                </a>
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="../static/img/user.svg" alt="User Image" class="profile-image">
+                    <div class="profile-info">
+                        <p class="role">Manager</p>
+                        <p class="name">Kemelly Silva</p>
+                    </div>
+                    <div class="profile-toggle" onclick="toggleMenu()">
+                        <i class="ri-more-2-fill"></i> <!-- Seta do Remix Icon -->
+                    </div>
+                </div>
+                <div class="profile-dropdown hidden">
+                    <ul>
+                        <li><i class="ri-user-line"></i>Account</li>
+                        <li><i class="ri-settings-3-line"></i>Settings</li>
+                        <li><i class="ri-logout-box-line"></i>Logout</li>
+                    </ul>
+                </div>
             </div>
         </header>
+
+        <div class="container">
+            <a href="temp2">
+                <h1>SALES MANAGEMENT</h1>
+            </a>
+            <!-- Parte Superior: New Customer, Barra de Busca e Total -->
+            <div class="header">
+                <a href="sales">
+                    <button class="color" id="newCustomer">
+                        <i class="ri-shopping-bag-line"></i> New Sale
+                    </button>
+                </a>
+                <div class="search-area size">
+                    <input type="search" id="searchBar" placeholder="Search for...">
+                    <button class="search-button">
+                        <i class="ri-search-line"></i> Search
+                    </button>
+                </div>
+                <div class="total">
+                    <i class="ri-wallet-line"></i> Total: 380 Sale(s)
+                </div>
+
+            </div>
+        </div>
+
+        {% block conteudo %}
+
+        {% endblock %}
 
     </div>
 

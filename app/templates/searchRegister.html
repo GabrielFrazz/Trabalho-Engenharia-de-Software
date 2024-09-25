@@ -6,7 +6,7 @@
 <div class="container-extend text">
     <!-- Parte Inferior: Formulário de Registro -->
 
-    <h1><i class="ti-user"></i> Customer Registration</h1>
+    <h1><i class="ti-user"></i> Customer Found</h1>
     <form action="#" method="post">
         <!-- Parte Geral -->
         <div class="assistant" id="general">
@@ -18,15 +18,15 @@
                 </div> -->
                 <div>
                     <label for="name"><i class="ri-user-3-fill"></i> Name</label>
-                    <input type="text" id="name" name="name" placeholder="Digite seu name" required>
+                    <input type="text" id="name" name="name" placeholder="Digite seu name" required value="">
                 </div>
                 <div>
                     <label for="email"><i class="ri-mail-fill"></i> Email</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required value="">
                 </div>
                 <div>
                     <label for="cel"><i class="ri-phone-fill"></i> Cel</label>
-                    <input type="tel" id="cel" name="cel" placeholder="Digite seu celular" required>
+                    <input type="tel" id="cel" name="cel" placeholder="Digite seu celular" required value="">
                 </div>
             </div>
         </div>
@@ -36,32 +36,46 @@
             <div class="form-group">
                 <div>
                     <label for="cep"><i class="ri-compass-3-fill"></i> CEP</label>
-                    <input type="text" id="cep" name="cep" placeholder="Digite o CEP" required>
+                    <input type="text" id="cep" name="cep" placeholder="Digite o CEP" required value="">
                 </div>
                 <div>
                     <label for="logradouro"><i class="ri-home-2-fill"></i> Logradouro</label>
-                    <input type="text" id="logradouro" name="logradouro" placeholder="Digite o logradouro" required>
+                    <input type="text" id="logradouro" name="logradouro" placeholder="Digite o logradouro" required
+                        value="">
                 </div>
                 <div>
                     <label for="bairro"><i class="ri-map-pin-2-fill"></i> Bairro</label>
-                    <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" required>
+                    <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" required value="">
                 </div>
                 <div>
                     <label for="numero"><i class="ri-pushpin-2-fill"></i> N°</label>
-                    <input type="text" id="numero" name="numero" placeholder="Digite o número" required>
+                    <input type="text" id="numero" name="numero" placeholder="Digite o número" required value="">
                 </div>
                 <div>
                     <label for="cidade"><i class="ri-road-map-fill"></i> Cidade</label>
-                    <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" required>
+                    <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" required value="">
                 </div>
                 <div>
                     <label for="estado"><i class="ri-earth-line"></i> Estado</label>
-                    <input type="text" id="estado" name="estado" placeholder="Digite o estado" required>
+                    <input type="text" id="estado" name="estado" placeholder="Digite o estado" required value="">
                 </div>
             </div>
         </div>
 
-        <button type="submit"><i class="ri-save-3-line"></i>Save</button>
+
+        <div class="button-container">
+            <div class="save">
+                <button type="submit"><i class="ri-save-3-line"></i>Save</button>
+            </div>
+
+            <div class="edit">
+                <button type="submit"><i class="ri-pencil-fill"></i>Edit</button>
+            </div>
+
+            <div class="delete">
+                <button type="submit"><i class="ri-close-large-fill"></i>Delete</button>
+            </div>
+        </div>
     </form>
 </div>
 

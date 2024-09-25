@@ -34,7 +34,7 @@
         <!-- Menu da barra lateral -->
         <ul>
             <li>
-                <a href="register">
+                <a class="active" href="temp1">
                     <!-- Ícone do item Register -->
                     <i class='bx bxs-user'></i>
                     <!-- Texto do item -->
@@ -44,7 +44,7 @@
                 <span class="tooltip">Register</span>
             </li>
             <li>
-                <a href="sales">
+                <a href="temp2">
                     <i class="ri-shopping-cart-line"></i>
                     <span class="nav-item">Sales</span>
                 </a>
@@ -71,20 +71,6 @@
                 </a>
                 <span class="tooltip">Feedback</span>
             </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-                <span class="tooltip">Settings</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-log-out"></i>
-                    <span class="nav-item">Logout</span>
-                </a>
-                <span class="tooltip">Logout</span>
-            </li>
         </ul>
     </div>
 
@@ -92,7 +78,7 @@
     <div class="main-content background-img">
         <header>
             <!-- Logo do site, que inclui um ícone e um texto -->
-            <a href="/" class="logo">
+            <a href="/index" class="logo">
                 <!-- Ícone da casa (representando o logo) -->
                 <i class="ri-exchange-line"></i>
                 <!-- Texto do logo -->
@@ -100,12 +86,24 @@
             </a>
 
             <!-- Seção de login/registro -->
-            <div class="main">
-                <!-- Link para a página de login, com ícone de usuário -->
-                <a href="login" class="user">
-                    <i class="ri-user-fill"></i>
-                    <span>Sign In</span>
-                </a>
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="../static/img/user.svg" alt="User Image" class="profile-image">
+                    <div class="profile-info">
+                        <p class="role">Manager</p>
+                        <p class="name">Kemelly Silva</p>
+                    </div>
+                    <div class="profile-toggle" onclick="toggleMenu()">
+                        <i class="ri-more-2-fill"></i> <!-- Seta do Remix Icon -->
+                    </div>
+                </div>
+                <div class="profile-dropdown hidden">
+                    <ul>
+                        <li><i class="ri-user-line"></i>Account</li>
+                        <li><i class="ri-settings-3-line"></i>Settings</li>
+                        <li><i class="ri-logout-box-line"></i>Logout</li>
+                    </ul>
+                </div>
             </div>
         </header>
 
@@ -113,9 +111,11 @@
             <h1>Customers</h1>
             <!-- Parte Superior: New Customer, Barra de Busca e Total -->
             <div class="header">
-                <button class="color" id="newCustomer">
-                    <i class="ri-user-add-fill"></i> New Customer
-                </button>
+                <a href="register">
+                    <button class="color" id="newCustomer">
+                        <i class="ri-user-add-fill"></i> New Customer
+                    </button>
+                </a>
                 <div class="search-area size">
                     <input type="search" id="searchBar" placeholder="Search for...">
                     <button class="search-button">

@@ -10,7 +10,7 @@ def landingPage():
     return render_template('landingPage.html')
 
 
-@app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html')
 
@@ -61,6 +61,21 @@ def temp1():
     return render_template('temp1.html')
 
 
+@app.route('/temp2', methods=['GET'])
+def temp2():
+    return render_template('temp2.html')
+
+
+@app.route('/searchRegister', methods=['GET'])
+def searchRegister():
+    return render_template('searchRegister.html')
+
+
+@app.route('/notFoundRegister', methods=['GET'])
+def notFoundRegister():
+    return render_template('notFoundRegister.html')
+
+
 @app.route('/update_credentials', methods=['POST'])
 def update_credentials():
     admin = Admin()
@@ -75,6 +90,7 @@ def update_credentials():
 def add_cliente_form():
     return render_template('register.html')
 
+
 @app.route('/register', methods=['POST'])
 def add_cliente():
     if request.method == 'POST':
@@ -87,15 +103,15 @@ def add_cliente():
         bairro = request.form['bairro']
         cidade = request.form['cidade']
         estado = request.form['estado']
-        
-        success, message = Cliente.add_cliente(name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
+
+        success, message = Cliente.add_cliente(
+            name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
         if success:
             flash(message, 'success')
             return redirect(url_for('index'))
         else:
             flash(message, 'danger')
             return redirect(url_for('register'))
-        
 
 
 @app.route('/api/help')
