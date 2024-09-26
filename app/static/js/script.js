@@ -33,10 +33,79 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 function toggleMenu() {
     const dropdown = document.querySelector('.profile-dropdown');
     const toggleIcon = document.querySelector('.profile-toggle i');
-
-    dropdown.classList.toggle('hidden');
-    dropdown.classList.toggle('visible');
-
-    // Alterna a rotação da seta 180 graus
-    toggleIcon.classList.toggle('rotate');
+    
+    if (dropdown.classList.contains('hidden')) {
+        dropdown.classList.remove('hidden');
+        dropdown.classList.add('visible');
+        toggleIcon.classList.add('rotate');
+    } else {
+        dropdown.classList.remove('visible');
+        dropdown.classList.add('hidden');
+        toggleIcon.classList.remove('rotate');
+    }
 }
+
+// Seleção dos elementos necessários
+const fileInput = document.getElementById('file-upload');
+const previewImage = document.getElementById('preview-image');
+const removeButton = document.getElementById('remove-image');
+const salesForm = document.getElementById('sales-form');
+
+// Função para exibir a imagem após o upload
+fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        // Exibe a imagem assim que o arquivo é carregado
+        reader.onload = function(e) {
+            previewImage.src = e.target.result;
+            previewImage.style.display = 'block'; // Mostra a imagem
+            removeButton.style.display = 'block'; // Mostra o botão de remover
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+// Função para remover a imagem
+removeButton.addEventListener('click', function() {
+    fileInput.value = ''; // Limpa o input de arquivo
+    previewImage.src = ''; // Remove o source da imagem
+    previewImage.style.display = 'none'; // Esconde a imagem
+    removeButton.style.display = 'none'; // Esconde o botão de remover
+});
+
+// Captura o envio do formulário
+salesForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Previne o envio padrão
+
+    // Cria um FormData com os dados do formulário
+    const formData = new FormData(salesForm);
+
+    // Se a imagem foi carregada, adiciona ao FormData
+    if (fileInput.files[0]) {
+        formData.append('image', fileInput.files[0]);
+    }
+
+    // Debug para verificar o conteúdo do FormData
+    for (const pair of formData.entries()) {
+        console.log(pair[0], pair[1]);
+    }
+
+    // Envio dos dados via fetch (verifique o caminho '/submit-form' no backend)
+    fetch('/submit-form', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert('Formulário enviado com sucesso!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ocorreu um erro ao enviar o formulário.');
+    });
+});

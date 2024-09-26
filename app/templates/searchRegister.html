@@ -1,0 +1,173 @@
+{% extends 'temp1.html' %}
+
+{% block conteudo %}
+
+<!-- Parte Endereço -->
+<div class="container-extend text">
+    <!-- Parte Inferior: Formulário de Registro -->
+
+    <h1><i class="ti-user"></i> Customer Found</h1>
+    <form id="customer-form">
+        <!-- Parte Geral -->
+        <div class="assistant" id="general">
+            <h2><i class="ri-bar-chart-box-line"></i> General</h2>
+            <div class="form-group">
+                <input type="hidden" id="id" name="id"> <!-- Campo oculto para ID -->
+                <div>
+                    <label for="name"><i class="ri-user-3-fill"></i> Name</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" disabled required>
+                </div>
+                <div>
+                    <label for="email"><i class="ri-mail-fill"></i> Email</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" disabled required>
+                </div>
+                <div>
+                    <label for="cel"><i class="ri-phone-fill"></i> Cel</label>
+                    <input type="tel" id="cel" name="cel" placeholder="Digite seu celular" disabled required>
+                </div>
+            </div>
+        </div>
+
+        <div class="assistant" id="address">
+            <h2><i class="ri-map-2-fill"></i> Address</h2>
+            <div class="form-group">
+                <div>
+                    <label for="cep"><i class="ri-compass-3-fill"></i> CEP</label>
+                    <input type="text" id="cep" name="cep" placeholder="Digite o CEP" disabled required>
+                </div>
+                <div>
+                    <label for="logradouro"><i class="ri-home-2-fill"></i> Logradouro</label>
+                    <input type="text" id="logradouro" name="logradouro" placeholder="Digite o logradouro" disabled required>
+                </div>
+                <div>
+                    <label for="bairro"><i class="ri-map-pin-2-fill"></i> Bairro</label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" disabled required>
+                </div>
+                <div>
+                    <label for="numero"><i class="ri-pushpin-2-fill"></i> N°</label>
+                    <input type="text" id="numero" name="numero" placeholder="Digite o número" disabled required>
+                </div>
+                <div>
+                    <label for="cidade"><i class="ri-road-map-fill"></i> Cidade</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" disabled required>
+                </div>
+                <div>
+                    <label for="estado"><i class="ri-earth-line"></i> Estado</label>
+                    <input type="text" id="estado" name="estado" placeholder="Digite o estado" disabled required>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <div class="save">
+                <button type="submit" id="saveButton"><i class="ri-save-3-line"></i>Save</button>
+            </div>
+
+            <div class="edit">
+                <button type="submit" id="editButton"><i class="ri-pencil-fill"></i>Edit</button>
+            </div>
+
+            <div class="delete">
+                <button type="submit"><i class="ri-close-large-fill"></i>Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Script para manipular os botões -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // Fazendo a requisição à API para buscar o cliente
+        fetch(`/api/clientes/search?name=${encodeURIComponent(name)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const cliente = data[0];  // Assume que a pesquisa retorne um único cliente
+                    document.getElementById('id').value = cliente.id;
+                    document.getElementById('name').value = cliente.name;
+                    document.getElementById('email').value = cliente.email;
+                    document.getElementById('cel').value = cliente.cel;
+                    document.getElementById('cep').value = cliente.cep;
+                    document.getElementById('logradouro').value = cliente.logradouro;
+                    document.getElementById('bairro').value = cliente.bairro;
+                    document.getElementById('numero').value = cliente.numero;
+                    document.getElementById('cidade').value = cliente.cidade;
+                    document.getElementById('estado').value = cliente.estado;
+                } else {
+                    alert("Cliente não encontrado!");
+                    window.location.href = '/notFoundRegister';
+                }
+            })
+            .catch(error => console.error('Erro ao buscar cliente:', error));
+
+        //deleta cliente ao clicar em "Delete"
+        document.querySelector('.delete button').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            const id = document.getElementById('id').value;
+
+            if (confirm('Tem certeza que deseja excluir este cliente?')) {
+                fetch(`/api/clientes/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Cliente excluído com sucesso!');
+                        window.location.href = '/temp1';  // Redireciona
+                    } else {
+                        alert('Erro ao excluir cliente.');
+                    }
+                })
+                .catch(error => console.error('Erro ao excluir cliente:', error));
+            }
+        });
+
+        // Habilitar os campos de edição ao clicar no botão "Edit"
+        document.getElementById('editButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+            document.querySelectorAll('#customer-form input').forEach(input => input.disabled = false);
+        });
+
+        // Atualizar cliente ao clicar em "Save"
+        document.getElementById('saveButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            // Pega os dados dos campos
+            const id = document.getElementById('id').value;
+            const clienteAtualizado = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                cel: document.getElementById('cel').value,
+                cep: document.getElementById('cep').value,
+                logradouro: document.getElementById('logradouro').value,
+                bairro: document.getElementById('bairro').value,
+                numero: document.getElementById('numero').value,
+                cidade: document.getElementById('cidade').value,
+                estado: document.getElementById('estado').value
+            };
+
+            // Envia os dados atualizados para a API
+            fetch(`/api/clientes/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(clienteAtualizado)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert('Cliente atualizado com sucesso!');
+                    window.location.href = '/temp1';  // Redireciona
+                } else {
+                    alert('Erro ao atualizar cliente.');
+                }
+            })
+            .catch(error => console.error('Erro ao atualizar cliente:', error));
+        });
+    });
+</script>
+
+{% endblock %}

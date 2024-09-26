@@ -71,6 +71,44 @@ def feedback():
 def temp1():
     return render_template('temp1.html')
 
+
+@app.route('/temp2', methods=['GET'])
+@login_required
+def temp2():
+    return render_template('temp2.html')
+
+
+@app.route('/searchRegister')
+@login_required
+def search_register():
+    name = request.args.get('name')
+    cliente = Cliente.query.filter(Cliente.name.ilike(f'%{name}%')).first()
+    if cliente:
+        return render_template('searchRegister.html', cliente=cliente)
+    else:
+        flash('Cliente não encontrado!', 'danger')
+        return redirect(url_for('temp1'))
+
+
+
+@app.route('/notFoundRegister', methods=['GET'])
+@login_required
+def notFoundRegister():
+    return render_template('notFoundRegister.html')
+
+
+@app.route('/searchSales', methods=['GET'])
+@login_required
+def searchSales():
+    return render_template('searchSales.html')
+
+
+@app.route('/notFoundSales', methods=['GET'])
+@login_required
+def notFoundSales():
+    return render_template('notFoundSales.html')
+
+
 @app.route('/update_credentials', methods=['POST'])
 @login_required
 def update_credentials():
@@ -82,10 +120,13 @@ def update_credentials():
     return redirect(url_for('index'))
 
 @app.route('/register', methods=['GET'])
+@login_required
 def add_cliente_form():
     return render_template('register.html')
 
+
 @app.route('/register', methods=['POST'])
+@login_required
 def add_cliente():
     if request.method == 'POST':
         name = request.form['name']
@@ -97,14 +138,16 @@ def add_cliente():
         bairro = request.form['bairro']
         cidade = request.form['cidade']
         estado = request.form['estado']
-        
-        success, message = Cliente.add_cliente(name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
+
+        success, message = Cliente.add_cliente(
+            name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
         if success:
             flash(message, 'success')
             return redirect(url_for('index'))
         else:
             flash(message, 'danger')
             return redirect(url_for('register'))
+
 
 @app.route('/api/help')
 def api_help():

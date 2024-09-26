@@ -71,5 +71,11 @@ def delete_all_clientes():
     db.session.commit()
     return jsonify({"message": "Todos os clientes foram deletados com sucesso!"})
 
+# returns the number of clientes, route /api/clientes/count
+@app.route('/api/clientes/count', methods=['GET'])
+def count_clientes():
+    count = Cliente.query.count()
+    return jsonify({"count": count})
+
 
 
