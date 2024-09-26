@@ -36,7 +36,6 @@ body {
 header {
     position: fixed;
     width: calc(100% - 80px);
-    height: 70px;
     /* Ajuste para o espaço da sidebar */
     top: 0;
     left: 80px;
@@ -81,7 +80,7 @@ header {
     font-size: 1.1rem;
     font-weight: 500;
     padding: 5px 0;
-    margin: 0px 35px;
+    margin: 0px 28px;
     transition: all 0.50s ease;
 }
 
@@ -119,7 +118,6 @@ header {
 
 /* Ícone de usuário */
 .user i {
-    top: 0;
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;
@@ -247,11 +245,6 @@ header {
 /* !!!!!!!!!!!!!!!!!! */
 /* Efeito ao passar o mouse nos links */
 .sidebar ul li a:hover {
-    background-color: var(--text-color);
-    color: var(--main-color);
-}
-
-.active i {
     background-color: var(--text-color);
     color: var(--main-color);
 }
@@ -554,16 +547,6 @@ a {
     background-color: var(--main-color);
     border-radius: 10px;
     padding: 10px;
-<<<<<<< HEAD
-    transition: max-height 0.3s ease;
-    max-width: 140px;
-}
-
-.hidden {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0;
-=======
     transition: max-height 0.3s ease, opacity 0.3s ease;
     position: absolute;
     /* Coloca o dropdown como absoluto */
@@ -577,16 +560,10 @@ a {
     /* Começa oculto */
     visibility: hidden;
     /* Remove visibilidade inicialmente */
->>>>>>> 62d70c8771cf50d289e7d0e61178c02450271a1f
 }
 
 .visible {
     max-height: 200px;
-<<<<<<< HEAD
-    /* Ajuste conforme necessário e Controla tamanho vertical do dropdown */
-    padding: 10px;
-    max-width: 140px;
-=======
     padding: 10px;
     opacity: 1;
     /* Mostra o dropdown ao ativar */
@@ -600,7 +577,6 @@ a {
     /* Esconde o dropdown */
     visibility: hidden;
     /* Remove visibilidade ao esconder */
->>>>>>> 62d70c8771cf50d289e7d0e61178c02450271a1f
 }
 
 .profile-dropdown ul {
