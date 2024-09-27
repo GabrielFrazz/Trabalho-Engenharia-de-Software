@@ -143,7 +143,7 @@ def add_cliente():
             name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
         if success:
             flash(message, 'success')
-            return redirect(url_for('index'))
+            return redirect(url_for('temp1'))
         else:
             flash(message, 'danger')
             return redirect(url_for('register'))

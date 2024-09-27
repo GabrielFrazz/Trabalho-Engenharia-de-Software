@@ -78,8 +78,18 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
+        // Captura o nome do cliente da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const customerName = urlParams.get('name');  // Obtém o nome do cliente dos parâmetros da URL
+
+        if (!customerName) {
+            alert("Nenhum cliente encontrado.");
+            window.location.href = '/notFoundRegister';
+            return;
+        }
+
         // Fazendo a requisição à API para buscar o cliente
-        fetch(`/api/clientes/search?name=${encodeURIComponent(name)}`)
+        fetch(`/api/clientes/search?name=${encodeURIComponent(customerName)}`)
             .then(response => response.json())
             .then(data => {
                 if (data.length > 0) {

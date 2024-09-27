@@ -125,7 +125,7 @@
                     </button>
                 </div>
                 <div class="total">
-                    <i class="ri-group-fill"></i> Total: 380 Client(s)
+                    <i class="ri-group-fill"></i> Total: <span id="totalClients"></span> Client(s)
                 </div>
             </div>
         </div>
@@ -138,8 +138,31 @@
     <!-- Script JavaScript principal -->
     <script src="static/js/script.js"></script>
 
-    <!-- Script para buscar cliente -->
+    <!-- Script para buscar cliente e exibir o número total de clientes -->
     <script>
+        // Função para buscar o número total de clientes
+        function getTotalClients() {
+            fetch('/api/clientes/count')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao obter o número de clientes");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('totalClients').textContent = data.count;
+                })
+                .catch(error => {
+                    console.error('Erro ao obter o número de clientes:', error);
+                });
+        }
+
+        // Chama a função para obter o total de clientes ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            getTotalClients();
+        });
+
+        // Script para buscar cliente ao clicar no botão de busca
         document.getElementById('searchButton').addEventListener('click', function() {
             // Pega o valor digitado na barra de busca
             const searchQuery = document.getElementById('searchBar').value;
@@ -160,7 +183,7 @@
                 })
                 .then(data => {
                     if (data.length > 0) {
-                        // Redireciona para a página de detalhes do cliente
+                        // Redireciona para a página de detalhes do cliente com o nome do cliente como query parameter
                         window.location.href = `/searchRegister?name=${encodeURIComponent(searchQuery)}`;
                     } else {
                         window.location.href = '/notFoundRegister';
@@ -174,4 +197,3 @@
 </body>
 
 </html>
-
