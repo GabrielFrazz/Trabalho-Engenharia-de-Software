@@ -46,11 +46,6 @@ def logout():
 def register():
     return render_template('register.html')
 
-@app.route('/sales', methods=['GET'])
-@login_required
-def sales():
-    return render_template('sales.html')
-
 @app.route('/payment', methods=['GET'])
 @login_required
 def payment():
@@ -147,6 +142,33 @@ def add_cliente():
         else:
             flash(message, 'danger')
             return redirect(url_for('register'))
+        
+@app.route('/sales', methods=['GET'])
+@login_required
+def sales():
+    return render_template('sales.html')
+
+@app.route('/sales', methods=['POST'])
+@login_required
+def add_sale():
+    if request.method == 'POST':
+        unitSold = request.form['unitSold']
+        product = request.form['product']
+        client = request.form['client']
+
+        success, message = Venda.add_sale(
+            unitSold, product, client)
+        if success:
+            flash(message, 'success')
+            return redirect(url_for('index'))
+        else:
+            flash(message, 'danger')
+            return redirect(url_for('sales'))
+        
+@app.route('/sales', methods=['GET'])
+@login_required
+def add_cliente_form():
+    return render_template('sales.html')
 
 
 @app.route('/api/help')
