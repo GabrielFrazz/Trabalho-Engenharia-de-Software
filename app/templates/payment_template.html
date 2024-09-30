@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="../static/css/register.css">
     <link rel="stylesheet" href="../static/css/graphics.css">
+    <link rel="stylesheet" href="../static/css/payment.css">
 
     <!-- Fontes e ícones usados na página -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
@@ -52,14 +53,14 @@
                 <span class="tooltip">Sales</span>
             </li>
             <li>
-                <a class="active" href="graphics">
+                <a href="graphics">
                     <i class="ri-bar-chart-fill"></i>
                     <span class="nav-item">Graphics</span>
                 </a>
                 <span class="tooltip">Graphics</span>
             </li>
             <li>
-                <a href="payment">
+                <a class="active" href="payment">
                     <i class="ri-money-dollar-box-line"></i>
                     <span class="nav-item">Payment</span>
                 </a>
@@ -108,21 +109,29 @@
             </div>
         </header>
 
-        <div class="feedback-bar">
-            <button class="feedback-button"><i class="ri-bar-chart-fill"></i>Graphics</button>
 
-            <div class="date-range">
-                <div class="date-wrapper">
-                    <label for="start-date" class="date-label">Start</label>
-                    <input type="date" id="start-date" class="date-input">
+        <div class="menu ">
+            <div class="menu-box highlighted">
+                <span class="menu-text">Cash Flow Forecasting</span>
+            </div>
+            <div class="margin_auto">
+                <div class="menu-item active">
+                    <i class="ri-file-list-3-line icon"></i>
+                    <span class="menu-text">Finance</span>
                 </div>
-                <div class="date-wrapper">
-                    <label for="end-date" class="date-label">End</label>
-                    <input type="date" id="end-date" class="date-input">
+                <div class="menu-item">
+                    <i class="ri-bank-card-line icon"></i>
+                    <span class="menu-text">Payments</span>
+                </div>
+                <div class="menu-item">
+                    <i class="ri-calendar-line icon"></i>
+                    <span class="menu-text">Calendar</span>
+                </div>
+                <div class="menu-item notification">
+                    <i class="ri-notification-3-line icon"></i>
+                    <span class="menu-text">Notification</span>
                 </div>
             </div>
-
-            <button class="filter-button"><i class="ri-filter-line"></i> FILTER</button>
         </div>
     </div>
 

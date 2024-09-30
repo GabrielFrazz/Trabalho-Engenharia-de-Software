@@ -1,0 +1,109 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    /* Distribui espaço entre os itens */
+    align-items: center;
+    background-color: rgba(57, 62, 70, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    width: 90%;
+    /* Ocupa 90% da tela */
+    max-width: 1000px;
+    /* Limita o tamanho máximo da barra */
+    margin: 80px auto;
+    /* Centraliza horizontalmente */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 9px 20px;
+    margin-right: 10px;
+    background-color: rgba(57, 62, 70, 0.5);
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.menu-box {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #444;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 20px;
+}
+
+
+.menu-item span {
+    font-size: 16px;
+
+}
+
+.menu-item:hover {
+    background-color: #ffdd57;
+    color: #fff;
+}
+
+.highlighted {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #FFD369;
+    color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.menu-text {
+    font-size: 16px;
+}
+
+.notification {
+    position: relative;
+}
+
+.notification-badge {
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+
+.margin_auto {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    /* Faz com que a div ocupe o espaço restante e fique centralizada */
+}
+
+.active {
+    background-color: #fff;
+    color: #ffdd57;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.active:hover {
+    background-color: #fff;
+    color: #ffdd57;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
