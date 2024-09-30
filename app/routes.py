@@ -81,15 +81,13 @@ def temp2():
 @app.route('/searchRegister')
 @login_required
 def search_register():
-    name = request.args.get('name')
-    cliente = Cliente.query.filter(Cliente.name.ilike(f'%{name}%')).first()
+    id = request.args.get('id')
+    cliente = Cliente.query.filter(Cliente.id.ilike(f'%{id}%')).first()
     if cliente:
         return render_template('searchRegister.html', cliente=cliente)
     else:
         flash('Cliente não encontrado!', 'danger')
         return redirect(url_for('temp1'))
-
-
 
 @app.route('/notFoundRegister', methods=['GET'])
 @login_required
