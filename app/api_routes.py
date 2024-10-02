@@ -61,6 +61,14 @@ def search_cliente():
     clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro, "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
     return jsonify(clientes_list)
 
+#search by id
+@app.route('/api/clientes/search_id', methods=['GET'])
+def search_cliente_id():
+    id = request.args.get('id')
+    clientes = Cliente.query.filter(Cliente.id.ilike(f'%{id}%')).all()
+    clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro, "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
+    return jsonify(clientes_list)
+
 
 # delete all clientes, route /api/clientes/delete_all
 @app.route('/api/clientes/delete_all', methods=['DELETE'])
