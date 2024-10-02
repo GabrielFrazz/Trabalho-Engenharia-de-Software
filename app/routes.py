@@ -160,6 +160,7 @@ def add_cliente():
         if success:
             flash(message, 'success')
             return redirect(url_for('temp1'))
+            return redirect(url_for('temp1'))
         else:
             flash(message, 'danger')
             return redirect(url_for('register'))
