@@ -33,7 +33,7 @@ def login():
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
-            flash('Usuário ou senha incorretos!', 'error')
+            flash('Usuário ou senha incorretos!', category=['error'])
     return render_template('login.html')
 
 @app.route('/logout')
@@ -86,7 +86,7 @@ def search_register():
     if cliente:
         return render_template('searchRegister.html', cliente=cliente)
     else:
-        flash('Cliente não encontrado!', 'danger')
+        flash('Cliente não encontrado!', category=['danger'])
         return redirect(url_for('temp1'))
 
 
@@ -116,7 +116,7 @@ def update_credentials():
     new_username = request.form['username']
     new_password = request.form['password']
     admin.update_credentials(new_username, new_password)
-    flash('Credentials updated successfully!')
+    flash('Credentials updated successfully!', category=["success"])
     return redirect(url_for('index'))
 
 @app.route('/register', methods=['GET'])
@@ -142,10 +142,10 @@ def add_cliente():
         success, message = Cliente.add_cliente(
             name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
         if success:
-            flash(message, 'success')
+            flash(message, category=['success'])
             return redirect(url_for('index'))
         else:
-            flash(message, 'danger')
+            flash(message, category=['danger'])
             return redirect(url_for('register'))
 
 
