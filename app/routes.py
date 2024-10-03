@@ -98,8 +98,8 @@ def payment_template():
 @app.route('/searchRegister')
 @login_required
 def search_register():
-    name = request.args.get('name')
-    cliente = Cliente.query.filter(Cliente.name.ilike(f'%{name}%')).first()
+    id = request.args.get('id')
+    cliente = Cliente.query.filter(Cliente.id.ilike(f'%{id}%')).first()
     if cliente:
         return render_template('searchRegister.html', cliente=cliente)
     else:
@@ -123,6 +123,30 @@ def searchSales():
 @login_required
 def notFoundSales():
     return render_template('notFoundSales.html')
+
+
+@app.route('/stock_template', methods=['GET'])
+@login_required
+def stock_template():
+    return render_template('stock_template.html')
+
+
+@app.route('/stock_register', methods=['GET'])
+@login_required
+def stock_register():
+    return render_template('stock_register.html')
+
+
+@app.route('/stock_search', methods=['GET'])
+@login_required
+def stock_search():
+    return render_template('stock_search.html')
+
+
+@app.route('/stock_not_found', methods=['GET'])
+@login_required
+def stock_not_found():
+    return render_template('stock_not_found.html')
 
 
 @app.route('/update_credentials', methods=['POST'])
@@ -160,7 +184,7 @@ def add_cliente():
             name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
         if success:
             flash(message, 'success')
-            return redirect(url_for('index'))
+            return redirect(url_for('temp1'))
         else:
             flash(message, 'danger')
             return redirect(url_for('register'))

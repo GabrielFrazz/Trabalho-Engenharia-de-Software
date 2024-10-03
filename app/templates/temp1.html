@@ -28,48 +28,45 @@
     <!-- Barra lateral fixa -->
     <div class="sidebar">
         <div class="top">
-            <!-- Ícone de menu para expandir/recolher a barra lateral -->
             <i class="bx bx-menu" id="btn"></i>
         </div>
-        <!-- Menu da barra lateral -->
         <ul>
             <li>
                 <a class="active" href="temp1">
-                    <!-- Ícone do item Register -->
                     <i class='bx bxs-user'></i>
-                    <!-- Texto do item -->
                     <span class="nav-item">Register</span>
                 </a>
-                <!-- Tooltip ao passar o mouse sobre o item -->
-                <span class="tooltip">Register</span>
+            </li>
+            <li>
+                <a href="stock_template">
+                    <i class="ri-stack-fill"></i>
+                    <span class="nav-item">Stock</span>
+                </a>
+                <span class="tooltip">Stock</span>
             </li>
             <li>
                 <a href="temp2">
                     <i class="ri-shopping-cart-line"></i>
                     <span class="nav-item">Sales</span>
                 </a>
-                <span class="tooltip">Sales</span>
             </li>
             <li>
                 <a href="graphics">
                     <i class="ri-bar-chart-fill"></i>
                     <span class="nav-item">Graphics</span>
                 </a>
-                <span class="tooltip">Graphics</span>
             </li>
             <li>
                 <a href="payment">
                     <i class="ri-money-dollar-box-line"></i>
                     <span class="nav-item">Payment</span>
                 </a>
-                <span class="tooltip">Payment</span>
             </li>
             <li>
                 <a href="feedback">
                     <i class="ri-chat-check-fill"></i>
                     <span class="nav-item">Feedback</span>
                 </a>
-                <span class="tooltip">Feedback</span>
             </li>
         </ul>
     </div>
@@ -77,11 +74,8 @@
     <!-- Conteúdo principal da página -->
     <div class="main-content background-img">
         <header>
-            <!-- Logo do site, que inclui um ícone e um texto -->
             <a href="/index" class="logo">
-                <!-- Ícone da casa (representando o logo) -->
                 <i class="ri-exchange-line"></i>
-                <!-- Texto do logo -->
                 <span>StoreSync</span>
             </a>
 
@@ -120,14 +114,21 @@
                 </a>
                 <div class="search-area size">
                     <input type="search" id="searchBar" placeholder="Search for...">
-                    <button class="search-button" id="searchButton">
+                    <button class="search-button">
                         <i class="ri-search-line"></i> Search
                     </button>
                 </div>
                 <div class="total">
-                    <i class="ri-group-fill"></i> Total: 380 Client(s)
+                    <i class="ri-group-fill"></i> Total: <span id="totalClients"></span> Client(s)
                 </div>
             </div>
+
+        </div>
+        <!-- Lista de clientes -->
+
+        <div id="clientListContainer" class="client-list-container">
+            <!-- Lista será preenchida dinamicamente -->
+            <ul id="clientList"></ul>
         </div>
 
         {% block conteudo %}
@@ -138,40 +139,148 @@
     <!-- Script JavaScript principal -->
     <script src="static/js/script.js"></script>
 
-    <!-- Script para buscar cliente -->
+    <!-- Script para buscar clientes e exibir o número total de clientes -->
     <script>
-        document.getElementById('searchButton').addEventListener('click', function() {
-            // Pega o valor digitado na barra de busca
-            const searchQuery = document.getElementById('searchBar').value;
+        let allClients = [];
 
-            // Verifica se o campo de busca não está vazio
-            if (!searchQuery.trim()) {
-                alert('Digite um nome para buscar.');
-                return;
-            }
-
-            // Faz a requisição para a API com o nome buscado
-            fetch(`/api/clientes/search?name=${encodeURIComponent(searchQuery)}`)
+        // Função para buscar o número total de clientes
+        function getTotalClients() {
+            fetch('/api/clientes/count')
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Erro na busca de clientes");
+                        throw new Error("Erro ao obter o número de clientes");
                     }
                     return response.json();
                 })
                 .then(data => {
-                    if (data.length > 0) {
-                        // Redireciona para a página de detalhes do cliente
-                        window.location.href = `/searchRegister?name=${encodeURIComponent(searchQuery)}`;
-                    } else {
-                        window.location.href = '/notFoundRegister';
-                    }
+                    document.getElementById('totalClients').textContent = data.count;
                 })
                 .catch(error => {
-                    console.error('Erro ao buscar cliente:', error);
+                    console.error('Erro ao obter o número de clientes:', error);
                 });
+        }
+
+        // Função para buscar a lista de clientes
+        function getClientList() {
+            fetch('/api/clientes')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao obter a lista de clientes");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    allClients = data;  // Salva todos os clientes para usar no filtro
+                    renderClientList(data);  // Exibe a lista completa inicialmente
+                })
+                .catch(error => {
+                    console.error('Erro ao obter a lista de clientes:', error);
+                });
+        }
+
+        // Função para renderizar a lista de clientes com base nos dados fornecidos
+        function renderClientList(clients) {
+            const clientList = document.getElementById('clientList');
+            clientList.innerHTML = '';  // Limpa o conteúdo anterior
+
+            clients.forEach(cliente => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('client-item');
+
+                listItem.innerHTML = `
+                    <div class="client-item-content">
+                        <p><strong>${cliente.name}</strong></p>
+                        <p>Email: ${cliente.email}</p>
+                        <p>Phone: ${cliente.cel}</p>
+                    </div>
+                `;
+
+                // Torna o item clicável para abrir detalhes do cliente
+                listItem.addEventListener('click', () => {
+                    window.location.href = `/searchRegister?id=${encodeURIComponent(cliente.id)}`;
+                });
+
+                clientList.appendChild(listItem);
+            });
+        }
+
+        // Função para verificar se a página está na tela de pesquisa de cliente
+        function checkForSearchRegister() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const customerID = urlParams.get('id');
+
+            if (customerID) {
+                // Oculta a lista de clientes e outros elementos quando em `searchRegister`
+                document.getElementById('clientListContainer').style.display = 'none';
+            } else {
+                // Exibe os elementos normais
+                document.getElementById('clientListContainer').style.display = 'block';
+            }
+
+        }
+
+        // Função para ocultar a lista de clientes na página de registro
+        function hideListOnRegisterPage() {
+            const currentUrl = window.location.pathname;
+            if (currentUrl === '/register') {
+                // Oculta a lista de clientes e outros elementos quando estiver na página de registro
+                document.getElementById('clientListContainer').style.display = 'none';
+            }
+        }
+
+        // Chama as funções para obter o total de clientes e a lista de clientes ao carregar a página
+        document.addEventListener('DOMContentLoaded', function () {
+            getTotalClients();
+            getClientList();
+            checkForSearchRegister();
+            hideListOnRegisterPage();
         });
+
+        // Função para filtrar a lista de clientes com base no input da busca
+        document.getElementById('searchBar').addEventListener('input', function () {
+            const searchQuery = this.value.toLowerCase();
+            const filteredClients = allClients.filter(cliente =>
+                cliente.name.toLowerCase().includes(searchQuery)
+            );
+            renderClientList(filteredClients);
+        });
+
     </script>
+
+    <!-- Adicionando estilos -->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .client-list-container {
+            margin-top: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .client-item {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .client-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .client-item-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+
 </body>
 
 </html>
-

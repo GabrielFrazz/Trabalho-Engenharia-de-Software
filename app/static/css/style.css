@@ -634,3 +634,32 @@ a {
 .profile-header p {
     margin: -5px;
 }
+
+.client-list-container {
+    margin-top: 100px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.client-item {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.client-item:hover {
+    background-color: #f1f1f1;
+}
+
+.client-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-item-content p {
+    margin: 0;
+}
