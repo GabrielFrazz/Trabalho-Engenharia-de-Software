@@ -151,7 +151,7 @@
     <script>
         let allSales = [];
 
-        // Função para buscar o número total de clientes
+        // Função para buscar o número total de vendas
         function getTotalSales() {
             fetch('/api/sales/count')
                 .then(response => {
@@ -170,7 +170,7 @@
 
         // Função para buscar a lista de vendas
         function getSaleList() {
-            fetch('/api/clientes')
+            fetch('/api/sales')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Erro ao obter a lista de vendas");
@@ -193,19 +193,20 @@
 
             sales.forEach(sale => {
                 const listItem = document.createElement('li');
-                listItem.classList.add('client-item');
+                listItem.classList.add('sale-item');
 
                 listItem.innerHTML = `
-                    <div class="client-item-content">
-                        <p><strong>${sale.name}</strong></p>
-                        <p>Email: ${sale.email}</p>
-                        <p>Phone: ${sale.cel}</p>
+                    <div class="sale-item-content">
+                        <p><strong>${sale.cliente}</strong></p>
+                        <p>Produto: ${sale.produto}</p>
+                        <p>Amount: ${sale.amount}</p>
+                        <p>Price: ${sale.price}</p>
                     </div>
                 `;
 
                 // Torna o item clicável para abrir detalhes da venda
                 listItem.addEventListener('click', () => {
-                    window.location.href = `/searchRegister?id=${encodeURIComponent(sale.id)}`;
+                    window.location.href = `/searchSales?id=${encodeURIComponent(sale.id)}`;
                 });
 
                 saleList.appendChild(listItem);
@@ -213,12 +214,12 @@
         }
 
         // Função para verificar se a página está na tela de pesquisa de vendas
-        function checkForSearchRegister() {
+        function checkForSearchSales() {
             const urlParams = new URLSearchParams(window.location.search);
             const customerID = urlParams.get('id');
 
             if (customerID) {
-                // Oculta a lista de venda e outros elementos quando em `searchRegister`
+                // Oculta a lista de venda e outros elementos quando em `searchSales`
                 document.getElementById('saleListContainer').style.display = 'none';
             } else {
                 // Exibe os elementos normais
@@ -228,9 +229,9 @@
         }
 
         // Função para ocultar a lista de vendas na página de registro
-        function hideListOnRegisterPage() {
+        function hideListOnSalesPage() {
             const currentUrl = window.location.pathname;
-            if (currentUrl === '/register') {
+            if (currentUrl === '/sales') {
                 // Oculta a lista de vendas e outros elementos quando estiver na página de registro
                 document.getElementById('saleListContainer').style.display = 'none';
             }
@@ -240,8 +241,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             getTotalSales();
             getSaleList();
-            checkForSearchRegister();
-            hideListOnRegisterPage();
+            checkForSearchSales();
+            hideListOnSalesPage();
         });
 
         // Função para filtrar a lista de vendas com base no input da busca
@@ -263,13 +264,13 @@
             align-items: center;
         }
 
-        .client-list-container {
+        .sale-list-container {
             margin-top: 20px;
             max-width: 1000px;
             margin: 0 auto;
         }
 
-        .client-item {
+        .sale-item {
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 10px;
@@ -278,11 +279,11 @@
             transition: background-color 0.3s;
         }
 
-        .client-item:hover {
+        .sale-item:hover {
             background-color: #f1f1f1;
         }
 
-        .client-item-content {
+        .sale-item-content {
             display: flex;
             justify-content: space-between;
             align-items: center;

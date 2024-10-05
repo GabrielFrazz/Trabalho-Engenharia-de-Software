@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, flash, session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app, db
-from app.models import Cliente, Produto
+from app.models import Cliente, Produto, Sale
 from app.engine.security import Admin
 
 
@@ -116,7 +116,13 @@ def notFoundRegister():
 @app.route('/searchSales', methods=['GET'])
 @login_required
 def searchSales():
-    return render_template('searchSales.html')
+    id = request.args.get('id')
+    sale = Sale.query.filter(Sale.id.ilike(f'%{id}%')).first()
+    if sale:
+        return render_template('searchSales.html', sale=sale)
+    else:
+        flash('Venda não encontrada!', category=['danger'])
+        return redirect(url_for('temp2'))
 
 
 @app.route('/notFoundSales', methods=['GET'])
@@ -189,6 +195,26 @@ def add_cliente():
         else:
             flash(message, category=['danger'])
             return redirect(url_for('register'))
+        
+@app.route('/sales', methods=['POST'])
+@login_required
+def add_venda():
+    if request.method == 'POST':
+        cliente = request.form['cliente']
+        produto = request.form['produto']
+        amount = request.form['amount']
+        price = request.form['price']
+        date = request.form['date']
+
+        success, message = Sale.add_venda(
+            cliente, produto, amount, price, date)
+        if success:
+            flash(message, category=['success'])
+            return redirect(url_for('temp2'))
+            
+        else:
+            flash(message, category=['danger'])
+            return redirect(url_for('sales'))
 
 
 @app.route('/api/help')
