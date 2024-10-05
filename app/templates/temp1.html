@@ -38,6 +38,13 @@
                 </a>
             </li>
             <li>
+                <a href="stock_template">
+                    <i class="ri-stack-fill"></i>
+                    <span class="nav-item">Stock</span>
+                </a>
+                <span class="tooltip">Stock</span>
+            </li>
+            <li>
                 <a href="temp2">
                     <i class="ri-shopping-cart-line"></i>
                     <span class="nav-item">Sales</span>
@@ -71,6 +78,27 @@
                 <i class="ri-exchange-line"></i>
                 <span>StoreSync</span>
             </a>
+
+            <!-- Seção de login/registro -->
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="../static/img/user.svg" alt="User Image" class="profile-image">
+                    <div class="profile-info">
+                        <p class="role">Manager</p>
+                        <p class="name">Kemelly Silva</p>
+                    </div>
+                    <div class="profile-toggle" onclick="toggleMenu()">
+                        <i class="ri-more-2-fill"></i> <!-- Seta do Remix Icon -->
+                    </div>
+                </div>
+                <div class="profile-dropdown hidden">
+                    <ul>
+                        <li><i class="ri-user-line"></i>Account</li>
+                        <li><i class="ri-settings-3-line"></i>Settings</li>
+                        <li><i class="ri-logout-box-line"></i><a href="logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
 
         <div class="container">
@@ -97,6 +125,7 @@
 
         </div>
         <!-- Lista de clientes -->
+
         <div id="clientListContainer" class="client-list-container">
             <!-- Lista será preenchida dinamicamente -->
             <ul id="clientList"></ul>
@@ -203,7 +232,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             getTotalClients();
             getClientList();
-            checkForSearchRegister();  
+            checkForSearchRegister();
             hideListOnRegisterPage();
         });
 
