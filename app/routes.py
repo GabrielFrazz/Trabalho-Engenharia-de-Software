@@ -206,12 +206,13 @@ def add_venda():
         price = request.form['price']
         date = request.form['date']
 
-        success, message = Sale.add_venda(
-            cliente, produto, amount, price, date)
+        #debug flash
+        flash(f'Cliente: {cliente}, Produto: {produto}, Quantidade: {amount}, Preço: {price}, Data: {date}', category=['info'])
+        # Assuming Sale.add_venda is a class method that handles adding a sale
+        success, message = Sale.add_venda(cliente, produto, amount, price, date)
         if success:
             flash(message, category=['success'])
             return redirect(url_for('temp2'))
-            
         else:
             flash(message, category=['danger'])
             return redirect(url_for('sales'))

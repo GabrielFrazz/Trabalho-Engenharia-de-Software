@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, jsonify, request, send_from_directory
-from app.models import Cliente
+from app.models import Cliente, Produto
 from app.models import Sale
 from app import app, db
 
@@ -178,4 +178,21 @@ def delete_all_sales():
 def count_sales():
     count = Sale.query.count()
     return jsonify({"count": count})
+
+
+# STOCK # ##########################################################################################################
+
+@app.route('/api/produtos', methods=['POST'])
+def create_produto():
+    data = request.get_json()
+    novo_produto = Produto(
+        name=data['name'],
+        preco=data['preco'],
+        quantidade=data['quantidade']
+    )
+    db.session.add(novo_produto)
+    db.session.commit()
+    return jsonify({"message": "Produto adicionado com sucesso!"}), 201
+
+
 
