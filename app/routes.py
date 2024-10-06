@@ -106,6 +106,7 @@ def search_register():
         flash('Cliente não encontrado!', 'danger')
         return redirect(url_for('temp1'))
 
+
 @app.route('/notFoundRegister', methods=['GET'])
 @login_required
 def notFoundRegister():
@@ -122,6 +123,30 @@ def searchSales():
 @login_required
 def notFoundSales():
     return render_template('notFoundSales.html')
+
+
+@app.route('/stock_template', methods=['GET'])
+@login_required
+def stock_template():
+    return render_template('stock_template.html')
+
+
+@app.route('/stock_register', methods=['GET'])
+@login_required
+def stock_register():
+    return render_template('stock_register.html')
+
+
+@app.route('/stock_search', methods=['GET'])
+@login_required
+def stock_search():
+    return render_template('stock_search.html')
+
+
+@app.route('/stock_not_found', methods=['GET'])
+@login_required
+def stock_not_found():
+    return render_template('stock_not_found.html')
 
 
 @app.route('/update_credentials', methods=['POST'])
@@ -159,7 +184,6 @@ def add_cliente():
             name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
         if success:
             flash(message, 'success')
-            return redirect(url_for('temp1'))
             return redirect(url_for('temp1'))
         else:
             flash(message, 'danger')

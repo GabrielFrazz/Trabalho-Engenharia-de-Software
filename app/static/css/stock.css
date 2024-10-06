@@ -1,0 +1,234 @@
+.container-sales {
+    background-color: rgba(57, 62, 70, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1000px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Borda branca adicionada */
+}
+
+.sales-registration {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 350px;
+    /* Definido para ocupar toda a altura */
+}
+
+.upload-section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.upload-box {
+    background-color: #fff;
+    color: var(--main-c);
+    border: 2px solid var(--main-color);
+    padding: 70px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-bottom: 0px;
+
+    /* Ocupa toda a altura */
+}
+
+.upload-section span {
+    color: black;
+}
+
+.upload-box i {
+    font-size: 2rem;
+}
+
+.upload-box span {
+    margin-top: 10px;
+}
+
+.file-label {
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.input-section {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 45%;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    /* color: var(--text-color) text-align: left; */
+    /* Alinhado à esquerda */
+}
+
+.form-group input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #000;
+}
+
+.save-btn {
+    margin-right: 10px;
+    background-color: #0062CC;
+    color: #fff;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: center;
+}
+
+
+.save-btn:hover {
+    background-color: #004BB5;
+}
+
+#preview-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.remove-btn {
+    background-color: #FF5C5C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-btn:hover {
+    background-color: #FF3B3B;
+}
+
+.sales-registration i {
+    font-size: 36px;
+    margin-right: 16px;
+}
+
+.form-container i {
+    font-size: 16px;
+    margin-right: 8px;
+    color: var(--text-color);
+}
+
+.upload-section i {
+    color: var(--text-color);
+    margin-right: 1px;
+}
+
+.upload-box i {
+    margin-bottom: -5px;
+    font-size: 24px;
+    color: #000;
+    margin-right: 12px;
+}
+
+button i {
+    color: var(--text-color);
+}
+
+.form-group i {
+    color: var(--main-color);
+}
+
+.button-container-sales {
+    display: flex;
+    gap: 20px;
+}
+
+.save-sales button {
+    margin-left: 10px;
+    background-color: #004BB5;
+    width: 100%;
+    padding: 10px 50px;
+}
+
+.save-sales button:hover {
+    background-color: #0062CC;
+}
+
+.save-sales {
+    margin-right: 415px;
+}
+
+.button_style button {
+    margin-left: 10px;
+    margin-top: 50px;
+    width: 100%;
+    padding: 10px 50px;
+}
+
+.edit-sales button {
+    background-color: orangered;
+    width: 100%;
+    padding: 10px 55px;
+}
+
+.edit-sales button:hover {
+    background-color: orange;
+}
+
+.delete-sales {
+    margin-right: 10px;
+}
+
+.delete-sales button {
+    background-color: red;
+    width: 100%;
+    padding: 10px 45px;
+}
+
+.delete-sales button:hover {
+    background-color: crimson;
+}
+
+.sales-registration h2 i {
+    margin-right: 12px;
+}

@@ -28,7 +28,6 @@
     transition: background-color 0.3s;
 }
 
-
 .menu-box {
     display: flex;
     align-items: center;
@@ -42,6 +41,10 @@
     margin-right: 20px;
 }
 
+.menu-box i {
+    margin-right: 8px;
+}
+
 
 .menu-item span {
     font-size: 16px;
@@ -49,7 +52,7 @@
 }
 
 .menu-item:hover {
-    background-color: #ffdd57;
+    background-color: #FFD369;
     color: #fff;
 }
 
@@ -106,4 +109,104 @@
     color: #ffdd57;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ------------------------------------------------------------------------ */
+
+.container-payment {
+    width: 90%;
+    margin: 50px auto;
+}
+
+.header {
+    text-align: left;
+}
+
+h1 {
+    font-size: 24px;
+    color: #eceff4;
+    display: inline-block;
+}
+
+.highlight {
+    color: #ffd700;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #eceff4;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    background-color: #3b4252;
+    border-radius: 10px;
+    /* padding: 20px; */
+}
+
+.options-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #d8a657;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.options-header .icon-gear {
+    margin-right: 10px;
+    background: url('path-to-your-gear-icon.png') no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+.form-container {
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+}
+
+.input-field {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+
+.date-picker {
+    background-color: #4c566a;
+    color: #eceff4;
+}
+
+.filter-btn {
+    margin-left: 740px;
+    background-color: #32cd32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.export-btn {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn:hover,
+.export-btn:hover {
+    opacity: 0.8;
 }
