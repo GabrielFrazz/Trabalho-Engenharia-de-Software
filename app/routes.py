@@ -200,11 +200,11 @@ def add_cliente():
 @login_required
 def add_venda():
     if request.method == 'POST':
-        cliente = request.form['cliente']
-        produto = request.form['produto']
         amount = request.form['amount']
         price = request.form['price']
         date = request.form['date']
+        cliente = request.form['cliente']
+        produto = request.form['produto']
 
         success, message = Sale.add_venda(
             cliente, produto, amount, price, date)
@@ -214,7 +214,7 @@ def add_venda():
             
         else:
             flash(message, category=['danger'])
-            return redirect(url_for('sales'))
+            return redirect(url_for('register'))
 
 
 @app.route('/api/help')

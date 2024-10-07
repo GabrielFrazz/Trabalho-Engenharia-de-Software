@@ -49,8 +49,8 @@ class Produto(db.Model):
 #classe de vendas, extends Cliente
 class Sale(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cliente = db.Column(db.Integer, db.ForeignKey('cliente.id'), nullable=False)
-    produto = db.Column(db.Integer, db.ForeignKey('produto.id'), nullable=False)
+    cliente = db.Column(db.Integer, nullable=False)
+    produto = db.Column(db.Integer, nullable=False)
     amount = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
     date = db.Column(db.DateTime, nullable=False)
@@ -65,7 +65,7 @@ class Sale(db.Model):
             produto=produto,
             amount=amount, 
             price=price, 
-            date=date, 
+            date=date 
         )
         try:
             db.session.add(nova_venda)
