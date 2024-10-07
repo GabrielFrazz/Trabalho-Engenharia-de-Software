@@ -2,8 +2,9 @@ from flask import render_template, redirect, url_for, request, flash, session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app, db
-from app.models import Cliente, Produto
+from app.models import Cliente, Produto, Sale
 from app.engine.security import Admin
+
 
 def login_required(f):
     @wraps(f)
@@ -13,14 +14,17 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+
 @app.route('/')
 def landingPage():
     return render_template('landingPage.html')
+
 
 @app.route('/index')
 @login_required
 def index():
     return render_template('index.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -33,33 +37,45 @@ def login():
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
-            flash('Usuário ou senha incorretos!', 'error')
+            flash('Usuário ou senha incorretos!', category=['error'])
     return render_template('login.html')
+
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('landingPage'))
 
+
 @app.route('/register', methods=['GET'])
 @login_required
 def register():
     return render_template('register.html')
+
+
+@app.route('/sales', methods=['GET'])
+@login_required
+def sales():
+    return render_template('sales.html')
+
 
 @app.route('/payment', methods=['GET'])
 @login_required
 def payment():
     return render_template('payment.html')
 
+
 @app.route('/graphics', methods=['GET'])
 @login_required
 def graphics():
     return render_template('graphics.html')
 
+
 @app.route('/feedback', methods=['GET'])
 @login_required
 def feedback():
     return render_template('feedback.html')
+
 
 @app.route('/temp1', methods=['GET'])
 @login_required
@@ -73,17 +89,22 @@ def temp2():
     return render_template('temp2.html')
 
 
+@app.route('/payment_template', methods=['GET'])
+@login_required
+def payment_template():
+    return render_template('payment_template.html')
+
+
 @app.route('/searchRegister')
 @login_required
 def search_register():
-    name = request.args.get('name')
-    cliente = Cliente.query.filter(Cliente.name.ilike(f'%{name}%')).first()
+    id = request.args.get('id')
+    cliente = Cliente.query.filter(Cliente.id.ilike(f'%{id}%')).first()
     if cliente:
         return render_template('searchRegister.html', cliente=cliente)
     else:
-        flash('Cliente não encontrado!', 'danger')
+        flash('Cliente não encontrado!', category=['danger'])
         return redirect(url_for('temp1'))
-
 
 
 @app.route('/notFoundRegister', methods=['GET'])
@@ -95,13 +116,43 @@ def notFoundRegister():
 @app.route('/searchSales', methods=['GET'])
 @login_required
 def searchSales():
-    return render_template('searchSales.html')
+    id = request.args.get('id')
+    sale = Sale.query.filter(Sale.id.ilike(f'%{id}%')).first()
+    if sale:
+        return render_template('searchSales.html', sale=sale)
+    else:
+        flash('Venda não encontrada!', category=['danger'])
+        return redirect(url_for('temp2'))
 
 
 @app.route('/notFoundSales', methods=['GET'])
 @login_required
 def notFoundSales():
     return render_template('notFoundSales.html')
+
+
+@app.route('/stock_template', methods=['GET'])
+@login_required
+def stock_template():
+    return render_template('stock_template.html')
+
+
+@app.route('/stock_register', methods=['GET'])
+@login_required
+def stock_register():
+    return render_template('stock_register.html')
+
+
+@app.route('/stock_search', methods=['GET'])
+@login_required
+def stock_search():
+    return render_template('stock_search.html')
+
+
+@app.route('/stock_not_found', methods=['GET'])
+@login_required
+def stock_not_found():
+    return render_template('stock_not_found.html')
 
 
 @app.route('/update_credentials', methods=['POST'])
@@ -111,8 +162,9 @@ def update_credentials():
     new_username = request.form['username']
     new_password = request.form['password']
     admin.update_credentials(new_username, new_password)
-    flash('Credentials updated successfully!')
+    flash('Credentials updated successfully!', category=["successsup"])
     return redirect(url_for('index'))
+
 
 @app.route('/register', methods=['GET'])
 @login_required
@@ -137,38 +189,32 @@ def add_cliente():
         success, message = Cliente.add_cliente(
             name, email, cel, cep, logradouro, numero, bairro, cidade, estado)
         if success:
-            flash(message, 'success')
-            return redirect(url_for('index'))
+            flash(message, category=['success'])
+            return redirect(url_for('temp1'))
+            
         else:
-            flash(message, 'danger')
+            flash(message, category=['danger'])
             return redirect(url_for('register'))
         
-@app.route('/sales', methods=['GET'])
-@login_required
-def sales():
-    return render_template('sales.html')
-
 @app.route('/sales', methods=['POST'])
 @login_required
-def add_sale():
+def add_venda():
     if request.method == 'POST':
-        unitSold = request.form['unitSold']
-        product = request.form['product']
-        client = request.form['client']
+        cliente = request.form['cliente']
+        produto = request.form['produto']
+        amount = request.form['amount']
+        price = request.form['price']
+        date = request.form['date']
 
-        success, message = Venda.add_sale(
-            unitSold, product, client)
+        success, message = Sale.add_venda(
+            cliente, produto, amount, price, date)
         if success:
-            flash(message, 'success')
-            return redirect(url_for('index'))
+            flash(message, category=['success'])
+            return redirect(url_for('temp2'))
+            
         else:
-            flash(message, 'danger')
+            flash(message, category=['danger'])
             return redirect(url_for('sales'))
-        
-@app.route('/sales', methods=['GET'])
-@login_required
-def add_cliente_form():
-    return render_template('sales.html')
 
 
 @app.route('/api/help')

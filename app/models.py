@@ -50,13 +50,30 @@ class Produto(db.Model):
 class Sale(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cliente = db.Column(db.Integer, db.ForeignKey('cliente.id'), nullable=False)
-    data = db.Column(db.DateTime, nullable=False)
     produto = db.Column(db.Integer, db.ForeignKey('produto.id'), nullable=False)
-    quantidade = db.Column(db.Integer, nullable=False)
-
-
+    amount = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    
     def __repr__(self):
-        return f'Venda({self.cliente}, {self.data}, {self.valor})'
+        return f'Venda({self.cliente}, {self.produto}, {self.amount}, {self.price}, {self.date})'
+    
+    @staticmethod
+    def add_venda(cliente, produto, amount, price, date):
+        nova_venda = Sale(
+            cliente=cliente, 
+            produto=produto,
+            amount=amount, 
+            price=price, 
+            date=date, 
+        )
+        try:
+            db.session.add(nova_venda)
+            db.session.commit()
+            return True, "Venda adicionado com sucesso!"
+        except Exception as e:
+            db.session.rollback()
+            return False, f"Ocorreu um erro: {e}"
 
 class Capital(db.Model):
     id = db.Column(db.Integer, primary_key=True)

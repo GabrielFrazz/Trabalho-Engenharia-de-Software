@@ -1,6 +1,26 @@
-{% extends 'temp3.html' %}
+{% extends 'payment_template.html' %}
 
 {% block conteudo %}
 
+<div class="container">
+    <div class="header">
+        <h1><span class="highlight">Realized Cash Flow</span></h1>
+        <p>Closely monitoring the company's cash flow is the primary responsibility of the business owner.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="options-container">
+        <div class="options-header">
+            <span class="icon-gear"></span> Options
+        </div>
+        <div class="form-container">
+            <input type="date" value="2024-01-01" class="input-field date-picker">
+            <input type="date" value="2024-07-01" class="input-field date-picker">
+            <button class="filter-btn">Filter</button>
+            <button class="export-btn">Export</button>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

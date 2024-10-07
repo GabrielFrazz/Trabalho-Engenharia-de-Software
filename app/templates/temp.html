@@ -13,6 +13,8 @@
 
     <!-- Incluindo a folha de estilos principal -->
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="../static/css/graphics.css">
 
     <!-- Fontes e ícones usados na página -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
@@ -22,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="background-img">
 
     <!-- Barra lateral fixa -->
     <div class="sidebar">
@@ -33,7 +35,7 @@
         <!-- Menu da barra lateral -->
         <ul>
             <li>
-                <a href="register">
+                <a href="temp1">
                     <!-- Ícone do item Register -->
                     <i class='bx bxs-user'></i>
                     <!-- Texto do item -->
@@ -43,14 +45,21 @@
                 <span class="tooltip">Register</span>
             </li>
             <li>
-                <a href="sales">
+                <a href="stock_template">
+                    <i class="ri-stack-fill"></i>
+                    <span class="nav-item">Stock</span>
+                </a>
+                <span class="tooltip">Stock</span>
+            </li>
+            <li>
+                <a href="temp2">
                     <i class="ri-shopping-cart-line"></i>
                     <span class="nav-item">Sales</span>
                 </a>
                 <span class="tooltip">Sales</span>
             </li>
             <li>
-                <a href="graphics">
+                <a class="active" href="graphics">
                     <i class="ri-bar-chart-fill"></i>
                     <span class="nav-item">Graphics</span>
                 </a>
@@ -70,28 +79,14 @@
                 </a>
                 <span class="tooltip">Feedback</span>
             </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-                <span class="tooltip">Settings</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-log-out"></i>
-                    <span class="nav-item">Logout</span>
-                </a>
-                <span class="tooltip">Logout</span>
-            </li>
         </ul>
     </div>
 
     <!-- Conteúdo principal da página -->
-    <div class="main-content">
+    <div class="main-content background-img">
         <header>
             <!-- Logo do site, que inclui um ícone e um texto -->
-            <a href="/" class="logo">
+            <a href="/index" class="logo">
                 <!-- Ícone da casa (representando o logo) -->
                 <i class="ri-exchange-line"></i>
                 <!-- Texto do logo -->
@@ -99,14 +94,47 @@
             </a>
 
             <!-- Seção de login/registro -->
-            <div class="main">
-                <!-- Link para a página de login, com ícone de usuário -->
-                <a href="login" class="user">
-                    <i class="ri-user-fill"></i>
-                    <span>Sign In</span>
-                </a>
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="../static/img/user.svg" alt="User Image" class="profile-image">
+                    <div class="profile-info">
+                        <p class="role">Manager</p>
+                        <p class="name">Kemelly Silva</p>
+                    </div>
+                    <div class="profile-toggle" onclick="toggleMenu()">
+                        <i class="ri-more-2-fill"></i> <!-- Seta do Remix Icon -->
+                    </div>
+                </div>
+                <div class="profile-dropdown hidden">
+                    <ul>
+                        <li><i class="ri-user-line"></i>Account</li>
+                        <li><i class="ri-settings-3-line"></i>Settings</li>
+                        <li><i class="ri-logout-box-line"></i><a href="logout">Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </header>
+
+        <div class="feedback-bar">
+            <button class="feedback-button"><i class="ri-bar-chart-fill"></i>Graphics</button>
+
+            <div class="date-range">
+                <div class="date-wrapper">
+                    <label for="start-date" class="date-label">Start</label>
+                    <input type="date" id="start-date" class="date-input">
+                </div>
+                <div class="date-wrapper">
+                    <label for="end-date" class="date-label">End</label>
+                    <input type="date" id="end-date" class="date-input">
+                </div>
+            </div>
+
+            <button class="filter-button"><i class="ri-filter-line"></i> FILTER</button>
+        </div>
+    </div>
+
+    {% block conteudo %}
+    {% endblock %}
 
     </div>
 

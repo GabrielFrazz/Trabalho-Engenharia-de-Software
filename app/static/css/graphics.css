@@ -1,0 +1,102 @@
+.feedback-bar {
+    margin: 0 auto;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(57, 62, 70, 0.5);
+    padding: 5px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 10000px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+.feedback-button {
+    background-color: #FFD369;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.feedback-button i {
+    margin-right: 5px;
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.date-wrapper {
+    font-size: 16px;
+    position: relative;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.date-label {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    top: 3px;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #FFD369;
+    color: #fff;
+    margin-right: -29px;
+    position: relative;
+    font-weight: bold;
+    /* Necessário para que o z-index funcione */
+    z-index: 10;
+    /* Define o label acima dos outros elementos */
+}
+
+.date-input {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    padding-left: 35px;
+    /* Espaço para o ícone */
+    font-size: 14px;
+}
+
+.calendar-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.filter-button {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #FFD369;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.filter-button i {
+    margin-right: 5px;
+}

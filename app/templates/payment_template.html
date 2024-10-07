@@ -12,7 +12,10 @@
     <title>StoreSync</title>
 
     <!-- Incluindo a folha de estilos principal -->
-    <link rel="stylesheet" href="static/css/style_index.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="../static/css/graphics.css">
+    <link rel="stylesheet" href="../static/css/payment.css">
 
     <!-- Fontes e ícones usados na página -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
@@ -22,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="background-img">
 
     <!-- Barra lateral fixa -->
     <div class="sidebar">
@@ -64,7 +67,7 @@
                 <span class="tooltip">Graphics</span>
             </li>
             <li>
-                <a href="payment">
+                <a class="active" href="payment">
                     <i class="ri-money-dollar-box-line"></i>
                     <span class="nav-item">Payment</span>
                 </a>
@@ -91,18 +94,7 @@
                 <span>StoreSync</span>
             </a>
 
-            <!-- Menu de navegação -->
-            <ul class="navbar">
-                <!-- Link para a página "Home", com classe "active" indicando que é a página atual -->
-                <li><a href="#description">Description</a></li>
-                <!-- Link para a página "About Us" -->
-                <li><a href="#features">Features</a></li>
-                <!-- Link para a página "Services" -->
-                <li><a href="#members">Members</a></li>
-            </ul>
-
             <!-- Seção de login/registro -->
-            <!-- Link para a página de login, com ícone de usuário -->
             <div class="profile-container">
                 <div class="profile-header">
                     <img src="../static/img/user.svg" alt="User Image" class="profile-image">
@@ -124,64 +116,35 @@
             </div>
         </header>
 
-        <!-- Contêiner principal para o conteúdo da página -->
-        <div class="container">
-            <section id="description" class="intro main-bg section">
-                <div class="main-cont intro-content">
-                    <div class="intro-text-content">
-                        <h2>Description</h2>
-                        <p>The project aims to develop financial management software for stores, facilitating the
-                            monitoring of debts, profits, sales, and customers. It includes features such as payment
-                            scheduling, graph generation, social media integration, loyalty program control, and
-                            customer feedback.</p>
-                    </div>
-                    <div class="intro-img">
-                        <img src="static/img/finance.svg" alt="Logo de HTML, CSS e JS.">
-                    </div>
+
+        <div class="menu ">
+            <div class="menu-box highlighted">
+                <span class="menu-text"><i class="ri-cash-line"></i>Cash Flow Forecasting</span>
+            </div>
+            <div class="margin_auto">
+                <div class="menu-item active">
+                    <i class="ri-file-list-3-line icon"></i>
+                    <span class="menu-text">Finance</span>
                 </div>
-            </section>
-
-
-            <section id="features" class="white-bg section">
-                <div class="main-cont top3-content">
-                    <h2>MAIN FUNCTIONALITIES OF THE PROJECT</h2>
-                    <p>Client Registration: Allows creating, viewing, editing, and deleting clients with forms, APIs,
-                        and notifications, including pagination and filters.</p>
-                    <p>Sales Management: Provides sales recording, viewing, editing, and deletion with dedicated APIs,
-                        notifications, and filtering options.</p>
-                    <p>Graph Generation: Creates interactive graphs for sales and profits, with filtering and data
-                        export options, using an API for aggregated data.</p>
-                    <p>Payment Dates Management: Includes event scheduling, integration with payment systems, and cash
-                        monitoring, with financial reports and notifications.</p>
-                    <p>Feedback Management: Collects and manages client feedback, linking it to each client, with
-                        notifications and options to export responses.</p>
-
+                <div class="menu-item">
+                    <i class="ri-bank-card-line icon"></i>
+                    <span class="menu-text">Payments</span>
                 </div>
-            </section>
-
-            <section id="members" class="intro main-bg section">
-                <div class="main-cont intro-content">
-                    <div class="intro-text-content">
-                        <div class="title-space">
-                            <h2>Members</h2>
-                        </div>
-                        <div class="space">
-                            <p> Gabriel Castro: Backend and Tester</p>
-                            <p>Carlos Gabriel: Backend and Database</p>
-                            <p>Henrique Guimarães: Backend and Tester</p>
-                            <p>Patrick Peres: Frontend</p>
-                            <p>Luan: Full-Stack</p>
-                            <p>Luan: Backend and Databases</p>
-                        </div>
-                    </div>
-                    <div class="intro-img">
-                        <img src="../static/img/developer.svg" alt="Logo de HTML, CSS e JS.">
-                    </div>
+                <div class="menu-item">
+                    <i class="ri-calendar-line icon"></i>
+                    <span class="menu-text">Calendar</span>
                 </div>
-            </section>
-
-
+                <div class="menu-item notification">
+                    <i class="ri-notification-3-line icon"></i>
+                    <span class="menu-text">Notification</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    {% block conteudo %}
+    {% endblock %}
+
     </div>
 
     <!-- Script JavaScript principal -->

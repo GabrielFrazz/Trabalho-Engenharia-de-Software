@@ -1,0 +1,212 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    /* Distribui espaço entre os itens */
+    align-items: center;
+    background-color: rgba(57, 62, 70, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    width: 90%;
+    /* Ocupa 90% da tela */
+    max-width: 1000px;
+    /* Limita o tamanho máximo da barra */
+    margin: 80px auto;
+    /* Centraliza horizontalmente */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 9px 20px;
+    margin-right: 10px;
+    background-color: rgba(57, 62, 70, 0.5);
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-box {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #444;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 20px;
+}
+
+.menu-box i {
+    margin-right: 8px;
+}
+
+
+.menu-item span {
+    font-size: 16px;
+
+}
+
+.menu-item:hover {
+    background-color: #FFD369;
+    color: #fff;
+}
+
+.highlighted {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #FFD369;
+    color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.menu-text {
+    font-size: 16px;
+}
+
+.notification {
+    position: relative;
+}
+
+.notification-badge {
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+
+.margin_auto {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    /* Faz com que a div ocupe o espaço restante e fique centralizada */
+}
+
+.active {
+    background-color: #fff;
+    color: #ffdd57;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.active:hover {
+    background-color: #fff;
+    color: #ffdd57;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ------------------------------------------------------------------------ */
+
+.container-payment {
+    width: 90%;
+    margin: 50px auto;
+}
+
+.header {
+    text-align: left;
+}
+
+h1 {
+    font-size: 24px;
+    color: #eceff4;
+    display: inline-block;
+}
+
+.highlight {
+    color: #ffd700;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #eceff4;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    background-color: #3b4252;
+    border-radius: 10px;
+    /* padding: 20px; */
+}
+
+.options-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #d8a657;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.options-header .icon-gear {
+    margin-right: 10px;
+    background: url('path-to-your-gear-icon.png') no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+.form-container {
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+}
+
+.input-field {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+
+.date-picker {
+    background-color: #4c566a;
+    color: #eceff4;
+}
+
+.filter-btn {
+    margin-left: 740px;
+    background-color: #32cd32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.export-btn {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn:hover,
+.export-btn:hover {
+    opacity: 0.8;
+}

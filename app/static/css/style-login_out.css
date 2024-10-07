@@ -35,11 +35,10 @@ body {
 /* Cabeçalho fixo no topo da página */
 header {
     position: fixed;
-    width: calc(100% - 80px);
-    height: 70px;
+    width: 100%;
+    left: 0px;
     /* Ajuste para o espaço da sidebar */
     top: 0;
-    left: 80px;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -81,7 +80,7 @@ header {
     font-size: 1.1rem;
     font-weight: 500;
     padding: 5px 0;
-    margin: 0px 35px;
+    margin: 0px 45px;
     transition: all 0.50s ease;
 }
 
@@ -124,20 +123,6 @@ header {
     margin-right: 7px;
 }
 
-/* Responsividade: telas menores que 1280px */
-@media (max-width: 1280px) {
-    header {
-        padding: 14px 2%;
-        /* Reduz o padding */
-        transition: 0.2s;
-    }
-
-    .navbar a {
-        margin: 0px 20px;
-        /* Reduz o espaçamento entre links */
-    }
-}
-
 /* ======================= Sidebar ======================= */
 
 /* Estilo da barra lateral */
@@ -149,7 +134,7 @@ header {
     width: 80px;
     /* Largura padrão da sidebar */
     background-color: var(--slidebar-color);
-    padding: 0.4rem 0.8rem;
+    padding: 4rem 0.8rem;
     transition: all 0.50s ease;
     z-index: 10000;
 }
@@ -233,6 +218,7 @@ header {
     line-height: 50px;
 }
 
+
 /* Links dos itens do menu */
 .sidebar ul li a {
     color: var(--text-color);
@@ -242,8 +228,14 @@ header {
     border-radius: 0.8rem;
 }
 
+/* !!!!!!!!!!!!!!!!!! */
 /* Efeito ao passar o mouse nos links */
 .sidebar ul li a:hover {
+    background-color: var(--text-color);
+    color: var(--main-color);
+}
+
+.active i {
     background-color: var(--text-color);
     color: var(--main-color);
 }
@@ -332,26 +324,6 @@ header {
     margin-right: 120px;
 }
 
-/* ======================= Header e Sidebar sincronizados ======================= */
-
-/* Garantindo que o header acompanhe a expansão da sidebar */
-header {
-    left: 80px;
-    width: calc(100% - 80px);
-    transition: all 0.50s ease;
-}
-
-/* Header ajustado quando a sidebar está expandida */
-header.sidebar-active {
-    left: 250px;
-    width: calc(100% - 250px);
-}
-
-/* Ajuste do espaçamento no topo da sidebar */
-.sidebar ul {
-    margin-top: 125px;
-    /* Espaçamento entre o topo da página e o menu */
-}
 
 /* ======================= Ícone de Menu Hambúrguer ======================= */
 
@@ -509,6 +481,7 @@ a {
 .profile-container {
     /* padding: 20px; */
     width: 195px;
+    position: relative;
 }
 
 .profile-header {
@@ -553,17 +526,9 @@ a {
 }
 
 .profile-dropdown {
-    background-color: #ffc542;
+    background-color: var(--main-color);
     border-radius: 10px;
     padding: 10px;
-    transition: max-height 0.3s ease;
-    max-width: 140px;
-}
-
-.hidden {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     position: absolute;
     /* Coloca o dropdown como absoluto */
@@ -581,12 +546,24 @@ a {
 
 .visible {
     max-height: 200px;
-    /* Ajuste conforme necessário e Controla tamanho vertical do dropdown */
     padding: 10px;
-    max-width: 140px;
+    opacity: 1;
+    /* Mostra o dropdown ao ativar */
+    visibility: visible;
+    /* Torna visível ao ativar */
+}
+
+.hidden {
+    max-height: 0;
+    opacity: 0;
+    /* Esconde o dropdown */
+    visibility: hidden;
+    /* Remove visibilidade ao esconder */
 }
 
 .profile-dropdown ul {
+    max-width: 100%;
+    margin-top: 1px;
     list-style-type: none;
 }
 
@@ -594,7 +571,7 @@ a {
     display: flex;
     align-items: center;
     padding: 10px;
-    color: white;
+    color: var(--text-color);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -622,33 +599,4 @@ a {
 
 .profile-header p {
     margin: -5px;
-}
-
-.client-list-container {
-    margin-top: 100px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.client-item {
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.client-item:hover {
-    background-color: #f1f1f1;
-}
-
-.client-item-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.client-item-content p {
-    margin: 0;
 }
