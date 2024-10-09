@@ -133,7 +133,7 @@
                     </button>
                 </div>
                 <div class="total">
-                    <i class="ri-wallet-line"></i> Total: 380 Product(s)
+                    <i class="ri-wallet-line"></i> Total: <span id="totalProducts"></span> Product(s)
                 </div>
 
             </div>
@@ -143,7 +143,7 @@
             <!-- Lista será preenchida dinamicamente -->
             <ul id="productList"></ul>
         </div>
-        
+
         {% block conteudo %}
         {% endblock %}
 
@@ -157,7 +157,7 @@
 
         // Função para buscar o número total de produtos
         function getTotalProducts() {
-            fetch('/api/stock_template/count')
+            fetch('/api/stock_register/count')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Erro ao obter o número de produtos");
@@ -174,7 +174,7 @@
 
         // Função para buscar a lista de produtos
         function getProductList() {
-            fetch('/api/stock_template')
+            fetch('/api/stock_register')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Erro ao obter a lista de produtos");
@@ -209,7 +209,7 @@
 
                 // Torna o item clicável para abrir detalhes do produto
                 listItem.addEventListener('click', () => {
-                    window.location.href = `/searchSales?id=${encodeURIComponent(product.id)}`;
+                    window.location.href = `/stock_search?id=${encodeURIComponent(product.id)}`;
                 });
 
                 productList.appendChild(listItem);
@@ -234,7 +234,7 @@
         // Função para ocultar a lista de produtos na página de registro
         function hideListOnProductsPage() {
             const currentUrl = window.location.pathname;
-            if (currentUrl === '/stock_template') {
+            if (currentUrl === '/stock_register') {
                 // Oculta a lista de produtos e outros elementos quando estiver na página de registro
                 document.getElementById('productListContainer').style.display = 'none';
             }
@@ -254,7 +254,7 @@
             const filteredProducts = allProducts.filter(product =>
                 product.name.toLowerCase().includes(searchQuery)
             );
-            renderSaleList(filteredProducts);
+            renderProductList(filteredProducts);
         });
 
     </script>
