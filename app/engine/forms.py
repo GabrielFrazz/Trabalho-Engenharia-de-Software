@@ -10,3 +10,6 @@ class Feedback():
         self.name = name
         self.date = date
         self.message = message
+
+    def __str__(self):
+        return f"{self.id}, {self.name}, {self.date}, {self.message}"

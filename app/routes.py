@@ -75,11 +75,13 @@ def graphics():
 # def feedback():
 #     return render_template('feedback.html')
 
-@app.route('/feedback', methods=['POST'])
+@app.route('/feedback', methods=['GET', 'POST'])
 @login_required
 def feedback():
     if request.method == 'POST':
         feedbacks = update_forms()
+        for feed in feedbacks:
+            print(feed)
     return render_template('feedback.html')
 
 @app.route('/temp1', methods=['GET'])
