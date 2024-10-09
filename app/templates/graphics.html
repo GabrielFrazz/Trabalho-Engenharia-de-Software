@@ -2,18 +2,16 @@
 
 {% block conteudo %}
 
-<div class="container-extend container-sales">
-    <div class="sales-registration">
-        <h2><i class="ri-store-2-line"></i> Sales Registration</h2>
+<div class="container-extend container-graphics">
+    <div class="graphics-registration">
+        <h2><i class="ri-store-2-line"></i> Graphics </h2>
         <div class="form-container">
-            <form id="sales-form" action="/save-sales" method="post">
-                <!-- Botão de execução de script para adicionar novo cliente -->
-                <button type="button" class="color" id="newCustomer" onclick="executeScript()">
-                    <i class="ri-user-add-fill"></i> New Customer
-                </button>
-                <!-- Botão de envio do formulário -->
-                <button type="submit"><i class="ri-save-3-line"></i> Save</button>
+            <form id="graphics-form" form action="#" method="post">
+                
+                <!-- Botão de envio dentro do formulário -->
+                <button type="submit" class="save-btn" onclick="executeScript()"><i class="ri-save-3-line"></i> Generate G</button>
             </form>
+            <!-- </div> -->
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from app import app, db
 from app.models import Cliente, Produto, Sale
 from app.engine.security import Admin
-from graph import cria_grafico
+from app.engine.graph import cria_grafico
 
 
 def login_required(f):
@@ -64,12 +64,6 @@ def sales():
 @login_required
 def payment():
     return render_template('payment.html')
-
-
-@app.route('/graphics', methods=['GET'])
-@login_required
-def graphics():
-    return render_template('graphics.html')
 
 
 @app.route('/feedback', methods=['GET'])
@@ -239,6 +233,11 @@ def add_produto():
 @app.route('/api/help')
 def api_help():
     return render_template('api_documentation.html')
+
+@app.route('/graphics', methods=['GET', 'POST'])
+@login_required
+def graphics():
+    return render_template('graphics.html')
 
 
 @app.route('/execute-script', methods=['POST'])
