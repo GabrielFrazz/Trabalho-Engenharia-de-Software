@@ -94,6 +94,10 @@ def temp2():
 def payment_template():
     return render_template('payment_template.html')
 
+@app.route('/notFoundRegister', methods=['GET'])
+@login_required
+def notFoundRegister():
+    return render_template('notFoundRegister.html')
 
 @app.route('/searchRegister')
 @login_required
@@ -107,13 +111,7 @@ def search_register():
         return redirect(url_for('temp1'))
 
 
-@app.route('/notFoundRegister', methods=['GET'])
-@login_required
-def notFoundRegister():
-    return render_template('notFoundRegister.html')
-
-
-@app.route('/searchSales', methods=['GET'])
+@app.route('/searchSales')
 @login_required
 def searchSales():
     id = request.args.get('id')
@@ -124,11 +122,27 @@ def searchSales():
         flash('Venda não encontrada!', category=['danger'])
         return redirect(url_for('temp2'))
 
+@app.route('/stock_search')
+@login_required
+def search_products():
+    id = request.args.get('id')
+    produto = Produto.query.filter(Produto.id.ilike(f'%{id}%')).first()
+    if produto:
+        return render_template('stock_search.html', produto=produto)
+    else:
+        flash('Produto não encontrado!', category=['danger'])
+        return redirect(url_for('stock_template'))
+
 
 @app.route('/notFoundSales', methods=['GET'])
 @login_required
 def notFoundSales():
     return render_template('notFoundSales.html')
+
+@app.route('/notFoundProducts', methods=['GET'])
+@login_required
+def notFoundProducts():
+    return render_template('notFoundProducts.html')
 
 
 @app.route('/stock_template', methods=['GET'])

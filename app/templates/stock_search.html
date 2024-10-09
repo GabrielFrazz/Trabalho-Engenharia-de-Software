@@ -28,28 +28,28 @@
                 </div> -->
                 <div class="form-group">
                     <label for="name"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter Product Name">
+                    <input type="text" id="name" name="name" placeholder="Enter Product Name" disabled required>
                 </div>
                 <div class="form-group">
                     <label for="amount"><i class="ri-stack-line"></i> Amount</label>
-                    <input type="number" id="amount" name="amount" placeholder="Enter Amount">
+                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" disabled required>
                 </div>
                 <div class="form-group">
                     <label for="price"><i class="ri-money-dollar-circle-line"></i> Price</label>
-                    <input type="text" id="price" name="price" placeholder="Enter Price">
+                    <input type="text" id="price" name="price" placeholder="Enter Price" disabled required>
                 </div>
                 <div class="form-group">
                     <label for="description"><i class="ri-file-text-line"></i> Description</label>
-                    <input type="text" id="description" name="description" placeholder="Enter Description">
+                    <input type="text" id="description" name="description" placeholder="Enter Description" disabled required>
                 </div>
                 <!-- Botão de envio dentro do formulário -->
                 <div class="button-container-sales">
                     <div class="save-sales">
-                        <button type="submit"><i class="ri-save-3-line"></i>Save</button>
+                        <button type="submit" id="saveButton"><i class="ri-save-3-line"></i>Save</button>
                     </div>
 
                     <div class="edit-sales">
-                        <button type="submit"><i class="ri-pencil-fill"></i>Edit</button>
+                        <button type="submit" id="editButton"><i class="ri-pencil-fill"></i>Edit</button>
                     </div>
 
                     <div class="delete-sales">
@@ -88,7 +88,7 @@
                     document.getElementById('price').value = product.price;
                     document.getElementById('description').value = product.description;
                 } else {
-                    alert("Produto não encontrada!");
+                    alert("Produto não encontrado!");
                     window.location.href = '/notFoundProducts';
                 }
             })
