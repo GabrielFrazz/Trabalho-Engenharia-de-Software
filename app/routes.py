@@ -37,7 +37,7 @@ def login():
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
-            flash('Usuário ou senha incorretos!', category=['error'])
+            flash('Usuário ou senha incorretos!', category=['errorlogin'])
     return render_template('login.html')
 
 
