@@ -19,6 +19,9 @@ def cria_grafico():
         out = db.session.query(Sale).filter(extract('month', Sale.date) == 10).count()
         nov = db.session.query(Sale).filter(extract('month', Sale.date) == 11).count()
         dez = db.session.query(Sale).filter(extract('month', Sale.date) == 12).count()
+        
+        print(jan, fev, mar, abr, mai, jun, jul, ago, setm, out, nov, dez)
+
 
         # Definindo os nomes dos meses e as vendas
         meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']

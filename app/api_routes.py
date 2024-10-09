@@ -92,7 +92,6 @@ def delete_all_clientes():
 
 # returns the number of clientes, route /api/clientes/count
 
-
 @app.route('/api/clientes/count', methods=['GET'])
 def count_clientes():
     count = Cliente.query.count()
@@ -173,7 +172,6 @@ def delete_all_sales():
     return jsonify({"message": "Todas as vendas foram deletadas com sucesso!"})
 
 # returns the number of vendas, route /api/sales/count
-
 
 @app.route('/api/sales/count', methods=['GET'])
 def count_sales():
