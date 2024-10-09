@@ -4,7 +4,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from app import app, db
 from app.models import Cliente, Produto, Sale
 from app.engine.security import Admin
-
+from app.engine.update_forms import update_forms
 
 def login_required(f):
     @wraps(f)
@@ -74,6 +74,8 @@ def graphics():
 @app.route('/feedback', methods=['GET'])
 @login_required
 def feedback():
+    if request.method == 'POST':
+        feedbacks = update_forms()
     return render_template('feedback.html')
 
 
