@@ -4,7 +4,7 @@
 
 ## Descrição
 
-Este projeto tem como objetivo desenvolver um software de gerenciamento geral e de financias para a facilitação de genrencia de uma loja. O software permitirá melhor monitoramento das dividas e lucros por meio de uma base, tanto de gerenciamento e agendamento de pagamentos, como também de dados das vendas e dos clientes, e da geração de gráficos expositivos a partir dos dados recolhidos. Além de trazer funcionalidades úteis para a gerencia, como uma maior integração com redes sociais, agendamento de tarefas diarias, controle sobre programas de fidelidade,satisfação do cliente e feedback, dentre outras funções.
+Este projeto tem como objetivo desenvolver um software de gerenciamento geral e de financias para a facilitação de genrencia de uma loja, sendo este um sistema web. O software permitirá melhor monitoramento das dividas e lucros por meio de uma base, tanto de gerenciamento e agendamento de pagamentos, como também de dados das vendas e dos clientes, e da geração de gráficos expositivos a partir dos dados recolhidos. Além de trazer funcionalidades úteis para a gerencia, como uma maior integração com redes sociais, agendamento de tarefas diarias, controle sobre programas de fidelidade,satisfação do cliente e feedback, dentre outras funções.
 
 ## Table of Contents
 
@@ -250,22 +250,22 @@ Feedback Page
    - **Tarefas:**
      - **Configurar Banco de Dados**
        - Escolher o sistema de gerenciamento de banco de dados. Responsáveis: Carlos
-       - Configurar o banco de dados no servidor de desenvolvimento. Responsáveis: Gustavo
+       - Configurar o banco de dados no servidor de desenvolvimento. Responsáveis: Carlos
        - Definir o esquema do banco de dados. Responsáveis: Gustavo
        - Implementar migrações. Responsáveis: Carlos
        - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Cliente**
-       - Criar formulário de entrada. Responsáveis: Gabriel
-       - Implementar validação do formulário. Responsáveis: Gabriel
-       - Desenvolver API de criação. Responsáveis: Gabriel
+       - Criar formulário de entrada. Responsáveis: Patrick
+       - Implementar validação do formulário. Responsáveis: Carlos
+       - Desenvolver API de criação. Responsáveis: Carlos
        - Integrar frontend com API.   Responsáveis: Luan
        - Testar criação de cliente. Responsáveis: Henrique
-       - Implementar notificações.   Responsáveis: Patrick
+
      - **Visualizar Clientes**
-       - Criar página de listagem. Responsáveis: Gabriel
+       - Criar página de listagem. Responsáveis: Patrick
        - Desenvolver API de listagem. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Luan
-       - Implementar paginação/filtros. Responsáveis: Gabriel
+       - Implementar paginação/filtros. Responsáveis: Carlos
        - Testar visualização de clientes.   Responsáveis: Patrick
      - **Editar Cliente**
        - Criar formulário de edição. Responsáveis: Carlos
@@ -273,7 +273,7 @@ Feedback Page
        - Desenvolver API de atualização. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Luan
        - Testar edição de cliente. Responsáveis: Henrique
-       - Implementar notificações.   Responsáveis: Luan
+
      - **Deletar Cliente**
        - Desenvolver API de deleção. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Patrick
@@ -290,25 +290,27 @@ Feedback Page
        - Implementar migrações. Responsáveis: Carlos
        - Testar a conexão entre backend e banco de dados. Responsáveis: Henrique
      - **Criar Venda**
-       - Criar formulário de entrada para registro de vendas. Responsáveis: Gabriel
+       - Criar formulário de entrada para registro de vendas. Responsáveis: Luan
        - Implementar validação do formulário de vendas. Responsáveis: Carlos
        - Desenvolver API de criação de venda. Responsáveis: Carlos
        - Integrar frontend com API de vendas. Responsáveis: Gabriel
        - Testar criação de venda. Responsáveis: Henrique
-       - Implementar notificações de sucesso e erro.Responsáveis: Gabriel
+       - Implementar notificações de sucesso e erro. Responsáveis: Gabriel
+         
      - **Visualizar Vendas**
-       - Criar página de listagem de vendas. Responsáveis: Gabriel
+       - Criar página de listagem de vendas. Responsáveis: Luan
        - Desenvolver API para listagem de vendas. Responsáveis: Carlos
        - Integrar frontend com API.   Responsáveis: Patrick
-       - Implementar filtros e pesquisa para visualização de vendas.   Responsáveis: Luan
+       - Implementar filtros e pesquisa para visualização de vendas.   Responsáveis: Carlos
        - Testar a visualização de vendas. Responsáveis: Henrique
+         
      - **Editar Venda**
        - Criar formulário de edição de venda. Responsáveis: Gustavo
        - Implementar validação do formulário de edição. Responsáveis: Gustavo
        - Desenvolver API de atualização de venda. Responsáveis: Gustavo
        - Integrar frontend com API.   Responsáveis: Patrick
        - Testar atualização de venda. Responsáveis: Henrique
-       - Implementar notificações de sucesso e erro.   Responsáveis: Luan
+         
      - **Deletar Venda**
        - Adicionar funcionalidade de exclusão de venda. Responsáveis: Gustavo
        - Desenvolver API para exclusão de venda. Responsáveis: Gustavo
@@ -321,22 +323,21 @@ Feedback Page
    - **Tarefas:**
      - **Configurar Ambiente de Gráficos**
        - Escolher a biblioteca de gráficos. Responsáveis: Carlos
-       - Configurar o ambiente de desenvolvimento para suportar gráficos. Responsáveis: Carlos
+       - Configurar o ambiente de desenvolvimento para suportar gráficos. Responsáveis: Henrique
      - **Desenvolver API de Dados** 
        - Desenvolver API para fornecer dados de venda/lucro. Responsáveis: Gustavo
-       - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano. Responsáveis: Carlos
+       - Implementar endpoints para fornecer dados agregados por dia, semana, mês e ano. Responsáveis: Henrique
        - Testar a API de dados para garantir a precisão e desempenho. Responsáveis: Henrique
      - **Implementar Tela de Gráficos**
-       - Criar a interface de usuário para exibir gráficos.   Responsáveis: Patrick
-       - Integrar a interface com a API de dados.   Responsáveis: Patrick
-       - Implementar filtros de período na interface.   Responsáveis: Luan
+       - Criar a interface de usuário para exibir gráficos.   Responsáveis: Luan
+       - Integrar a interface com a API de dados.   Responsáveis: Luan
+       - Implementar filtros de período na interface.   Responsáveis: Patrick
        - Implementar funcionalidade de exportação de gráficos. Responsáveis: Gabriel
+         
      - **Testar Gráficos**
        - Testar a atualização automática dos gráficos com novos dados. Responsáveis: Gabriel
        - Testar a interatividade dos gráficos (zoom, detalhes ao passar o mouse). Responsáveis: Gabriel
        - Realizar testes de usabilidade para garantir que os gráficos sejam intuitivos. Responsáveis: Gabriel
-     - **Implementar Notificações**
-       - Implementar notificações de erro/sucesso para operações de geração e exportação de gráficos.   Responsáveis: Luan
 
 4. *Gestão de datas de pagamento*
    - **Tarefas:**
@@ -363,14 +364,12 @@ Feedback Page
 
 5. *Gestão de feedback e satisfação do cliente*
    - **Tarefas:**
-     - **Criar formulário de satisfação do cliente.** Responsáveis: Gustavo
-     - **Separar avaliações individualmente e somá-las em uma média de satisfação geral.**   Responsáveis: Luan
-     - **Implementar a recepção dos dados do formulário no aplicativo:** Responsáveis: Gustavo
+     - **Criar formulário de satisfação do cliente.** Responsáveis: Gabriel
+     - **Implementar a recepção dos dados do formulário no aplicativo:** Responsáveis: Gabriel
         - Associar o ID ao cliente que preencheu o formulário; Responsáveis: Gabriel
         - Associar entrega à data do formulário. Responsáveis: Gabriel
      - **Implementar funções de apagar respostas** Responsáveis: Gustavo
      - **Implementar funções de conversão de resposta em arquivo de texto**   Responsáveis: Luan
-     - **Desenvolver notificações pop-ups**   Responsáveis: Luan
      - **Desenvolver interface de feedback do cliente no aplicativo.**   Responsáveis: Patrick
      
 ## Linguagens/API's Utilizadas:

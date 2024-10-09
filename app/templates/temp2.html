@@ -50,6 +50,7 @@
                     <span class="nav-item">Stock</span>
                 </a>
                 <span class="tooltip">Stock</span>
+
             </li>           
             <li>
                 <a class="active" href="temp2">
@@ -179,6 +180,7 @@
                         throw new Error("Erro ao obter a lista de vendas");
                     }
                     return response.json();
+                    //merging
                 })
                 .then(data => {
                     allSales = data;  // Salva todos as vendas para usar no filtro

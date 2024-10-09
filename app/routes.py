@@ -37,7 +37,7 @@ def login():
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
-            flash('Usuário ou senha incorretos!', category=['error'])
+            flash('Usuário ou senha incorretos!', category=['errorlogin'])
     return render_template('login.html')
 
 
@@ -156,7 +156,25 @@ def stock_template():
 def stock_register():
     return render_template('stock_register.html')
 
+@app.route('/stock_register', methods=['POST'])
+@login_required
+def add_produto():
+    if request.method == 'POST':
+        name = request.form['name']
+        amount = request.form['amount']
+        price = request.form['price']
+        description = request.form['description']
 
+        success, message = Produto.add_produto(
+            name, amount, price, description)
+        if success:
+            flash(message, category=['success'])
+            return redirect(url_for('stock_template'))
+            
+        else:
+            flash(message, category=['danger'])
+            return redirect(url_for('stock_register'))
+            
 @app.route('/stock_search', methods=['GET'])
 @login_required
 def stock_search():
@@ -220,35 +238,20 @@ def add_venda():
         cliente = request.form['cliente']
         produto = request.form['produto']
 
-        success, message = Sale.add_venda(
-            cliente, produto, amount, price, date)
+        #debug flash
+        flash(f'Cliente: {cliente}, Produto: {produto}, Quantidade: {amount}, Preço: {price}, Data: {date}', category=['info'])
+        # Assuming Sale.add_venda is a class method that handles adding a sale
+        success, message = Sale.add_venda(cliente, produto, amount, price, date)
         if success:
             flash(message, category=['success'])
             return redirect(url_for('temp2'))
-            
         else:
             flash(message, category=['danger'])
             return redirect(url_for('sales'))
 
-@app.route('/stock_register', methods=['POST'])
-@login_required
-def add_produto():
-    if request.method == 'POST':
-        name = request.form['name']
-        amount = request.form['amount']
-        price = request.form['price']
-        description = request.form['description']
 
-        success, message = Produto.add_produto(
-            name, amount, price, description)
-        if success:
-            flash(message, category=['success'])
-            return redirect(url_for('stock_template'))
-            
-        else:
-            flash(message, category=['danger'])
-            return redirect(url_for('stock_register'))
 
 @app.route('/api/help')
 def api_help():
     return render_template('api_documentation.html')
+    

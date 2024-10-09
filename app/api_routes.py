@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, jsonify, request, send_from_directory
-from app.models import Cliente
+from app.models import Cliente, Produto
 from app.models import Sale
 from app.models import Produto
 from app import app, db
