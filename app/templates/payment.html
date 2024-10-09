@@ -3,24 +3,118 @@
 {% block conteudo %}
 
 <div class="container">
-    <div class="header">
-        <h1><span class="highlight">Realized Cash Flow</span></h1>
-        <p>Closely monitoring the company's cash flow is the primary responsibility of the business owner.</p>
+    <h2 class="title">Realized Cash Flow</h2>
+    <p class="subtitle">Closely monitoring the company's cash flow is the primary responsibility of the business
+        owner.</p>
+
+    <div class="filter-options">
+        <div class="input-group">
+            <label for="bank-account">Bank Account</label>
+            <input type="text" id="bank-account" placeholder="Bank Account">
+            <i class="ri-bank-card-line icon-input"></i>
+        </div>
+        <div class="input-group">
+            <label for="customer">Customer</label>
+            <input type="text" id="customer" placeholder="Customer">
+            <i class="ri-user-line icon-input"></i>
+        </div>
+        <div class="input-group">
+            <label for="supplier">Supplier</label>
+            <input type="text" id="supplier" placeholder="Supplier">
+            <i class="ri-truck-line icon-input"></i>
+        </div>
+        <div class="input-group">
+            <label for="date-start">Start Date</label>
+            <input type="date" id="date-start">
+        </div>
+        <div class="input-group">
+            <label for="date-end">End Date</label>
+            <input type="date" id="date-end">
+        </div>
+        <div class="case">
+            <button class="btn filter-btn"><i class="ri-filter-line"></i> Filter</button>
+        </div>
+        <div class="case2">
+            <button class="btn export-btn"><i class="ri-download-2-line"></i> Export</button>
+        </div>
     </div>
 
-    <hr class="divider">
-
-    <div class="options-container">
-        <div class="options-header">
-            <span class="icon-gear"></span> Options
+    <div class="cards">
+        <div class="card receivable" id="receivable">
+            <i class="ri-arrow-up-circle-line"></i>
+            <div class="amount">$ 15,520.00</div>
+            <div class="description">Total Bills Receivable ($)</div>
+            <button class="view-details" data-details="Receivable Details: Lorem ipsum..."><i
+                    class="ri-arrow-right-line"></i> View Details</button>
         </div>
-        <div class="form-container">
-            <input type="date" value="2024-01-01" class="input-field date-picker">
-            <input type="date" value="2024-07-01" class="input-field date-picker">
-            <button class="filter-btn">Filter</button>
-            <button class="export-btn">Export</button>
+
+        <div class="card payable" id="payable">
+            <i class="ri-arrow-down-circle-line"></i>
+            <div class="amount">$ 350.00</div>
+            <div class="description">Total Bills Payable ($)</div>
+            <button class="view-details" data-details="Payable Details: Lorem ipsum..."><i
+                    class="ri-arrow-right-line"></i> View Details</button>
+        </div>
+
+        <div class="card revenue-expense" id="revenue-expense">
+            <i class="ri-emotion-unhappy-line"></i>
+            <div class="amount">$ 15,520.00</div>
+            <div class="description">Revenue - Expenses ($)</div>
+            <button class="view-details" data-details="Revenue vs Expenses: Lorem ipsum..."><i
+                    class="ri-arrow-right-line"></i> View Details</button>
+        </div>
+
+        <div class="card received-paid" id="received-paid">
+            <i class="ri-emotion-happy-line"></i>
+            <div class="amount">$ 15,120.00</div>
+            <div class="description">Received - Paid ($)</div>
+            <button class="view-details" data-details="Received vs Paid: Lorem ipsum..."><i
+                    class="ri-arrow-right-line"></i> View Details</button>
         </div>
     </div>
+
+    <!-- Modal for displaying detailed information -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
 </div>
 
+
+
+
+<script>
+    // Seleciona todos os botões de "View Details"
+    const viewDetailButtons = document.querySelectorAll('.view-details');
+
+    // Seleciona o modal e o conteúdo do modal
+    const modal = document.getElementById('detailsModal');
+    const modalText = document.getElementById('modal-text');
+    const closeModal = document.getElementById('closeModal');
+
+    // Função para abrir o modal com os detalhes
+    viewDetailButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const details = button.getAttribute('data-details');
+            modalText.textContent = details;
+            modal.style.display = 'block';
+        });
+    });
+
+    // Função para fechar o modal
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Fecha o modal clicando fora da área de conteúdo
+    window.addEventListener('click', event => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+</script>
 {% endblock %}
