@@ -10,6 +10,7 @@
 }
 
 .stock-registration {
+
     text-align: center;
 }
 
@@ -146,6 +147,7 @@ form {
 .remove-btn:hover {
     background-color: #FF3B3B;
 }
+
 
 .stock-registration i {
     font-size: 36px;
