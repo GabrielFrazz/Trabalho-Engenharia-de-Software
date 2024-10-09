@@ -48,7 +48,7 @@ class Produto(db.Model):
     
     @staticmethod
     def add_produto(nome, preco, quantidade):
-        novo_produto = Sale( 
+        novo_produto = Produto( 
             nome=nome,
             preco=preco, 
             quantidade=quantidade

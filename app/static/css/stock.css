@@ -9,7 +9,7 @@
     /* Borda branca adicionada */
 }
 
-.sales-registration {
+.stock-registration {
     text-align: center;
 }
 
@@ -147,7 +147,7 @@ form {
     background-color: #FF3B3B;
 }
 
-.sales-registration i {
+.stock-registration i {
     font-size: 36px;
     margin-right: 16px;
 }
@@ -229,6 +229,6 @@ button i {
     background-color: crimson;
 }
 
-.sales-registration h2 i {
+.stock-registration h2 i {
     margin-right: 12px;
 }

@@ -232,7 +232,7 @@ def add_venda():
             return redirect(url_for('temp2'))
         else:
             flash(message, category=['danger'])
-            return redirect(url_for('register'))
+            return redirect(url_for('sales'))
 
 
 @app.route('/api/help')
