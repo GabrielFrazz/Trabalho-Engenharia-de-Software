@@ -50,7 +50,8 @@
                     <span class="nav-item">Stock</span>
                 </a>
                 <span class="tooltip">Stock</span>
-            </li>
+
+            </li>           
             <li>
                 <a class="active" href="temp2">
                     <i class="ri-shopping-cart-line"></i>
@@ -139,6 +140,12 @@
             </div>
         </div>
 
+        <div id="SalesListContainer" class="sales-list-container">
+            <!-- Lista será preenchida dinamicamente -->
+            <ul id="saleList"></ul>
+        </div>
+
+
         {% block conteudo %}
 
         {% endblock %}
@@ -147,6 +154,149 @@
 
     <!-- Script JavaScript principal -->
     <script src="static/js/script.js"></script>
+    <!-- Script para buscar as vendas e exibir o número total de vendas -->
+    <script>
+        let allSales = [];
+
+        // Função para buscar o número total de vendas
+        function getTotalSales() {
+            fetch('/api/sales/count')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao obter o número de vendas");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('totalSales').textContent = data.count;
+                })
+                .catch(error => {
+                    console.error('Erro ao obter o número de vendas:', error);
+                });
+        }
+
+        // Função para buscar a lista de vendas
+        function getSaleList() {
+            fetch('/api/sales')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao obter a lista de vendas");
+                    }
+                    return response.json();
+                    //merging
+                })
+                .then(data => {
+                    allSales = data;  // Salva todos as vendas para usar no filtro
+                    renderSaleList(data);  // Exibe a lista completa inicialmente
+                })
+                .catch(error => {
+                    console.error('Erro ao obter a lista de vendas:', error);
+                });
+        }
+
+        // Função para renderizar a lista de vendas com base nos dados fornecidos
+        function renderSaleList(sales) {
+            const saleList = document.getElementById('saleList');
+            saleList.innerHTML = '';  // Limpa o conteúdo anterior
+
+            sales.forEach(sale => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('sale-item');
+
+                listItem.innerHTML = `
+                    <div class="sale-item-content">
+                        <p><strong>${sale.cliente}</strong></p>
+                        <p>Produto: ${sale.produto}</p>
+                        <p>Amount: ${sale.amount}</p>
+                        <p>Price: ${sale.price}</p>
+                    </div>
+                `;
+
+                // Torna o item clicável para abrir detalhes da venda
+                listItem.addEventListener('click', () => {
+                    window.location.href = `/searchSales?id=${encodeURIComponent(sale.id)}`;
+                });
+
+                saleList.appendChild(listItem);
+            });
+        }
+
+        // Função para verificar se a página está na tela de pesquisa de vendas
+        function checkForSearchSales() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const customerID = urlParams.get('id');
+
+            if (customerID) {
+                // Oculta a lista de venda e outros elementos quando em `searchSales`
+                document.getElementById('saleListContainer').style.display = 'none';
+            } else {
+                // Exibe os elementos normais
+                document.getElementById('saleListContainer').style.display = 'block';
+            }
+
+        }
+
+        // Função para ocultar a lista de vendas na página de registro
+        function hideListOnSalesPage() {
+            const currentUrl = window.location.pathname;
+            if (currentUrl === '/sales') {
+                // Oculta a lista de vendas e outros elementos quando estiver na página de registro
+                document.getElementById('saleListContainer').style.display = 'none';
+            }
+        }
+
+        // Chama as funções para obter o total de vendas e a lista de vendas ao carregar a página
+        document.addEventListener('DOMContentLoaded', function () {
+            getTotalSales();
+            getSaleList();
+            checkForSearchSales();
+            hideListOnSalesPage();
+        });
+
+        // Função para filtrar a lista de vendas com base no input da busca
+        document.getElementById('searchBar').addEventListener('input', function () {
+            const searchQuery = this.value.toLowerCase();
+            const filteredSales = allSales.filter(sale =>
+                sale.name.toLowerCase().includes(searchQuery)
+            );
+            renderSaleList(filteredSales);
+        });
+
+    </script>
+
+    <!-- Adicionando estilos -->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sale-list-container {
+            margin-top: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sale-item {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sale-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .sale-item-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 </body>
 
 </html>

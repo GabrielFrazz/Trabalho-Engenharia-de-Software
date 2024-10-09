@@ -3,7 +3,9 @@
 {% block conteudo %}
 
 <div class="container-extend container-sales">
-    <div class="sales-registration">
+
+    <div class="stock-registration">
+
         <h2><i class="ri-stack-line"></i> Stock Registration</h2>
         <div class="form-container">
             <!-- <div class="upload-section"> -->
@@ -21,26 +23,25 @@
             <!-- </div> -->
             <!-- <div class="input-section"> -->
             <!-- Formulário -->
-            <form id="sales-form">
+
+            <form id="sales-form" form action="#" method="post">
+
                 <!-- <div class="form-group">
                     <label for="id"><i class="ri-profile-line"></i> Customer ID</label>
                     <input type="text" id="id" placeholder="Enter ID">
                 </div> -->
                 <div class="form-group">
-                    <label for="product-name"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
-                    <input type="text" id="product-name" placeholder="Enter Product Name">
+                    <label for="nome"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
+                    <input type="text" id="nome" name = "nome" placeholder="Enter Product Name">
                 </div>
                 <div class="form-group">
-                    <label for="amount"><i class="ri-stack-line"></i> Amount</label>
-                    <input type="number" id="amount" placeholder="Enter Amount">
+                    <label for="quantidade"><i class="ri-stack-line"></i> quantidade</label>
+                    <input type="number" id="quantidade" name = "quantidade" placeholder="Enter quantidade">
                 </div>
                 <div class="form-group">
-                    <label for="price"><i class="ri-money-dollar-circle-line"></i> Price</label>
-                    <input type="text" id="price" placeholder="Enter Price">
-                </div>
-                <div class="form-group">
-                    <label for="description"><i class="ri-file-text-line"></i> Description</label>
-                    <input type="text" id="date" placeholder="Enter Description">
+                    <label for="preco"><i class="ri-money-dollar-circle-line"></i> preco</label>
+                    <input type="text" id="preco" name = "preco" placeholder="Enter preco">
+
                 </div>
                 <!-- Botão de envio dentro do formulário -->
                 <div class="save-sales">
