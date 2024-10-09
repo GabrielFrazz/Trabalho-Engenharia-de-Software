@@ -27,20 +27,20 @@
                     <input type="text" id="id" placeholder="Enter ID">
                 </div> -->
                 <div class="form-group">
-                    <label for="product-name"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
-                    <input type="text" id="product-name" placeholder="Enter Product Name">
+                    <label for="name"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Product Name">
                 </div>
                 <div class="form-group">
                     <label for="amount"><i class="ri-stack-line"></i> Amount</label>
-                    <input type="number" id="amount" placeholder="Enter Amount">
+                    <input type="number" id="amount" name="amount" placeholder="Enter Amount">
                 </div>
                 <div class="form-group">
                     <label for="price"><i class="ri-money-dollar-circle-line"></i> Price</label>
-                    <input type="text" id="price" placeholder="Enter Price">
+                    <input type="text" id="price" name="price" placeholder="Enter Price">
                 </div>
                 <div class="form-group">
                     <label for="description"><i class="ri-file-text-line"></i> Description</label>
-                    <input type="text" id="date" placeholder="Enter Description">
+                    <input type="text" id="description" name="description" placeholder="Enter Description">
                 </div>
                 <!-- Botão de envio dentro do formulário -->
                 <div class="button-container-sales">
@@ -61,5 +61,101 @@
         </div>
     </div>
 </div>
+
+<!-- Script para manipular os botões -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // Captura o nome do produto da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const customerID = urlParams.get('id');  // Obtém o nome da venda dos parâmetros da URL
+
+        if (!customerID) {
+            alert("Nenhum produto encontrado.");
+            window.location.href = '/notFoundProducts';
+            return;
+        }
+
+        // Fazendo a requisição à API para buscar o produto
+        fetch(`/api/stock_register/search_id?id=${encodeURIComponent(customerID)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const product = data[0];  // Assume que a pesquisa retorne um único produto
+                    document.getElementById('id').value = product.id;
+                    document.getElementById('name').value = product.name;
+                    document.getElementById('amount').value = product.amount;
+                    document.getElementById('price').value = product.price;
+                    document.getElementById('description').value = product.description;
+                } else {
+                    alert("Produto não encontrada!");
+                    window.location.href = '/notFoundProducts';
+                }
+            })
+            .catch(error => console.error('Erro ao buscar produtos:', error));
+
+        //deleta produto ao clicar em "Delete"
+        document.querySelector('.delete button').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            const id = document.getElementById('id').value;
+
+            if (confirm('Tem certeza que deseja excluir este produto?')) {
+                fetch(`/api/stock_register/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Produto excluído com sucesso!');
+                        window.location.href = '/stock_template';  // Redireciona
+                    } else {
+                        alert('Erro ao excluir produtos.');
+                    }
+                })
+                .catch(error => console.error('Erro ao excluir produto:', error));
+            }
+        });
+
+        // Habilitar os campos de edição ao clicar no botão "Edit"
+        document.getElementById('editButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+            document.querySelectorAll('#customer-form input').forEach(input => input.disabled = false);
+        });
+
+        // Atualizar produto ao clicar em "Save"
+        document.getElementById('saveButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            // Pega os dados dos campos
+            const id = document.getElementById('id').value;
+            const produtoAtualizado = {
+                name: document.getElementById('name').value,
+                amount: document.getElementById('amount').value,
+                price: document.getElementById('price').value,
+                description: document.getElementById('description').value
+            };
+
+            // Envia os dados atualizados para a API
+            fetch(`/api/stock_register/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(produtoAtualizado)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert('Produto atualizado com sucesso!');
+                    window.location.href = '/stock_template';  // Redireciona
+                } else {
+                    alert('Erro ao atualizar produto.');
+                }
+            })
+            .catch(error => console.error('Erro ao atualizar produto:', error));
+        });
+    });
+</script>
 
 {% endblock %}

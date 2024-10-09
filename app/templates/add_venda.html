@@ -1,0 +1,20 @@
+<!-- templates/add_venda.html -->
+<form action="{{ url_for('add_venda') }}" method="POST">
+    <label for="cliente">cliente:</label>
+    <input type="text" name="produto" id="cliente" required>
+    
+    <label for="produto">produto:</label>
+    <input type="text" name="produto" id="produto" required>
+    
+    <label for="amount">amount:</label>
+    <input type="text" name="amount" id="amount" required>
+    
+    <label for="price">price:</label>
+    <input type="text" name="price" id="price" required>
+    
+    <label for="date">date:</label>
+    <input type="datetime" name="date" id="date" required>
+    
+    
+    <button type="submit">Adicionar Venda</button>
+</form>

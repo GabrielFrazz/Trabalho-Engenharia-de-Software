@@ -1,9 +1,10 @@
-from flask import render_template, redirect, url_for, request, flash, session
+from flask import render_template, redirect, url_for, request, flash, session, jsonify
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app, db
-from app.models import Cliente, Produto
+from app.models import Cliente, Produto, Sale
 from app.engine.security import Admin
+from graph import cria_grafico
 
 
 def login_required(f):
@@ -116,7 +117,13 @@ def notFoundRegister():
 @app.route('/searchSales', methods=['GET'])
 @login_required
 def searchSales():
-    return render_template('searchSales.html')
+    id = request.args.get('id')
+    sale = Sale.query.filter(Sale.id.ilike(f'%{id}%')).first()
+    if sale:
+        return render_template('searchSales.html', sale=sale)
+    else:
+        flash('Venda não encontrada!', category=['danger'])
+        return redirect(url_for('temp2'))
 
 
 @app.route('/notFoundSales', methods=['GET'])
@@ -189,8 +196,55 @@ def add_cliente():
         else:
             flash(message, category=['danger'])
             return redirect(url_for('register'))
+        
+@app.route('/sales', methods=['POST'])
+@login_required
+def add_venda():
+    if request.method == 'POST':
+        amount = request.form['amount']
+        price = request.form['price']
+        date = request.form['date']
+        cliente = request.form['cliente']
+        produto = request.form['produto']
 
+        success, message = Sale.add_venda(
+            cliente, produto, amount, price, date)
+        if success:
+            flash(message, category=['success'])
+            return redirect(url_for('temp2'))
+            
+        else:
+            flash(message, category=['danger'])
+            return redirect(url_for('sales'))
+
+@app.route('/stock_register', methods=['POST'])
+@login_required
+def add_produto():
+    if request.method == 'POST':
+        name = request.form['name']
+        amount = request.form['amount']
+        price = request.form['price']
+        description = request.form['description']
+
+        success, message = Produto.add_produto(
+            name, amount, price, description)
+        if success:
+            flash(message, category=['success'])
+            return redirect(url_for('stock_template'))
+            
+        else:
+            flash(message, category=['danger'])
+            return redirect(url_for('stock_register'))
 
 @app.route('/api/help')
 def api_help():
     return render_template('api_documentation.html')
+
+
+@app.route('/execute-script', methods=['POST'])
+def execute_script():
+    result = cria_grafico()  # Chama a função do Graph.py
+    return jsonify(result=result)
+
+if __name__ == '__main__':
+    app.run(debug=True)

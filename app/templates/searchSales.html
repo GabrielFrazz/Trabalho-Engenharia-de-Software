@@ -61,4 +61,102 @@
     </div>
 </div>
 
+<!-- Script para manipular os botões -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // Captura o nome da venda da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const customerID = urlParams.get('id');  // Obtém o nome da venda dos parâmetros da URL
+
+        if (!customerID) {
+            alert("Nenhuma venda encontrado.");
+            window.location.href = '/notFoundSales';
+            return;
+        }
+
+        // Fazendo a requisição à API para buscar a venda
+        fetch(`/api/sales/search_id?id=${encodeURIComponent(customerID)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const sale = data[0];  // Assume que a pesquisa retorne uma única venda
+                    document.getElementById('id').value = sale.id;
+                    document.getElementById('cliente').value = sale.cliente;
+                    document.getElementById('produto').value = sale.produto;
+                    document.getElementById('amount').value = sale.amount;
+                    document.getElementById('price').value = sale.price;
+                    document.getElementById('date').value = sale.date;
+                } else {
+                    alert("Venda não encontrada!");
+                    window.location.href = '/notFoundSales';
+                }
+            })
+            .catch(error => console.error('Erro ao buscar vendas:', error));
+
+        //deleta venda ao clicar em "Delete"
+        document.querySelector('.delete button').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            const id = document.getElementById('id').value;
+
+            if (confirm('Tem certeza que deseja excluir esta venda?')) {
+                fetch(`/api/sales/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Venda excluída com sucesso!');
+                        window.location.href = '/temp2';  // Redireciona
+                    } else {
+                        alert('Erro ao excluir vendas.');
+                    }
+                })
+                .catch(error => console.error('Erro ao excluir venda:', error));
+            }
+        });
+
+        // Habilitar os campos de edição ao clicar no botão "Edit"
+        document.getElementById('editButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+            document.querySelectorAll('#customer-form input').forEach(input => input.disabled = false);
+        });
+
+        // Atualizar venda ao clicar em "Save"
+        document.getElementById('saveButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            // Pega os dados dos campos
+            const id = document.getElementById('id').value;
+            const vendaAtualizada = {
+                cliente: document.getElementById('cliente').value,
+                produto: document.getElementById('produto').value,
+                amount: document.getElementById('amount').value,
+                price: document.getElementById('price').value,
+                date: document.getElementById('date').value
+            };
+
+            // Envia os dados atualizados para a API
+            fetch(`/api/sales/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(vendaAtualizada)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert('Venda atualizada com sucesso!');
+                    window.location.href = '/temp2';  // Redireciona
+                } else {
+                    alert('Erro ao atualizar venda.');
+                }
+            })
+            .catch(error => console.error('Erro ao atualizar venda:', error));
+        });
+    });
+</script>
+
 {% endblock %}

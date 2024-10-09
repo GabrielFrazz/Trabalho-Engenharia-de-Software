@@ -2,5 +2,31 @@
 
 {% block conteudo %}
 
+<div class="container-extend container-sales">
+    <div class="sales-registration">
+        <h2><i class="ri-store-2-line"></i> Sales Registration</h2>
+        <div class="form-container">
+            <form id="sales-form" action="/save-sales" method="post">
+                <!-- Botão de execução de script para adicionar novo cliente -->
+                <button type="button" class="color" id="newCustomer" onclick="executeScript()">
+                    <i class="ri-user-add-fill"></i> New Customer
+                </button>
+                <!-- Botão de envio do formulário -->
+                <button type="submit"><i class="ri-save-3-line"></i> Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function executeScript() {
+        fetch('/execute-script', { method: 'POST' })  // Faz uma requisição para o endpoint
+            .then(response => response.json())
+            .then(data => {
+                alert(data.result);  // Exibe o resultado da execução
+            })
+            .catch(error => console.error('Erro:', error));
+    }
+</script>
 
 {% endblock %}
