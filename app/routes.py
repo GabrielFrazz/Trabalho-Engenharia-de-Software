@@ -70,14 +70,17 @@ def payment():
 def graphics():
     return render_template('graphics.html')
 
+# @app.route('/feedback', methods=['GET'])
+# @login_required
+# def feedback():
+#     return render_template('feedback.html')
 
-@app.route('/feedback', methods=['GET'])
+@app.route('/feedback', methods=['POST'])
 @login_required
 def feedback():
     if request.method == 'POST':
         feedbacks = update_forms()
     return render_template('feedback.html')
-
 
 @app.route('/temp1', methods=['GET'])
 @login_required
