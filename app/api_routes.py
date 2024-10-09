@@ -2,6 +2,7 @@ import os
 from flask import Blueprint, jsonify, request, send_from_directory
 from app.models import Cliente
 from app.models import Sale
+from app.models import Produto
 from app import app, db
 
 api = Blueprint('api', __name__)
@@ -178,4 +179,84 @@ def delete_all_sales():
 def count_sales():
     count = Sale.query.count()
     return jsonify({"count": count})
+
+# STOCK # ##########################################################################################################
+
+@app.route('/api/stock_register', methods=['GET'])
+def get_products():
+    products = Produto.query.all()
+    products_list = [{"id": c.id, "name": c.name, "amount": c.amount, "price": c.price, "description": c.description} for c in products]
+    return jsonify(products_list)
+
+
+@app.route('/api/stock_register', methods=['POST'])
+def create_product():
+    data = request.get_json()
+    novo_produto = Produto(
+        name=data['name'],
+        amount=data['amount'],
+        price=data['price'],
+        description=data['description']
+    )
+    db.session.add(novo_produto)
+    db.session.commit()
+    return jsonify({"message": "Produto adicionado com sucesso!"}), 201
+
+
+@app.route('/api/stock_register/<int:id>', methods=['PUT'])
+def update_product(id):
+    produto = Produto.query.get_or_404(id)
+    data = request.get_json()
+    produto.name = data['name']
+    produto.amount = data['amount']
+    produto.price = data['price']
+    produto.description = data['description']
+    db.session.commit()
+    return jsonify({"message": "Produto atualizada com sucesso!"})
+
+
+@app.route('/api/stock_register/<int:id>', methods=['DELETE'])
+def delete_product(id):
+    produto = Produto.query.get_or_404(id)
+    db.session.delete(produto)
+    db.session.commit()
+
+    return jsonify({"message": "Produto deletada com sucesso!"})
+
+
+@app.route('/api/stock_register/search', methods=['GET'])
+def search_product():
+    name = request.args.get('name')
+    products = Produto.query.filter(Produto.name.ilike(f'%{name}%')).all()
+    products_list = [{"id": c.id, "name": c.name, "amount": c.amount, "price": c.price, "description": c.description} for c in products]
+    return jsonify(products_list)
+
+# search by id
+
+
+@app.route('/api/stock_register/search_id', methods=['GET'])
+def search_product_id():
+    id = request.args.get('id')
+    products = Produto.query.filter(Produto.id.ilike(f'%{id}%')).all()
+    products_list = [{"id": c.id, "name": c.name, "amount": c.amount, "price": c.price, "description": c.description} for c in products]
+    return jsonify(products_list)
+
+
+# delete all produtos, route /api/stock_register/delete_all
+@app.route('/api/stock_register/delete_all', methods=['DELETE'])
+def delete_all_products():
+    products = Produto.query.all()
+    for c in products:
+        db.session.delete(c)
+    db.session.commit()
+    return jsonify({"message": "Todas os produtos foram deletadas com sucesso!"})
+
+# returns the number of products, route /api/stock_register/count
+
+
+@app.route('/api/stock_register/count', methods=['GET'])
+def count_products():
+    count = Produto.query.count()
+    return jsonify({"count": count})
+
 

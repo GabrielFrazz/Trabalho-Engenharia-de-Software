@@ -214,8 +214,26 @@ def add_venda():
             
         else:
             flash(message, category=['danger'])
-            return redirect(url_for('register'))
+            return redirect(url_for('sales'))
 
+@app.route('/stock_register', methods=['POST'])
+@login_required
+def add_produto():
+    if request.method == 'POST':
+        name = request.form['name']
+        amount = request.form['amount']
+        price = request.form['price']
+        description = request.form['description']
+
+        success, message = Produto.add_produto(
+            name, amount, price, description)
+        if success:
+            flash(message, category=['success'])
+            return redirect(url_for('stock_template'))
+            
+        else:
+            flash(message, category=['danger'])
+            return redirect(url_for('stock_register'))
 
 @app.route('/api/help')
 def api_help():

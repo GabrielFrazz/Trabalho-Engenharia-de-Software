@@ -40,11 +40,30 @@ class Cliente(db.Model):
 class Produto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    preco = db.Column(db.Float, nullable=False)
-    quantidade = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    amount = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(300), nullable=False)
     
     def __repr__(self):
-        return f'Produto({self.name}, {self.descricao}, {self.preco}, {self.quantidade})'
+        return f'Produto({self.name}, {self.price}, {self.amount}, {self.description})'
+    
+    @staticmethod
+    def add_produto(name, price, amount, description):
+        novo_produto = Produto( 
+            name=name,
+            price=price, 
+            amount=amount,
+            description=description
+        )
+        try:
+            db.session.add(novo_produto)
+            db.session.commit()
+            return True, "Produto adicionado com sucesso!"
+        except Exception as e:
+            #print(e)
+            db.session.rollback()
+            return False, f"Ocorreu um erro: {e}"
+
 
 #classe de vendas, extends Cliente
 class Sale(db.Model):
@@ -53,7 +72,7 @@ class Sale(db.Model):
     produto = db.Column(db.Integer, nullable=False)
     amount = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
+    date = db.Column(db.String(20), nullable=False)
     
     def __repr__(self):
         return f'Venda({self.cliente}, {self.produto}, {self.amount}, {self.price}, {self.date})'
@@ -72,6 +91,7 @@ class Sale(db.Model):
             db.session.commit()
             return True, "Venda adicionado com sucesso!"
         except Exception as e:
+            #print(e)
             db.session.rollback()
             return False, f"Ocorreu um erro: {e}"
 
@@ -81,25 +101,71 @@ class Capital(db.Model):
     
     def __repr__(self):
         return f'Capital({self.data}, {self.valor})'
+        
+    @staticmethod
+    def get_capital():
+        return Capital.query.first()
+    
+    @staticmethod
+    def set_initial_capital():
+        if not Capital.query.first():
+            capital = Capital(id=1, atual=100000.00)
+            db.session.add(capital)
+            db.session.commit()
     
 class Worker(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    birth = db.Column(db.DateTime, nullable=False)
+    birth = db.Column(db.String(20), nullable=False)
     position = db.Column(db.String(100), nullable=False)
     paymentValue = db.Column(db.Float, nullable=False)
-    paymentDate = db.Column(db.DateTime, nullable=False)
+    paymentDate = db.Column(db.String(20), nullable=False)
 
     def __repr__(self):
         return f'Worker({self.name}, {self.birth}, {self.position}, {self.paymentValue}, {self.paymentDate})'
+    
+    @staticmethod
+    def add_worker(name, birth, position, paymentValue, paymentDate):
+        novo_trabalhador = Worker( 
+            name = name,
+            birth = birth, 
+            position = position,
+            paymentValue = paymentValue,
+            paymentDate = paymentDate,
+        )
+        try:
+            db.session.add(novo_trabalhador)
+            db.session.commit()
+            return True, "Trabalhador adicionado com sucesso!"
+        except Exception as e:
+            #print(e)
+            db.session.rollback()
+            return False, f"Ocorreu um erro: {e}"
 
 class Payment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     value = db.Column(db.Float, nullable=False)
-    whenDone = db.Column(db.DateTime, nullable=False)
+    workerid = db.Column(db.Integer, nullable=False)
+    whenDone = db.Column(db.String(20), nullable=False)
 
     def __repr__(self):
-        return f'Payment({self.worker})'
+        return f'Payment({self.value}, {self.workerid}, {self.whenDone})'
+    
+    @staticmethod
+    def add_payment(value, workerid, whenDone):
+        novo_pagamento = Worker( 
+            value = value,
+            workerid = workerid, 
+            whenDone = whenDone
+        )
+        try:
+            db.session.add(novo_pagamento)
+            db.session.commit()
+            return True, "Trabalhador adicionado com sucesso!"
+        except Exception as e:
+            #print(e)
+            db.session.rollback()
+            return False, f"Ocorreu um erro: {e}"
     
 class Feedback(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -5,15 +5,29 @@
 <div class="container-extend container-sales">
     <div class="sales-registration">
         <h2><i class="ri-store-2-line"></i> Sales Registration</h2>
-        <form action="#" method="post">
         <div class="form-container">
-            <form id="sales-form">
+            <!-- <div class="upload-section"> -->
+            <!-- <div class="upload-box"> -->
+            <!-- Imagem que será exibida após o upload -->
+            <!-- <img id="preview-image" src="" alt="Preview Image" style="display: none;"> -->
+            <!-- <label for="file-upload" class="file-label"> -->
+            <!-- <i class="ri-upload-2-fill" id="upload-icon"></i> -->
+            <!-- <span id="upload-text">Upload Image</span> -->
+            <!-- </label> -->
+            <!-- <input type="file" id="file-upload" accept="image/*" /> -->
+            <!-- Botão para remover a imagem -->
+            <!-- <button id="remove-image" class="remove-btn" style="display: none;">Remover Imagem</button> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- <div class="input-section"> -->
+            <!-- Formulário -->
+            <form id="sales-form" form action="#" method="post">
                 <div class="form-group">
                     <label for="cliente"><i class="ri-profile-line"></i> Customer ID</label>
                     <input type="number" id="cliente" name="cliente" placeholder="Enter ID">
                 </div>
                 <div class="form-group">
-                    <label for="produto"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
+                    <label for="produto"><i class="ri-shopping-bag-2-line"></i> Product ID</label>
                     <input type="number" id="produto" name="produto" placeholder="Enter Product ID">
                 </div>
                 <div class="form-group">
@@ -26,15 +40,13 @@
                 </div>
                 <div class="form-group">
                     <label for="date"><i class="ri-calendar-line"></i> Date</label>
-                    <input type="date" name= "date" id="date">
+                    <input type="text" name= "date" id="date">
                 </div>
                 <!-- Botão de envio dentro do formulário -->
                 <button type="submit"><i class="ri-save-3-line"></i>Save</button>
             </form>
-        </form>
             <!-- </div> -->
         </div>
-    </form>
     </div>
 </div>
 
