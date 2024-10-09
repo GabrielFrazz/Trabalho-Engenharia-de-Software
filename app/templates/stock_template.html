@@ -139,8 +139,12 @@
             </div>
         </div>
 
+        <div id="productListContainer" class="product-list-container">
+            <!-- Lista será preenchida dinamicamente -->
+            <ul id="productList"></ul>
+        </div>
+        
         {% block conteudo %}
-
         {% endblock %}
 
     </div>
@@ -200,7 +204,6 @@
                         <p><strong>${product.name}</strong></p>
                         <p>Amount: ${product.amount}</p>
                         <p>Price: ${product.price}</p>
-                        <p>Description: ${product.description}</p>
                     </div>
                 `;
 
