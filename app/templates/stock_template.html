@@ -133,20 +133,165 @@
                     </button>
                 </div>
                 <div class="total">
-                    <i class="ri-wallet-line"></i> Total: 380 Product(s)
+                    <i class="ri-wallet-line"></i> Total: <span id="totalProducts"></span> Product(s)
                 </div>
 
             </div>
         </div>
 
-        {% block conteudo %}
+        <div id="productListContainer" class="product-list-container">
+            <!-- Lista será preenchida dinamicamente -->
+            <ul id="productList"></ul>
+        </div>
 
+        {% block conteudo %}
         {% endblock %}
 
     </div>
 
     <!-- Script JavaScript principal -->
     <script src="static/js/script.js"></script>
+    <!-- Script para buscar os produtos e exibir o número total de produtos -->
+    <script>
+        let allProducts = [];
+
+        // Função para buscar o número total de produtos
+        function getTotalProducts() {
+            fetch('/api/stock_register/count')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao obter o número de produtos");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('totalProducts').textContent = data.count;
+                })
+                .catch(error => {
+                    console.error('Erro ao obter o número de produtos:', error);
+                });
+        }
+
+        // Função para buscar a lista de produtos
+        function getProductList() {
+            fetch('/api/stock_register')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao obter a lista de produtos");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    allProducts = data;  // Salva todos os produtos para usar no filtro
+                    renderProductList(data);  // Exibe a lista completa inicialmente
+                })
+                .catch(error => {
+                    console.error('Erro ao obter a lista de produtos:', error);
+                });
+        }
+
+        // Função para renderizar a lista de produtos com base nos dados fornecidos
+        function renderProductList(products) {
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';  // Limpa o conteúdo anterior
+
+            products.forEach(product => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('product-item');
+
+                listItem.innerHTML = `
+                    <div class="product-item-content">
+                        <p><strong>${product.name}</strong></p>
+                        <p>Amount: ${product.amount}</p>
+                        <p>Price: ${product.price}</p>
+                    </div>
+                `;
+
+                // Torna o item clicável para abrir detalhes do produto
+                listItem.addEventListener('click', () => {
+                    window.location.href = `/stock_search?id=${encodeURIComponent(product.id)}`;
+                });
+
+                productList.appendChild(listItem);
+            });
+        }
+
+        // Função para verificar se a página está na tela de pesquisa de produtos
+        function checkForSearchProducts() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const customerID = urlParams.get('id');
+
+            if (customerID) {
+                // Oculta a lista do produto e outros elementos quando em `searchSales`
+                document.getElementById('productListContainer').style.display = 'none';
+            } else {
+                // Exibe os elementos normais
+                document.getElementById('productListContainer').style.display = 'block';
+            }
+
+        }
+
+        // Função para ocultar a lista de produtos na página de registro
+        function hideListOnProductsPage() {
+            const currentUrl = window.location.pathname;
+            if (currentUrl === '/stock_register') {
+                // Oculta a lista de produtos e outros elementos quando estiver na página de registro
+                document.getElementById('productListContainer').style.display = 'none';
+            }
+        }
+
+        // Chama as funções para obter o total de produtos e a lista de produtos ao carregar a página
+        document.addEventListener('DOMContentLoaded', function () {
+            getTotalProducts();
+            getProductList();
+            checkForSearchProducts();
+            hideListOnProductsPage();
+        });
+
+        // Função para filtrar a lista de produtos com base no input da busca
+        document.getElementById('searchBar').addEventListener('input', function () {
+            const searchQuery = this.value.toLowerCase();
+            const filteredProducts = allProducts.filter(product =>
+                product.name.toLowerCase().includes(searchQuery)
+            );
+            renderProductList(filteredProducts);
+        });
+
+    </script>
+
+    <!-- Adicionando estilos -->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-list-container {
+            margin-top: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .product-item-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 </body>
 
 </html>

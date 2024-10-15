@@ -46,6 +46,10 @@
     margin-right: 8px;
 }
 
+.menu-box i {
+    margin-right: 8px;
+}
+
 
 .menu-item span {
     font-size: 16px;
@@ -53,6 +57,7 @@
 }
 
 .menu-item:hover {
+    background-color: #FFD369;
     background-color: #FFD369;
     color: #fff;
 }

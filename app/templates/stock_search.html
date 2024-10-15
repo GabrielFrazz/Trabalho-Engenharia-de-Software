@@ -6,53 +6,35 @@
     <div class="sales-registration">
         <h2><i class="ri-stack-line"></i> Stock Registration</h2>
         <div class="form-container">
-            <!-- <div class="upload-section"> -->
-            <!-- <div class="upload-box"> -->
-            <!-- Imagem que será exibida após o upload -->
-            <!-- <img id="preview-image" src="" alt="Preview Image" style="display: none;"> -->
-            <!-- <label for="file-upload" class="file-label"> -->
-            <!-- <i class="ri-upload-2-fill" id="upload-icon"></i> -->
-            <!-- <span id="upload-text">Upload Image</span> -->
-            <!-- </label> -->
-            <!-- <input type="file" id="file-upload" accept="image/*" /> -->
-            <!-- Botão para remover a imagem -->
-            <!-- <button id="remove-image" class="remove-btn" style="display: none;">Remover Imagem</button> -->
-            <!-- </div> -->
-            <!-- </div> -->
-            <!-- <div class="input-section"> -->
-            <!-- Formulário -->
             <form id="sales-form">
-                <!-- <div class="form-group">
-                    <label for="id"><i class="ri-profile-line"></i> Customer ID</label>
-                    <input type="text" id="id" placeholder="Enter ID">
-                </div> -->
+                <input type="hidden" id="id" name="id"> <!-- Campo oculto para ID -->
                 <div class="form-group">
-                    <label for="product-name"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
-                    <input type="text" id="product-name" placeholder="Enter Product Name">
+                    <label for="name"><i class="ri-shopping-bag-2-line"></i> Product Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Product Name" disabled required>
                 </div>
                 <div class="form-group">
                     <label for="amount"><i class="ri-stack-line"></i> Amount</label>
-                    <input type="number" id="amount" placeholder="Enter Amount">
+                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" disabled required>
                 </div>
                 <div class="form-group">
                     <label for="price"><i class="ri-money-dollar-circle-line"></i> Price</label>
-                    <input type="text" id="price" placeholder="Enter Price">
+                    <input type="text" id="price" name="price" placeholder="Enter Price" disabled required>
                 </div>
                 <div class="form-group">
                     <label for="description"><i class="ri-file-text-line"></i> Description</label>
-                    <input type="text" id="date" placeholder="Enter Description">
+                    <input type="text" id="description" name="description" placeholder="Enter Description" disabled required>
                 </div>
                 <!-- Botão de envio dentro do formulário -->
                 <div class="button-container-sales">
-                    <div class="save-sales">
-                        <button type="submit"><i class="ri-save-3-line"></i>Save</button>
+                    <div class="save">
+                        <button type="submit" id="saveButton"><i class="ri-save-3-line"></i>Save</button>
                     </div>
 
-                    <div class="edit-sales">
-                        <button type="submit"><i class="ri-pencil-fill"></i>Edit</button>
+                    <div class="edit">
+                        <button type="submit" id="editButton"><i class="ri-pencil-fill"></i>Edit</button>
                     </div>
 
-                    <div class="delete-sales">
+                    <div class="delete">
                         <button type="submit"><i class="ri-close-large-fill"></i>Delete</button>
                     </div>
                 </div>
@@ -61,5 +43,101 @@
         </div>
     </div>
 </div>
+
+<!-- Script para manipular os botões -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // Captura o nome do produto da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const customerID = urlParams.get('id');  // Obtém o nome da venda dos parâmetros da URL
+
+        if (!customerID) {
+            alert("Nenhum produto encontrado.");
+            window.location.href = '/notFoundProducts';
+            return;
+        }
+
+        // Fazendo a requisição à API para buscar o produto
+        fetch(`/api/stock_register/search_id?id=${encodeURIComponent(customerID)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const product = data[0];  // Assume que a pesquisa retorne um único produto
+                    document.getElementById('id').value = product.id;
+                    document.getElementById('name').value = product.name;
+                    document.getElementById('amount').value = product.amount;
+                    document.getElementById('price').value = product.price;
+                    document.getElementById('description').value = product.description;
+                } else {
+                    alert("Produto não encontrado!");
+                    window.location.href = '/notFoundProducts';
+                }
+            })
+            .catch(error => console.error('Erro ao buscar produtos:', error));
+
+        //deleta produto ao clicar em "Delete"
+        document.querySelector('.delete button').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            const id = document.getElementById('id').value;
+
+            if (confirm('Tem certeza que deseja excluir este produto?')) {
+                fetch(`/api/stock_register/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert('Produto excluído com sucesso!');
+                        window.location.href = '/stock_template';  // Redireciona
+                    } else {
+                        alert('Erro ao excluir produtos.');
+                    }
+                })
+                .catch(error => console.error('Erro ao excluir produto:', error));
+            }
+        });
+
+        // Habilitar os campos de edição ao clicar no botão "Edit"
+        document.getElementById('editButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+            document.querySelectorAll('#sales-form input').forEach(input => input.disabled = false);
+        });
+
+        // Atualizar produto ao clicar em "Save"
+        document.getElementById('saveButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Impede a submissão
+
+            // Pega os dados dos campos
+            const id = document.getElementById('id').value;
+            const produtoAtualizado = {
+                name: document.getElementById('name').value,
+                amount: document.getElementById('amount').value,
+                price: document.getElementById('price').value,
+                description: document.getElementById('description').value
+            };
+
+            // Envia os dados atualizados para a API
+            fetch(`/api/stock_register/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(produtoAtualizado)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert('Produto atualizado com sucesso!');
+                    window.location.href = '/stock_template';  // Redireciona
+                } else {
+                    alert('Erro ao atualizar produto.');
+                }
+            })
+            .catch(error => console.error('Erro ao atualizar produto:', error));
+        });
+    });
+</script>
 
 {% endblock %}

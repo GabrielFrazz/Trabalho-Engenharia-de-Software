@@ -1,10 +1,15 @@
 import os
 from flask import Blueprint, jsonify, request, send_from_directory
-from app.models import Cliente, Produto
+from app.models import Cliente
 from app.models import Sale
+from app.models import Produto
+from app.models import Cliente
+from app.models import Sale
+from app.models import Produto
 from app import app, db
 
 api = Blueprint('api', __name__)
+
 
 
 @app.route('/api/clientes', methods=['GET'])
@@ -12,7 +17,10 @@ def get_clientes():
     clientes = Cliente.query.all()
     clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro,
                       "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
+    clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro,
+                      "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
     return jsonify(clientes_list)
+
 
 
 @app.route('/api/clientes', methods=['POST'])
@@ -34,6 +42,7 @@ def create_cliente():
     return jsonify({"message": "Cliente adicionado com sucesso!"}), 201
 
 
+
 @app.route('/api/clientes/<int:id>', methods=['PUT'])
 def update_cliente(id):
     cliente = Cliente.query.get_or_404(id)
@@ -49,6 +58,7 @@ def update_cliente(id):
     cliente.estado = data['estado']
     db.session.commit()
     return jsonify({"message": "Cliente atualizado com sucesso!"})
+
 
 
 @app.route('/api/clientes/<int:id>', methods=['DELETE'])
@@ -67,6 +77,9 @@ def search_cliente():
     clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro,
                       "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
     return jsonify(clientes_list)
+
+# search by id
+
 
 # search by id
 
@@ -90,6 +103,7 @@ def delete_all_clientes():
     return jsonify({"message": "Todos os clientes foram deletados com sucesso!"})
 
 # returns the number of clientes, route /api/clientes/count
+
 
 
 @app.route('/api/clientes/count', methods=['GET'])
@@ -173,26 +187,86 @@ def delete_all_sales():
 
 # returns the number of vendas, route /api/sales/count
 
-
 @app.route('/api/sales/count', methods=['GET'])
 def count_sales():
     count = Sale.query.count()
     return jsonify({"count": count})
 
-
 # STOCK # ##########################################################################################################
 
-@app.route('/api/produtos', methods=['POST'])
-def create_produto():
+@app.route('/api/stock_register', methods=['GET'])
+def get_products():
+    products = Produto.query.all()
+    products_list = [{"id": c.id, "name": c.name, "amount": c.amount, "price": c.price, "description": c.description} for c in products]
+    return jsonify(products_list)
+
+
+@app.route('/api/stock_register', methods=['POST'])
+def create_product():
     data = request.get_json()
     novo_produto = Produto(
         name=data['name'],
-        preco=data['preco'],
-        quantidade=data['quantidade']
+        amount=data['amount'],
+        price=data['price'],
+        description=data['description']
     )
     db.session.add(novo_produto)
     db.session.commit()
     return jsonify({"message": "Produto adicionado com sucesso!"}), 201
 
 
+@app.route('/api/stock_register/<int:id>', methods=['PUT'])
+def update_product(id):
+    produto = Produto.query.get_or_404(id)
+    data = request.get_json()
+    produto.name = data['name']
+    produto.amount = data['amount']
+    produto.price = data['price']
+    produto.description = data['description']
+    db.session.commit()
+    return jsonify({"message": "Produto atualizada com sucesso!"})
 
+
+@app.route('/api/stock_register/<int:id>', methods=['DELETE'])
+def delete_product(id):
+    produto = Produto.query.get_or_404(id)
+    db.session.delete(produto)
+    db.session.commit()
+
+    return jsonify({"message": "Produto deletada com sucesso!"})
+
+
+@app.route('/api/stock_register/search', methods=['GET'])
+def search_product():
+    name = request.args.get('name')
+    products = Produto.query.filter(Produto.name.ilike(f'%{name}%')).all()
+    products_list = [{"id": c.id, "name": c.name, "amount": c.amount, "price": c.price, "description": c.description} for c in products]
+    return jsonify(products_list)
+
+# search by id
+
+
+@app.route('/api/stock_register/search_id', methods=['GET'])
+def search_product_id():
+    id = request.args.get('id')
+    products = Produto.query.filter(Produto.id.ilike(f'%{id}%')).all()
+    products_list = [{"id": c.id, "name": c.name, "amount": c.amount, "price": c.price, "description": c.description} for c in products]
+    return jsonify(products_list)
+
+
+# delete all produtos, route /api/stock_register/delete_all
+@app.route('/api/stock_register/delete_all', methods=['DELETE'])
+def delete_all_products():
+    products = Produto.query.all()
+    for c in products:
+        db.session.delete(c)
+    db.session.commit()
+    return jsonify({"message": "Todas os produtos foram deletadas com sucesso!"})
+
+# returns the number of products, route /api/stock_register/count
+
+
+@app.route('/api/stock_register/count', methods=['GET'])
+def count_products():
+    count = Produto.query.count()
+    return jsonify({"count": count})

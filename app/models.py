@@ -39,19 +39,21 @@ class Cliente(db.Model):
         
 class Produto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
-    preco = db.Column(db.Float, nullable=False)
-    quantidade = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    amount = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(300), nullable=False)
     
     def __repr__(self):
-        return f'Produto({self.nome}, {self.preco}, {self.quantidade})'
+        return f'Produto({self.name}, {self.price}, {self.amount}, {self.description})'
     
     @staticmethod
-    def add_produto(nome, preco, quantidade):
+    def add_produto(name, price, amount, description):
         novo_produto = Produto( 
-            nome=nome,
-            preco=preco, 
-            quantidade=quantidade
+            name=name,
+            price=price, 
+            amount=amount,
+            description=description
         )
         try:
             db.session.add(novo_produto)
@@ -195,4 +197,13 @@ class MasterUser(db.Model):
             db.session.add(admin)
             db.session.commit()
 
+    
+class Meses (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    mes = db.Column(db.String(10), nullable=False)
+    valor = db.Column(db.Float, nullable=False)
+    
+    def __repr__(self):
+        return f'Meses({self.mes}, {self.valor})'
+    
     
