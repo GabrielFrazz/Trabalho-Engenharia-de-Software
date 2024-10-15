@@ -1,9 +1,10 @@
-from flask import render_template, redirect, url_for, request, flash, session
+from flask import render_template, redirect, url_for, request, flash, session, jsonify
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app, db
 from app.models import Cliente, Produto, Sale
 from app.engine.security import Admin
+from app.engine.graph import cria_grafico
 
 
 def login_required(f):
@@ -63,12 +64,6 @@ def sales():
 @login_required
 def payment():
     return render_template('payment.html')
-
-
-@app.route('/graphics', methods=['GET'])
-@login_required
-def graphics():
-    return render_template('graphics.html')
 
 
 @app.route('/feedback', methods=['GET'])
@@ -156,24 +151,6 @@ def stock_template():
 def stock_register():
     return render_template('stock_register.html')
 
-@app.route('/stock_register', methods=['POST'])
-@login_required
-def add_produto():
-    if request.method == 'POST':
-        name = request.form['name']
-        amount = request.form['amount']
-        price = request.form['price']
-        description = request.form['description']
-
-        success, message = Produto.add_produto(
-            name, amount, price, description)
-        if success:
-            flash(message, category=['success'])
-            return redirect(url_for('stock_template'))
-            
-        else:
-            flash(message, category=['danger'])
-            return redirect(url_for('stock_register'))
             
 @app.route('/stock_search', methods=['GET'])
 @login_required
@@ -228,6 +205,9 @@ def add_cliente():
             flash(message, category=['danger'])
             return redirect(url_for('register'))
         
+
+
+        
 @app.route('/sales', methods=['POST'])
 @login_required
 def add_venda():
@@ -238,20 +218,49 @@ def add_venda():
         cliente = request.form['cliente']
         produto = request.form['produto']
 
-        #debug flash
-        flash(f'Cliente: {cliente}, Produto: {produto}, Quantidade: {amount}, Preço: {price}, Data: {date}', category=['info'])
-        # Assuming Sale.add_venda is a class method that handles adding a sale
-        success, message = Sale.add_venda(cliente, produto, amount, price, date)
+        success, message = Sale.add_venda(
+            cliente, produto, amount, price, date)
         if success:
             flash(message, category=['success'])
             return redirect(url_for('temp2'))
+            
         else:
             flash(message, category=['danger'])
             return redirect(url_for('sales'))
 
+@app.route('/stock_register', methods=['POST'])
+@login_required
+def add_produto():
+    if request.method == 'POST':
+        name = request.form['name']
+        amount = request.form['amount']
+        price = request.form['price']
+        description = request.form['description']
 
+        success, message = Produto.add_produto(
+            name, amount, price, description)
+        if success:
+            flash(message, category=['success'])
+            return redirect(url_for('stock_template'))
+            
+        else:
+            flash(message, category=['danger'])
+            return redirect(url_for('stock_register'))
 
 @app.route('/api/help')
 def api_help():
     return render_template('api_documentation.html')
-    
+
+@app.route('/graphics', methods=['GET', 'POST'])
+@login_required
+def graphics():
+    return render_template('graphics.html')
+
+
+@app.route('/execute-script', methods=['POST'])
+def execute_script():
+    result = cria_grafico()  # Chama a função do Graph.py
+    return jsonify(result=result)
+
+if __name__ == '__main__':
+    app.run(debug=True)

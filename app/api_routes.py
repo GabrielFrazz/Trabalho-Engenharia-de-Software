@@ -1,6 +1,9 @@
 import os
 from flask import Blueprint, jsonify, request, send_from_directory
-from app.models import Cliente, Produto
+from app.models import Cliente
+from app.models import Sale
+from app.models import Produto
+from app.models import Cliente
 from app.models import Sale
 from app.models import Produto
 from app import app, db
@@ -8,12 +11,16 @@ from app import app, db
 api = Blueprint('api', __name__)
 
 
+
 @app.route('/api/clientes', methods=['GET'])
 def get_clientes():
     clientes = Cliente.query.all()
     clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro,
                       "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
+    clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro,
+                      "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
     return jsonify(clientes_list)
+
 
 
 @app.route('/api/clientes', methods=['POST'])
@@ -35,6 +42,7 @@ def create_cliente():
     return jsonify({"message": "Cliente adicionado com sucesso!"}), 201
 
 
+
 @app.route('/api/clientes/<int:id>', methods=['PUT'])
 def update_cliente(id):
     cliente = Cliente.query.get_or_404(id)
@@ -50,6 +58,7 @@ def update_cliente(id):
     cliente.estado = data['estado']
     db.session.commit()
     return jsonify({"message": "Cliente atualizado com sucesso!"})
+
 
 
 @app.route('/api/clientes/<int:id>', methods=['DELETE'])
@@ -68,6 +77,9 @@ def search_cliente():
     clientes_list = [{"id": c.id, "name": c.name, "email": c.email, "cel": c.cel, "cep": c.cep, "logradouro": c.logradouro,
                       "numero": c.numero, "bairro": c.bairro, "cidade": c.cidade, "estado": c.estado} for c in clientes]
     return jsonify(clientes_list)
+
+# search by id
+
 
 # search by id
 
@@ -91,6 +103,7 @@ def delete_all_clientes():
     return jsonify({"message": "Todos os clientes foram deletados com sucesso!"})
 
 # returns the number of clientes, route /api/clientes/count
+
 
 
 @app.route('/api/clientes/count', methods=['GET'])
@@ -173,7 +186,6 @@ def delete_all_sales():
     return jsonify({"message": "Todas as vendas foram deletadas com sucesso!"})
 
 # returns the number of vendas, route /api/sales/count
-
 
 @app.route('/api/sales/count', methods=['GET'])
 def count_sales():
@@ -258,5 +270,3 @@ def delete_all_products():
 def count_products():
     count = Produto.query.count()
     return jsonify({"count": count})
-
-

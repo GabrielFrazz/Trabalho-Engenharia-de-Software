@@ -33,11 +33,14 @@ def generate_random_client():
 
 # Function to add a client using the API
 def add_client(client_data):
-    response = requests.post(BASE_URL, json=client_data)
-    if response.status_code == 201:
-        print(f"Cliente '{client_data['name']}' adicionado com sucesso!")
-    else:
-        print(f"Erro ao adicionar cliente: {response.json()}")
+    try:
+        response = requests.post(BASE_URL, json=client_data)
+        if response.status_code == 201:
+            print(f"Cliente '{client_data['name']}' adicionado com sucesso!")
+        else:
+            print(f"Erro ao adicionar cliente: {response.json()}")
+    except requests.ConnectionError as e:
+        print(f"Erro de conexão: {e}")
 
 # Main function to populate the database with a specified number of clients
 def populate_clients(num_clients):

@@ -2,5 +2,29 @@
 
 {% block conteudo %}
 
+<div class="container-extend container-graphics">
+    <div class="graphics-registration">
+        <h2><i class="ri-store-2-line"></i> Graphics </h2>
+        <div class="form-container">
+            <form id="graphics-form" form action="#" method="post">
+                
+                <!-- Botão de envio dentro do formulário -->
+                <button type="submit" class="save-btn" onclick="executeScript()"><i class="ri-save-3-line"></i> Generate G</button>
+            </form>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+<script>
+    function executeScript() {
+        fetch('/execute-script', { method: 'POST' })  // Faz uma requisição para o endpoint
+            .then(response => response.json())
+            .then(data => {
+                alert(data.result);  // Exibe o resultado da execução
+            })
+            .catch(error => console.error('Erro:', error));
+    }
+</script>
 
 {% endblock %}
