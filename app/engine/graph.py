@@ -6,6 +6,7 @@ from sqlalchemy import extract  # Import necessário para filtrar por mês
 # Criar um bloco de contexto da aplicação
 def cria_grafico():
     with app.app_context():
+        # Teste
         # Filtrando as vendas de cada mês
         jan = db.session.query(Sale).filter(extract('month', Sale.date) == 1).count()
         fev = db.session.query(Sale).filter(extract('month', Sale.date) == 2).count()
